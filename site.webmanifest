@@ -1,0 +1,16 @@
+{
+  "name": "ZERORE",
+  "short_name": "ZERORE",
+  "description": "ZERORE（零度重构）是一支 AI Native 团队，专注中小企业 Agent 化转型与垂类 AI 原生产品孵化。",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#efefed",
+  "theme_color": "#0f0f11",
+  "icons": [
+    {
+      "src": "assets/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
