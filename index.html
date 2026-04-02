@@ -3,22 +3,30 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <title>ZERORE | 零度重构</title>
-    <meta name="description" content="ZERORE（零度重构）是一支 AI Native 团队，专注中小企业的 Agent 化转型，以及垂类 AI 原生产品的孵化。">
-    <meta name="theme-color" content="#0f0f11">
+    <title>Mirror | ZERORE 零度重构</title>
+    <meta
+      name="description"
+      content="Mirror 是 ZERORE 孵化中的制造业 AI 硬件项目。它将工厂现场实时、准确、完整地映射到数字系统，让 AI 看见现场、理解现场，并在现场行动。"
+    >
+    <meta name="theme-color" content="#111827">
     <meta name="format-detection" content="telephone=no, email=no, address=no">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="ZERORE">
-    <meta property="og:title" content="ZERORE | 零度重构">
-    <meta property="og:description" content="把 Agent 变成真正可用的业务能力。">
+    <meta property="og:title" content="Mirror | ZERORE 零度重构">
+    <meta property="og:description" content="面向智能制造一线的工业 Agents 终端。让 AI 真正看见工厂现场。">
     <meta property="og:url" content="https://zerore.ai/">
     <meta property="og:image" content="https://zerore.ai/assets/og-cover.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="ZERORE | 零度重构">
-    <meta name="twitter:description" content="AI Native 团队，专注中小企业 Agent 化转型与垂类 AI 原生产品孵化。">
+    <meta name="twitter:title" content="Mirror | ZERORE 零度重构">
+    <meta name="twitter:description" content="将工厂现场实时映射到数字系统，让 AI 看见、理解并参与现场工作流。">
     <meta name="twitter:image" content="https://zerore.ai/assets/og-cover.png">
     <link rel="canonical" href="https://zerore.ai/">
-    <link rel="preload" href="assets/logo-full-white.webp" as="image" type="image/webp" fetchpriority="high">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;800;900&amp;family=Space+Grotesk:wght@500;700&amp;display=swap"
+    >
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -27,116 +35,332 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "ZERORE",
-        "alternateName": "零度重构",
-        "url": "https://zerore.ai/",
-        "description": "AI Native 团队，专注中小企业 Agent 化转型，以及垂类 AI 原生产品的孵化。",
-        "email": "hello@zerore.ai"
+        "@graph": [
+          {
+            "@type": "Organization",
+            "name": "ZERORE",
+            "alternateName": "零度重构",
+            "url": "https://zerore.ai/",
+            "email": "hello@zerore.ai"
+          },
+          {
+            "@type": "Product",
+            "name": "Mirror",
+            "brand": {
+              "@type": "Brand",
+              "name": "ZERORE"
+            },
+            "description": "面向智能制造一线的工业 Agents 终端，将工厂现场实时映射到数字系统，让 AI 看见现场、理解现场，并在现场行动。"
+          }
+        ]
       }
     </script>
   </head>
   <body>
+    <a class="skip-link" href="#main-content">跳到正文</a>
+
     <div class="ambient ambient--left" aria-hidden="true"></div>
     <div class="ambient ambient--right" aria-hidden="true"></div>
+    <div class="grid-overlay" aria-hidden="true"></div>
 
-    <main class="stage">
-      <article class="card" aria-labelledby="hero-title">
-        <section class="identity-panel" aria-label="品牌名片">
-          <div class="identity-top">
-            <span class="pill pill--light">AI Native Studio</span>
-            <span class="microcopy">零度重构 / zerore.ai</span>
-          </div>
+    <div class="page-frame">
+      <header class="site-header">
+        <a class="brandline" href="/" aria-label="ZERORE 首页">
+          <img src="assets/logo-icon-black.webp" alt="" width="391" height="344" decoding="async">
+          <span class="brandline__copy">
+            <strong>ZERORE</strong>
+            <small>零度重构 · Mirror 项目展示页</small>
+          </span>
+        </a>
 
-          <div class="identity-logo-wrap">
-            <img
-              class="identity-logo"
-              src="assets/logo-full-white.webp"
-              alt="ZERORE 零度重构"
-              width="1421"
-              height="344"
-              decoding="async"
-              fetchpriority="high"
-            >
-          </div>
+        <nav class="site-nav" aria-label="页面导航">
+          <a class="nav-link" href="#problem">问题</a>
+          <a class="nav-link" href="#solution">方案</a>
+          <a class="nav-link" href="#scenarios">场景</a>
+          <a class="nav-link" href="#value">价值</a>
+          <a class="nav-link" href="#business">商业化</a>
+        </nav>
 
-          <p class="identity-statement">
-            聚焦 <strong>Agent 化转型</strong> 与 <strong>垂类 AI 原生产品孵化</strong>，
-            让 AI 从概念走向真实业务结果。
-          </p>
+        <a class="button button--primary" href="mailto:hello@zerore.ai?subject=Mirror%20%E5%88%B6%E9%80%A0%E4%B8%9A%E5%90%88%E4%BD%9C%E5%92%A8%E8%AF%A2">合作咨询</a>
+      </header>
 
-          <ul class="tag-row" aria-label="核心关键词">
-            <li>Agent</li>
-            <li>Workflow</li>
-            <li>MVP</li>
-            <li>AI Native</li>
-          </ul>
-        </section>
-
-        <section class="content-panel">
-          <header class="content-topbar">
-            <a class="brandline" href="/" aria-label="ZERORE 首页">
-              <img src="assets/logo-icon-black.webp" alt="" width="391" height="344" decoding="async">
-              <span>
-                <strong>ZERORE</strong>
-                <small>零度重构 · zerore.ai</small>
-              </span>
-            </a>
-
-            <a class="cta cta--ghost" href="mailto:hello@zerore.ai?subject=ZERORE%20%E5%90%88%E4%BD%9C%E5%92%A8%E8%AF%A2">合作咨询</a>
-          </header>
-
-          <section class="intro">
-            <p class="eyebrow">面向中小企业与垂类场景</p>
-            <h1 id="hero-title">把 Agent 变成真正可用的业务能力</h1>
-            <p class="lead">
-              ZERORE（零度重构）是一支 AI Native 团队，专注中小企业的 Agent 化转型，
-              以及垂类 AI 原生产品的孵化。我们从场景洞察、产品定义到落地验证，
-              提供一体化支持。
+      <main id="main-content">
+        <section class="section hero" aria-labelledby="hero-title">
+          <div class="hero__content">
+            <p class="eyebrow">ZERORE 孵化中的 AI 硬件项目</p>
+            <h1 id="hero-title" class="hero__title">
+              MIRROR
+              <span>让 AI 真正看见工厂现场</span>
+            </h1>
+            <p class="hero__lead">
+              Mirror 是一款面向智能制造一线的工业 Agents 终端。它像一面镜子，把工厂现场真实发生的一切
+              <strong>实时、准确、完整</strong> 地映射到数字系统，让 AI 看见现场、理解现场，然后在现场行动。
             </p>
-          </section>
 
-          <section class="highlight-grid" aria-label="核心服务">
-            <article class="highlight-card">
-              <span class="highlight-index">01</span>
-              <h2>场景洞察</h2>
-              <p>梳理流程、岗位与关键动作，找到最值得用 Agent 重构的切入点。</p>
-            </article>
-            <article class="highlight-card">
-              <span class="highlight-index">02</span>
-              <h2>产品定义</h2>
-              <p>沉淀目标、工作流、交互与数据边界，快速形成可演示方案。</p>
-            </article>
-            <article class="highlight-card">
-              <span class="highlight-index">03</span>
-              <h2>快速验证</h2>
-              <p>以 MVP 验证效率提升与业务价值，再决定是否规模化投入。</p>
-            </article>
-          </section>
-
-          <section class="value-strip" aria-label="业务方向">
-            <div class="value-item">
-              <span>方向一</span>
-              <strong>Agent 化转型</strong>
-              <p>把知识、流程、工具与角色协作沉淀成可执行系统。</p>
-            </div>
-            <div class="value-item">
-              <span>方向二</span>
-              <strong>AI 原生孵化</strong>
-              <p>围绕垂类场景，以最短路径做出真实可验证的产品雏形。</p>
-            </div>
-          </section>
-
-          <footer class="contact-strip" id="contact">
-            <div class="contact-copy">
-              <span>适合对象</span>
-              <strong>中小企业 / 创业团队 / 垂类项目</strong>
+            <div class="hero__actions">
+              <a class="button button--primary" href="mailto:hello@zerore.ai?subject=Mirror%20%E5%88%B6%E9%80%A0%E4%B8%9A%E5%90%88%E4%BD%9C%E5%92%A8%E8%AF%A2">联系团队</a>
+              <a class="button button--ghost" href="#solution">查看解决方案</a>
             </div>
 
-            <a class="cta" href="mailto:hello@zerore.ai?subject=ZERORE%20%E5%90%88%E4%BD%9C%E5%92%A8%E8%AF%A2">hello@zerore.ai</a>
-          </footer>
+            <ul class="pill-row" aria-label="Mirror 核心关键词">
+              <li>第一视角感知</li>
+              <li>免手操作</li>
+              <li>持续上下文</li>
+              <li>闭环执行</li>
+            </ul>
+          </div>
+
+          <aside class="hero__panel" aria-label="典型现场">
+            <p class="panel-kicker">一个真实瞬间</p>
+            <h2>现场的问题，不是没有系统，而是系统离工位太远</h2>
+            <ol class="signal-list">
+              <li>
+                <strong>工人正在操作精密设备</strong>
+                <p>双手离不开工位，任何中断都可能带来返工、报废或安全风险。</p>
+              </li>
+              <li>
+                <strong>红灯报警，但知识不在眼前</strong>
+                <p>SOP、维修记录、设备手册都在系统里，却不在此刻可调用的位置。</p>
+              </li>
+              <li>
+                <strong>Mirror 接管感知与理解</strong>
+                <p>读取设备状态、现场环境和文档上下文，给出针对当前工位的处置建议。</p>
+              </li>
+              <li>
+                <strong>从建议直接进入执行</strong>
+                <p>调文档、提工单、报异常、找负责人，把现场判断推成工作流闭环。</p>
+              </li>
+            </ol>
+          </aside>
         </section>
-      </article>
-    </main>
+
+        <section id="problem" class="section">
+          <div class="section-head">
+            <p class="section-kicker">我们在解决什么问题</p>
+            <h2>制造业一线从来不缺系统，缺的是现场可以直接调用的行动能力</h2>
+            <p>
+              工厂里已经有 MES、ERP、SOP、报修流程和大量 PDF 文档，但工人站在生产线时，知识往往在办公室电脑里，
+              决策却必须在几秒钟内发生。这种割裂，才是现场低效、误判和经验依赖的根源。
+            </p>
+          </div>
+
+          <div class="problem-grid">
+            <article class="info-card">
+              <span class="card-index">01</span>
+              <h3>数据有了，但用不上</h3>
+              <p>系统里有文档、有记录、有流程，可真正需要时，一线岗位够不着、调不出、看不全。</p>
+            </article>
+            <article class="info-card">
+              <span class="card-index">02</span>
+              <h3>知识有了，但够不着</h3>
+              <p>老师傅不一定在岗，手机会占手，离岗去查资料又意味着打断工序和节拍。</p>
+            </article>
+            <article class="info-card">
+              <span class="card-index">03</span>
+              <h3>错误成本远高于搜索成本</h3>
+              <p>现场靠经验猜，猜对了继续干，猜错了就是停工、返工、报废，甚至安全事故。</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="solution" class="section">
+          <div class="section-head">
+            <p class="section-kicker">我们怎么解决</p>
+            <h2>Mirror 把工业 Agent 的工作逻辑压缩成三步：看到、理解、执行</h2>
+            <p>
+              我们不只是在做一个“能识别图像”的眼镜，而是在做一个从现场感知到流程触发的工业 Agent 闭环。
+            </p>
+          </div>
+
+          <div class="solution-layout">
+            <div class="step-stack">
+              <article class="step-card">
+                <span class="step-card__index">Step 01</span>
+                <h3>看到现场</h3>
+                <p>识别设备状态、物料状态、报警灯、仪表读数和异常区域，让 AI 拿到一线的第一视角输入。</p>
+              </article>
+              <article class="step-card">
+                <span class="step-card__index">Step 02</span>
+                <h3>理解上下文</h3>
+                <p>结合语音对话与 Agent OS，读取电脑中的 SOP、工艺文件、设备手册和维修记录，理解此时此地该怎么处理。</p>
+              </article>
+              <article class="step-card">
+                <span class="step-card__index">Step 03</span>
+                <h3>发起执行</h3>
+                <p>从口头请求直接进入动作，调取文档、生成工单、填报异常、升级协同，让建议变成动作链。</p>
+              </article>
+            </div>
+
+            <aside class="voice-demo" aria-label="Mirror 现场对话示意">
+              <p class="panel-kicker">一个典型 Demo</p>
+              <div class="voice-line voice-line--user">
+                <span>工人</span>
+                <p>帮我看一下这块电路板有没有问题？</p>
+              </div>
+              <div class="voice-line voice-line--system">
+                <span>Mirror</span>
+                <p>识别异常区域，判断虚焊、冷焊或烧毁风险，并在视野中标注问题位置。</p>
+              </div>
+              <div class="voice-line voice-line--user">
+                <span>工人</span>
+                <p>整理一份修正方法。如果需要，直接通知负责人换一块新板子。</p>
+              </div>
+              <div class="voice-line voice-line--system">
+                <span>Mirror</span>
+                <p>输出处置清单，并继续向工单、异常上报、负责人协同等工作流推进。</p>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section id="glasses" class="section">
+          <div class="section-head">
+            <p class="section-kicker">为什么是眼镜</p>
+            <h2>工厂需要的不是另一块屏幕，而是一个与你同视角、同上下文、同节拍工作的系统</h2>
+          </div>
+
+          <div class="reason-grid">
+            <article class="reason-card">
+              <h3>第一视角感知</h3>
+              <p>系统看到的，就是工人正在看的，不需要举起手机，也不需要反复对准现场重新取景。</p>
+            </article>
+            <article class="reason-card">
+              <h3>免手操作</h3>
+              <p>语音交互让双手继续留在工位上，尤其适合装配、巡检、质检这类高占手场景。</p>
+            </article>
+            <article class="reason-card">
+              <h3>持续上下文</h3>
+              <p>眼镜是持续佩戴设备，能连续理解我在哪里、做到哪一步、刚刚出现过什么异常。</p>
+            </article>
+            <article class="reason-card">
+              <h3>连续执行</h3>
+              <p>它不是一个信息查询工具，而是能把识别、判断和企业工作流真正串起来的执行终端。</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="scenarios" class="section">
+          <div class="section-head">
+            <p class="section-kicker">高频高价值场景</p>
+            <h2>Mirror 不是单点功能，而是一组能够沉进真实生产环境的工业 Agents</h2>
+          </div>
+
+          <div class="scenario-grid">
+            <article class="scenario-card">
+              <span class="card-index">A</span>
+              <h3>巡检与异常发现</h3>
+              <p>持续扫描设备和工位状态，识别异常、判断严重程度、自动记录并触发上报。</p>
+            </article>
+            <article class="scenario-card">
+              <span class="card-index">B</span>
+              <h3>异常升级与远程协同</h3>
+              <p>当问题超出现场处置范围，自动拉来工程师或远程专家，把升级协同嵌进现场流程。</p>
+            </article>
+            <article class="scenario-card">
+              <span class="card-index">C</span>
+              <h3>装配与作业指导</h3>
+              <p>新员工上岗、换线生产或工艺更新时，自动弹出对应工序 SOP，降低带教成本和误操作率。</p>
+            </article>
+            <article class="scenario-card">
+              <span class="card-index">D</span>
+              <h3>质检与追溯</h3>
+              <p>对照质量标准识别外观缺陷，自动记录检验结果，沉淀成可追溯的质量链路。</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="value" class="section">
+          <div class="section-head">
+            <p class="section-kicker">为什么这件事值得做</p>
+            <h2>Mirror 的价值不只在于提效，更在于把经验型工厂推向可复制、可执行、可追溯的系统</h2>
+          </div>
+
+          <div class="value-grid">
+            <article class="value-card value-card--dark">
+              <p class="panel-kicker">现场价值</p>
+              <h3>把处理异常的时间从“找人找资料”压缩到“开口就问”</h3>
+              <ul class="detail-list">
+                <li>设备异常时，工人无需离开工位，1 分钟内拿到处置建议。</li>
+                <li>新员工不用硬背手册，系统一步步给出作业引导。</li>
+                <li>关键步骤实时提醒，让错误在发生前就被拦截。</li>
+              </ul>
+            </article>
+            <article class="value-card">
+              <p class="panel-kicker">管理价值</p>
+              <h3>把老师傅经验、规范流程和散落知识沉淀成工厂的数字资产</h3>
+              <ul class="detail-list">
+                <li>老师傅的判断逻辑不再只活在人脑里，而能沉成全场共享的 skill。</li>
+                <li>经验、流程、文档第一次能在现场被统一调用、统一追踪。</li>
+                <li>管理层得到的不是零散记录，而是可复盘、可复制、可扩展的能力库。</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section id="business" class="section">
+          <div class="section-head">
+            <p class="section-kicker">这件事值多少钱</p>
+            <h2>我们把商业化拆成三个最直接的问题：谁付费、怎么收费、先打哪里</h2>
+          </div>
+
+          <div class="business-grid">
+            <article class="business-card">
+              <p class="panel-kicker">谁会为 Mirror 付费</p>
+              <h3>制造企业里的数字化与生产管理负责人</h3>
+              <p>核心付费方会是设备管理、质量管理、生产管理负责人，以及推动智能制造和数字化转型的信息化团队。</p>
+              <p>同时也能与工业软件集成商、设备厂商联合落地，借助既有渠道进入工厂。</p>
+            </article>
+            <article class="business-card">
+              <p class="panel-kicker">怎么收费</p>
+              <h3>从项目制验证，逐步走向平台订阅与私有化服务</h3>
+              <p>早期以 POC 和项目交付为主，中期走平台订阅加终端授权，后期叠加 Token、私有化部署与运维服务。</p>
+            </article>
+            <article class="business-card">
+              <p class="panel-kicker">优先切入哪些工厂</p>
+              <h3>设备复杂、异常成本高、流程标准化诉求强</h3>
+              <p>优先行业包括 3C 电子、汽车零部件、装备制造、新能源、半导体等高复杂度制造场景。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section thesis">
+          <div class="section-head">
+            <p class="section-kicker">我们最核心的四个判断</p>
+            <h2>Mirror 的本质，是把 AI 从“知道”推进到“在现场持续工作”</h2>
+          </div>
+
+          <div class="thesis-grid">
+            <article class="thesis-card">
+              <span class="card-index">01</span>
+              <p>Mirror 让 AI 获得持续、真实的物理世界 context，这会成为制造现场的第二大脑。</p>
+            </article>
+            <article class="thesis-card">
+              <span class="card-index">02</span>
+              <p>Mirror 把分散的知识和文档，变成现场此刻可调用的行动项。</p>
+            </article>
+            <article class="thesis-card">
+              <span class="card-index">03</span>
+              <p>Mirror 把“识别问题”升级为“理解、指导、自动流转”的闭环工作流。</p>
+            </article>
+            <article class="thesis-card">
+              <span class="card-index">04</span>
+              <p>Mirror 把经验、规范和流程沉淀成可复制、可执行、可追溯的 skill。</p>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer" id="contact">
+        <div class="site-footer__copy">
+          <p class="panel-kicker">关于团队</p>
+          <h2>Mirror 是 ZERORE 正在孵化的 AI 硬件项目</h2>
+          <p>
+            如果你有制造业背景、工厂场景、行业资源，或者愿意一起推进工业 Agent 的真实落地，欢迎和我们联系。
+          </p>
+        </div>
+
+        <a class="button button--primary" href="mailto:hello@zerore.ai?subject=Mirror%20%E5%90%88%E4%BD%9C%E6%B4%BD%E8%B0%88">hello@zerore.ai</a>
+      </footer>
+    </div>
   </body>
 </html>

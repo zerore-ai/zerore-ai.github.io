@@ -3,25 +3,42 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <title>页面未找到 | ZERORE</title>
+    <title>页面未找到 | Mirror | ZERORE</title>
     <meta name="robots" content="noindex">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;800;900&amp;family=Space+Grotesk:wght@500;700&amp;display=swap"
+    >
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <main class="stage">
-      <article class="card" style="grid-template-columns: 1fr; max-width: 760px;">
-        <section class="identity-panel" style="min-height: auto;">
-          <div class="identity-top">
-            <span class="pill pill--light">404</span>
-            <span class="microcopy">ZERORE / 零度重构</span>
-          </div>
-          <div class="identity-logo-wrap" style="padding: 18px 0 6px;">
-            <img class="identity-logo" src="assets/logo-full-white.webp" alt="ZERORE" width="1421" height="344">
-          </div>
-          <p class="identity-statement">这个页面暂时不存在，返回首页继续浏览。</p>
-          <a class="cta" href="/" style="align-self: flex-start; background: #f8f8f6; color: #0f0f11;">返回首页</a>
+    <a class="skip-link" href="#main-content">跳到正文</a>
+
+    <div class="ambient ambient--left" aria-hidden="true"></div>
+    <div class="ambient ambient--right" aria-hidden="true"></div>
+    <div class="grid-overlay" aria-hidden="true"></div>
+
+    <div class="page-frame not-found-shell">
+      <header class="site-header">
+        <a class="brandline" href="/" aria-label="返回 ZERORE 首页">
+          <img src="assets/logo-icon-black.webp" alt="" width="391" height="344" decoding="async">
+          <span class="brandline__copy">
+            <strong>ZERORE</strong>
+            <small>零度重构 · Mirror</small>
+          </span>
+        </a>
+      </header>
+
+      <main id="main-content" class="not-found-main">
+        <section class="not-found-card">
+          <p class="panel-kicker">404</p>
+          <h1 class="not-found-title">这个页面没有被 Mirror 捕获到</h1>
+          <p>返回首页，继续查看 Mirror 如何把制造现场实时映射到数字系统里。</p>
+          <a class="button button--primary" href="/">返回首页</a>
         </section>
-      </article>
-    </main>
+      </main>
+    </div>
   </body>
 </html>
