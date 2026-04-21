@@ -1,44 +1,140 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en" data-lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <title>页面未找到 | Mirror | ZERORE</title>
+    <title>404 · ZERORE 零度重构</title>
     <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#0a0a0b">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;800;900&amp;family=Space+Grotesk:wght@500;700&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
     >
-    <link rel="stylesheet" href="styles.css?v=20260402a">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+    <link rel="stylesheet" href="styles.css?v=20260420c">
+    <style>
+      .nf {
+        min-height: 100svh;
+        display: flex; align-items: center; justify-content: center;
+        position: relative;
+        padding: 120px 24px;
+        text-align: center;
+        overflow: hidden;
+      }
+      .nf__k {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.3em;
+        color: var(--lime);
+        margin-bottom: 24px;
+      }
+      .nf__t {
+        font-family: var(--font-sans);
+        font-size: clamp(60px, 14vw, 160px);
+        font-weight: 800;
+        line-height: 0.9;
+        letter-spacing: -0.05em;
+        color: var(--paper-100);
+      }
+      html[data-lang="zh"] .nf__t {
+        font-family: var(--font-zh);
+        font-size: clamp(52px, 11vw, 128px);
+        letter-spacing: -0.02em;
+      }
+      .nf__s {
+        margin-top: 28px;
+        max-width: 52ch;
+        font-family: var(--font-zh), var(--font-sans);
+        font-size: 16px;
+        line-height: 1.72;
+        color: rgba(246,245,241,0.65);
+      }
+      html[data-lang="en"] .nf__s { font-family: var(--font-sans); }
+      .nf__a { margin-top: 44px; }
+    </style>
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('zerore-lang');
+          if (stored === 'zh' || stored === 'en') {
+            document.documentElement.setAttribute('data-lang', stored);
+            document.documentElement.setAttribute('lang', stored === 'zh' ? 'zh-CN' : 'en');
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
-    <a class="skip-link" href="#main-content">跳到正文</a>
-
-    <div class="ambient ambient--left" aria-hidden="true"></div>
-    <div class="ambient ambient--right" aria-hidden="true"></div>
-    <div class="grid-overlay" aria-hidden="true"></div>
-
-    <div class="page-frame not-found-shell">
-      <header class="site-header">
-        <a class="brandline" href="/" aria-label="返回 ZERORE 首页">
-          <img src="assets/logo-icon-black.webp" alt="" width="391" height="344" decoding="async">
-          <span class="brandline__copy">
-            <strong>ZERORE</strong>
-            <small>零度重构 · Mirror</small>
+    <div class="grain" aria-hidden="true"></div>
+    <header class="nav nav--scrolled">
+      <a class="nav__brand" href="/" aria-label="ZERORE home">
+        <img class="nav__logo" src="assets/logo-full-white.webp?v=20260421b" alt="ZERORE">
+      </a>
+      <div class="nav__right" style="margin-left:auto;">
+        <button
+          type="button"
+          class="lang"
+          id="langToggle"
+          aria-label="Toggle language / 切换语言"
+        >
+          <span class="lang__slot" data-lang-label="en">EN</span>
+          <span class="lang__sep">/</span>
+          <span class="lang__slot" data-lang-label="zh">中</span>
+        </button>
+      </div>
+    </header>
+    <section class="nf">
+      <span class="aurora aurora--a" style="top:-200px;left:-120px;"></span>
+      <span class="aurora aurora--b" style="bottom:-160px;right:-100px;"></span>
+      <div style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;">
+        <p class="nf__k">ERROR · 404 · NOT FOUND</p>
+        <h1 class="nf__t">
+          <span lang="en">Lost in signal.</span>
+          <span lang="zh">信号丢失。</span>
+        </h1>
+        <p class="nf__s">
+          <span lang="en">
+            This page isn't in ZERORE's signal range — head home and keep reading about how
+            we're defining the quality standard of the Agent era.
           </span>
-        </a>
-      </header>
-
-      <main id="main-content" class="not-found-main">
-        <section class="not-found-card">
-          <p class="panel-kicker">404</p>
-          <h1 class="not-found-title">这个页面没有被 Mirror 捕获到</h1>
-          <p>返回首页，继续查看 Mirror 如何把制造现场实时映射到数字系统里。</p>
-          <a class="button button--primary" href="/">返回首页</a>
-        </section>
-      </main>
-    </div>
+          <span lang="zh">
+            这个页面不在 ZERORE 的信号范围里 —— 回到首页，继续阅读我们如何定义 Agent 时代的质量标准。
+          </span>
+        </p>
+        <div class="nf__a">
+          <a class="btn btn--primary" href="/">
+            <span lang="en">Back to home</span>
+            <span lang="zh">回到首页</span>
+            <span class="btn__arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+    <script>
+      (function () {
+        var html = document.documentElement;
+        var toggle = document.getElementById('langToggle');
+        function applyLang(lang) {
+          html.setAttribute('data-lang', lang);
+          html.setAttribute('lang', lang === 'zh' ? 'zh-CN' : 'en');
+          if (toggle) {
+            toggle.querySelectorAll('[data-lang-label]').forEach(function (el) {
+              el.classList.toggle('is-active', el.dataset.langLabel === lang);
+            });
+          }
+          try { localStorage.setItem('zerore-lang', lang); } catch (e) {}
+        }
+        applyLang(html.getAttribute('data-lang') || 'en');
+        if (toggle) {
+          toggle.addEventListener('click', function () {
+            applyLang(html.getAttribute('data-lang') === 'zh' ? 'en' : 'zh');
+          });
+        }
+      })();
+    </script>
   </body>
 </html>

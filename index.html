@@ -1,37 +1,37 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en" data-lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <title>Mirror | ZERORE 零度重构</title>
+    <title>ZERORE · 零度重构 — Defining the quality standard of the Agent era.</title>
     <meta
       name="description"
-      content="Mirror 是 ZERORE 孵化中的制造业 AI 硬件项目。它将工厂现场实时、准确、完整地映射到数字系统，让 AI 看见现场、理解现场，并在现场行动。"
+      content="ZERORE is an AI-native Gen-Z studio. We are building Zeval, the quality operating system for Agent product teams — turning production failures into reusable evaluation assets."
     >
-    <meta name="theme-color" content="#111827">
+    <meta name="theme-color" content="#0a0a0b">
     <meta name="format-detection" content="telephone=no, email=no, address=no">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="ZERORE">
-    <meta property="og:title" content="Mirror | ZERORE 零度重构">
-    <meta property="og:description" content="面向智能制造一线的工业 Agents 终端。让 AI 真正看见工厂现场。">
+    <meta property="og:title" content="ZERORE · 零度重构">
+    <meta property="og:description" content="Defining the quality standard of the Agent era.">
     <meta property="og:url" content="https://zerore.ai/">
     <meta property="og:image" content="https://zerore.ai/assets/og-cover.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Mirror | ZERORE 零度重构">
-    <meta name="twitter:description" content="将工厂现场实时映射到数字系统，让 AI 看见、理解并参与现场工作流。">
+    <meta name="twitter:title" content="ZERORE · 零度重构">
+    <meta name="twitter:description" content="Defining the quality standard of the Agent era.">
     <meta name="twitter:image" content="https://zerore.ai/assets/og-cover.png">
     <link rel="canonical" href="https://zerore.ai/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;800;900&amp;family=Space+Grotesk:wght@500;700&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
     >
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
-    <link rel="stylesheet" href="styles.css?v=20260402a">
+    <link rel="stylesheet" href="styles.css?v=20260420g">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -39,328 +39,1307 @@
           {
             "@type": "Organization",
             "name": "ZERORE",
-            "alternateName": "零度重构",
+            "alternateName": "\u96F6\u5EA6\u91CD\u6784",
             "url": "https://zerore.ai/",
-            "email": "hello@zerore.ai"
+            "email": "yanghaoran1118@gmail.com",
+            "description": "AI-native Gen-Z studio defining the quality standard of the Agent era."
           },
           {
             "@type": "Product",
-            "name": "Mirror",
-            "brand": {
-              "@type": "Brand",
-              "name": "ZERORE"
-            },
-            "description": "面向智能制造一线的工业 Agents 终端，将工厂现场实时映射到数字系统，让 AI 看见现场、理解现场，并在现场行动。"
+            "name": "Zeval",
+            "brand": { "@type": "Brand", "name": "ZERORE" },
+            "description": "The quality operating system for Agent product teams. Production sessions, automatically turned into explainable quality insight."
           }
         ]
       }
     </script>
+    <script>
+      // Early lang bootstrap — avoid flash of wrong language
+      (function () {
+        try {
+          var stored = localStorage.getItem('zerore-lang');
+          if (stored === 'zh' || stored === 'en') {
+            document.documentElement.setAttribute('data-lang', stored);
+            document.documentElement.setAttribute('lang', stored === 'zh' ? 'zh-CN' : 'en');
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
-    <a class="skip-link" href="#main-content">跳到正文</a>
+    <a class="skip-link" href="#main">
+      <span lang="en">Skip to content</span><span lang="zh">跳到正文</span>
+    </a>
 
-    <div class="ambient ambient--left" aria-hidden="true"></div>
-    <div class="ambient ambient--right" aria-hidden="true"></div>
-    <div class="grid-overlay" aria-hidden="true"></div>
+    <!-- Page load curtain -->
+    <div class="curtain" aria-hidden="true">
+      <div class="curtain__mark">
+        <span class="curtain__num">00</span>
+        <img class="curtain__logo" src="assets/logo-full-white.webp?v=20260421b" alt="ZERORE">
+      </div>
+    </div>
 
-    <div class="page-frame">
-      <header class="site-header">
-        <a class="brandline" href="/" aria-label="ZERORE 首页">
-          <img src="assets/logo-icon-black.webp" alt="" width="391" height="344" decoding="async">
-          <span class="brandline__copy">
-            <strong>ZERORE</strong>
-            <small>零度重构 · Mirror 项目展示页</small>
-          </span>
+    <!-- Ambient grain -->
+    <div class="grain" aria-hidden="true"></div>
+
+    <!-- Cursor follower -->
+    <div class="cursor" aria-hidden="true"><span></span></div>
+
+    <!-- NAV -->
+    <header class="nav" id="nav">
+      <a class="nav__brand" href="#top" aria-label="ZERORE home">
+        <img class="nav__logo" src="assets/logo-full-white.webp?v=20260421b" alt="ZERORE">
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#culture">
+          <span lang="en">Culture</span><span lang="zh">文化</span>
         </a>
+        <a href="#projects">
+          <span lang="en">Projects</span><span lang="zh">项目</span>
+        </a>
+        <a href="#team">
+          <span lang="en">Team</span><span lang="zh">团队</span>
+        </a>
+        <a href="#join">
+          <span lang="en">Join</span><span lang="zh">加入</span>
+        </a>
+      </nav>
+      <div class="nav__right">
+        <button
+          type="button"
+          class="lang"
+          id="langToggle"
+          aria-label="Toggle language / 切换语言"
+          aria-live="polite"
+        >
+          <span class="lang__slot" data-lang-label="en">EN</span>
+          <span class="lang__sep">/</span>
+          <span class="lang__slot" data-lang-label="zh">中</span>
+        </button>
+        <a class="nav__cta" href="mailto:yanghaoran1118@gmail.com?subject=ZERORE%20%E2%80%94%20Let%27s%20talk">
+          <span lang="en">Let's talk</span><span lang="zh">聊聊合作</span>
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </header>
 
-        <nav class="site-nav" aria-label="页面导航">
-          <a class="nav-link" href="#problem">问题</a>
-          <a class="nav-link" href="#solution">方案</a>
-          <a class="nav-link" href="#scenarios">场景</a>
-          <a class="nav-link" href="#value">价值</a>
-          <a class="nav-link" href="#business">商业化</a>
-        </nav>
+    <main id="main">
 
-        <a class="button button--primary" href="mailto:hello@zerore.ai?subject=Mirror%20%E5%88%B6%E9%80%A0%E4%B8%9A%E5%90%88%E4%BD%9C%E5%92%A8%E8%AF%A2">合作咨询</a>
-      </header>
-
-      <main id="main-content">
-        <section class="section hero" aria-labelledby="hero-title">
-          <div class="hero__content">
-            <p class="eyebrow">ZERORE 孵化中的 AI 硬件项目</p>
-            <h1 id="hero-title" class="hero__title">
-              MIRROR
-              <span>让 AI 真正看见工厂现场</span>
-            </h1>
-            <p class="hero__lead">
-              Mirror 是一款面向智能制造一线的工业 Agents 终端。它像一面镜子，把工厂现场真实发生的一切
-              <strong>实时、准确、完整</strong> 地映射到数字系统，让 AI 看见现场、理解现场，然后在现场行动。
-            </p>
-
-            <div class="hero__actions">
-              <a class="button button--primary" href="mailto:hello@zerore.ai?subject=Mirror%20%E5%88%B6%E9%80%A0%E4%B8%9A%E5%90%88%E4%BD%9C%E5%92%A8%E8%AF%A2">联系团队</a>
-              <a class="button button--ghost" href="#solution">查看解决方案</a>
-            </div>
-
-            <ul class="pill-row" aria-label="Mirror 核心关键词">
-              <li>第一视角感知</li>
-              <li>免手操作</li>
-              <li>持续上下文</li>
-              <li>闭环执行</li>
-            </ul>
-          </div>
-
-          <aside class="hero__panel" aria-label="典型现场">
-            <p class="panel-kicker">一个真实瞬间</p>
-            <h2>现场的问题，不是没有系统，而是系统离工位太远</h2>
-            <ol class="signal-list">
-              <li>
-                <strong>工人正在操作精密设备</strong>
-                <p>双手离不开工位，任何中断都可能带来返工、报废或安全风险。</p>
-              </li>
-              <li>
-                <strong>红灯报警，但知识不在眼前</strong>
-                <p>SOP、维修记录、设备手册都在系统里，却不在此刻可调用的位置。</p>
-              </li>
-              <li>
-                <strong>Mirror 接管感知与理解</strong>
-                <p>读取设备状态、现场环境和文档上下文，给出针对当前工位的处置建议。</p>
-              </li>
-              <li>
-                <strong>从建议直接进入执行</strong>
-                <p>调文档、提工单、报异常、找负责人，把现场判断推成工作流闭环。</p>
-              </li>
-            </ol>
-          </aside>
-        </section>
-
-        <section id="problem" class="section">
-          <div class="section-head">
-            <p class="section-kicker">我们在解决什么问题</p>
-            <h2>制造业一线从来不缺系统，缺的是现场可以直接调用的行动能力</h2>
-            <p>
-              工厂里已经有 MES、ERP、SOP、报修流程和大量 PDF 文档，但工人站在生产线时，知识往往在办公室电脑里，
-              决策却必须在几秒钟内发生。这种割裂，才是现场低效、误判和经验依赖的根源。
-            </p>
-          </div>
-
-          <div class="problem-grid">
-            <article class="info-card">
-              <span class="card-index">01</span>
-              <h3>数据有了，但用不上</h3>
-              <p>系统里有文档、有记录、有流程，可真正需要时，一线岗位够不着、调不出、看不全。</p>
-            </article>
-            <article class="info-card">
-              <span class="card-index">02</span>
-              <h3>知识有了，但够不着</h3>
-              <p>老师傅不一定在岗，手机会占手，离岗去查资料又意味着打断工序和节拍。</p>
-            </article>
-            <article class="info-card">
-              <span class="card-index">03</span>
-              <h3>错误成本远高于搜索成本</h3>
-              <p>现场靠经验猜，猜对了继续干，猜错了就是停工、返工、报废，甚至安全事故。</p>
-            </article>
-          </div>
-        </section>
-
-        <section id="solution" class="section">
-          <div class="section-head">
-            <p class="section-kicker">我们怎么解决</p>
-            <h2>Mirror 把工业 Agent 的工作逻辑压缩成三步：看到、理解、执行</h2>
-            <p>
-              我们不只是在做一个“能识别图像”的眼镜，而是在做一个从现场感知到流程触发的工业 Agent 闭环。
-            </p>
-          </div>
-
-          <div class="solution-layout">
-            <div class="step-stack">
-              <article class="step-card">
-                <span class="step-card__index">Step 01</span>
-                <h3>看到现场</h3>
-                <p>识别设备状态、物料状态、报警灯、仪表读数和异常区域，让 AI 拿到一线的第一视角输入。</p>
-              </article>
-              <article class="step-card">
-                <span class="step-card__index">Step 02</span>
-                <h3>理解上下文</h3>
-                <p>结合语音对话与 Agent OS，读取电脑中的 SOP、工艺文件、设备手册和维修记录，理解此时此地该怎么处理。</p>
-              </article>
-              <article class="step-card">
-                <span class="step-card__index">Step 03</span>
-                <h3>发起执行</h3>
-                <p>从口头请求直接进入动作，调取文档、生成工单、填报异常、升级协同，让建议变成动作链。</p>
-              </article>
-            </div>
-
-            <aside class="voice-demo" aria-label="Mirror 现场对话示意">
-              <p class="panel-kicker">一个典型 Demo</p>
-              <div class="voice-line voice-line--user">
-                <span>工人</span>
-                <p>帮我看一下这块电路板有没有问题？</p>
-              </div>
-              <div class="voice-line voice-line--system">
-                <span>Mirror</span>
-                <p>识别异常区域，判断虚焊、冷焊或烧毁风险，并在视野中标注问题位置。</p>
-              </div>
-              <div class="voice-line voice-line--user">
-                <span>工人</span>
-                <p>整理一份修正方法。如果需要，直接通知负责人换一块新板子。</p>
-              </div>
-              <div class="voice-line voice-line--system">
-                <span>Mirror</span>
-                <p>输出处置清单，并继续向工单、异常上报、负责人协同等工作流推进。</p>
-              </div>
-            </aside>
-          </div>
-        </section>
-
-        <section id="glasses" class="section">
-          <div class="section-head">
-            <p class="section-kicker">为什么是眼镜</p>
-            <h2>工厂需要的不是另一块屏幕，而是一个与你同视角、同上下文、同节拍工作的系统</h2>
-          </div>
-
-          <div class="reason-grid">
-            <article class="reason-card">
-              <h3>第一视角感知</h3>
-              <p>系统看到的，就是工人正在看的，不需要举起手机，也不需要反复对准现场重新取景。</p>
-            </article>
-            <article class="reason-card">
-              <h3>免手操作</h3>
-              <p>语音交互让双手继续留在工位上，尤其适合装配、巡检、质检这类高占手场景。</p>
-            </article>
-            <article class="reason-card">
-              <h3>持续上下文</h3>
-              <p>眼镜是持续佩戴设备，能连续理解我在哪里、做到哪一步、刚刚出现过什么异常。</p>
-            </article>
-            <article class="reason-card">
-              <h3>连续执行</h3>
-              <p>它不是一个信息查询工具，而是能把识别、判断和企业工作流真正串起来的执行终端。</p>
-            </article>
-          </div>
-        </section>
-
-        <section id="scenarios" class="section">
-          <div class="section-head">
-            <p class="section-kicker">高频高价值场景</p>
-            <h2>Mirror 不是单点功能，而是一组能够沉进真实生产环境的工业 Agents</h2>
-          </div>
-
-          <div class="scenario-grid">
-            <article class="scenario-card">
-              <span class="card-index">A</span>
-              <h3>巡检与异常发现</h3>
-              <p>持续扫描设备和工位状态，识别异常、判断严重程度、自动记录并触发上报。</p>
-            </article>
-            <article class="scenario-card">
-              <span class="card-index">B</span>
-              <h3>异常升级与远程协同</h3>
-              <p>当问题超出现场处置范围，自动拉来工程师或远程专家，把升级协同嵌进现场流程。</p>
-            </article>
-            <article class="scenario-card">
-              <span class="card-index">C</span>
-              <h3>装配与作业指导</h3>
-              <p>新员工上岗、换线生产或工艺更新时，自动弹出对应工序 SOP，降低带教成本和误操作率。</p>
-            </article>
-            <article class="scenario-card">
-              <span class="card-index">D</span>
-              <h3>质检与追溯</h3>
-              <p>对照质量标准识别外观缺陷，自动记录检验结果，沉淀成可追溯的质量链路。</p>
-            </article>
-          </div>
-        </section>
-
-        <section id="value" class="section">
-          <div class="section-head">
-            <p class="section-kicker">为什么这件事值得做</p>
-            <h2>Mirror 的价值不只在于提效，更在于把经验型工厂推向可复制、可执行、可追溯的系统</h2>
-          </div>
-
-          <div class="value-grid">
-            <article class="value-card value-card--dark">
-              <p class="panel-kicker">现场价值</p>
-              <h3>把处理异常的时间从“找人找资料”压缩到“开口就问”</h3>
-              <ul class="detail-list">
-                <li>设备异常时，工人无需离开工位，1 分钟内拿到处置建议。</li>
-                <li>新员工不用硬背手册，系统一步步给出作业引导。</li>
-                <li>关键步骤实时提醒，让错误在发生前就被拦截。</li>
-              </ul>
-            </article>
-            <article class="value-card">
-              <p class="panel-kicker">管理价值</p>
-              <h3>把老师傅经验、规范流程和散落知识沉淀成工厂的数字资产</h3>
-              <ul class="detail-list">
-                <li>老师傅的判断逻辑不再只活在人脑里，而能沉成全场共享的 skill。</li>
-                <li>经验、流程、文档第一次能在现场被统一调用、统一追踪。</li>
-                <li>管理层得到的不是零散记录，而是可复盘、可复制、可扩展的能力库。</li>
-              </ul>
-            </article>
-          </div>
-        </section>
-
-        <section id="business" class="section">
-          <div class="section-head">
-            <p class="section-kicker">这件事值多少钱</p>
-            <h2>我们把商业化拆成三个最直接的问题：谁付费、怎么收费、先打哪里</h2>
-          </div>
-
-          <div class="business-grid">
-            <article class="business-card">
-              <p class="panel-kicker">谁会为 Mirror 付费</p>
-              <h3>制造企业里的数字化与生产管理负责人</h3>
-              <p>核心付费方会是设备管理、质量管理、生产管理负责人，以及推动智能制造和数字化转型的信息化团队。</p>
-              <p>同时也能与工业软件集成商、设备厂商联合落地，借助既有渠道进入工厂。</p>
-            </article>
-            <article class="business-card">
-              <p class="panel-kicker">怎么收费</p>
-              <h3>从项目制验证，逐步走向平台订阅与私有化服务</h3>
-              <p>早期以 POC 和项目交付为主，中期走平台订阅加终端授权，后期叠加 Token、私有化部署与运维服务。</p>
-            </article>
-            <article class="business-card">
-              <p class="panel-kicker">优先切入哪些工厂</p>
-              <h3>设备复杂、异常成本高、流程标准化诉求强</h3>
-              <p>优先行业包括 3C 电子、汽车零部件、装备制造、新能源、半导体等高复杂度制造场景。</p>
-            </article>
-          </div>
-        </section>
-
-        <section class="section thesis">
-          <div class="section-head">
-            <p class="section-kicker">我们最核心的四个判断</p>
-            <h2>Mirror 的本质，是把 AI 从“知道”推进到“在现场持续工作”</h2>
-          </div>
-
-          <div class="thesis-grid">
-            <article class="thesis-card">
-              <span class="card-index">01</span>
-              <p>Mirror 让 AI 获得持续、真实的物理世界 context，这会成为制造现场的第二大脑。</p>
-            </article>
-            <article class="thesis-card">
-              <span class="card-index">02</span>
-              <p>Mirror 把分散的知识和文档，变成现场此刻可调用的行动项。</p>
-            </article>
-            <article class="thesis-card">
-              <span class="card-index">03</span>
-              <p>Mirror 把“识别问题”升级为“理解、指导、自动流转”的闭环工作流。</p>
-            </article>
-            <article class="thesis-card">
-              <span class="card-index">04</span>
-              <p>Mirror 把经验、规范和流程沉淀成可复制、可执行、可追溯的 skill。</p>
-            </article>
-          </div>
-        </section>
-      </main>
-
-      <footer class="site-footer" id="contact">
-        <div class="site-footer__copy">
-          <p class="panel-kicker">关于团队</p>
-          <h2>Mirror 是 ZERORE 正在孵化的 AI 硬件项目</h2>
-          <p>
-            如果你有制造业背景、工厂场景、行业资源，或者愿意一起推进工业 Agent 的真实落地，欢迎和我们联系。
-          </p>
+      <!-- ════════════  HERO  ════════════ -->
+      <section class="hero" id="top">
+        <div class="hero__bg" aria-hidden="true">
+          <span class="aurora aurora--a"></span>
+          <span class="aurora aurora--b"></span>
+          <span class="aurora aurora--c"></span>
         </div>
 
-        <a class="button button--primary" href="mailto:hello@zerore.ai?subject=Mirror%20%E5%90%88%E4%BD%9C%E6%B4%BD%E8%B0%88">hello@zerore.ai</a>
+        <div class="shell hero__shell">
+          <h1 class="hero__title" data-warp>
+            <span lang="en" class="hero__en">
+              <span class="hero__line"><span class="word" data-split>Defining</span></span>
+              <span class="hero__line hero__line--accent"><span class="word" data-split>the quality standard</span></span>
+              <span class="hero__line"><span class="word" data-split>of the Agent era.</span></span>
+            </span>
+            <span lang="zh" class="hero__zh">
+              <span class="hero__line"><span class="word" data-split>我们正在定义</span></span>
+              <span class="hero__line hero__line--accent"><span class="word" data-split>Agent 时代的</span></span>
+              <span class="hero__line"><span class="word" data-split>质量标准。</span></span>
+            </span>
+          </h1>
+
+          <p class="hero__sub reveal reveal--2">
+            <span lang="en">
+              We are not building another eval tool — we are defining
+              <em>what it means for Agent interaction quality to be acceptable.</em>
+            </span>
+            <span lang="zh">
+              我们不是在做另一个评测工具 —— 我们在定义
+              <em>什么叫 Agent 交互质量合格</em>。
+            </span>
+          </p>
+
+          <div class="hero__actions reveal reveal--3">
+            <a class="btn btn--primary" href="#projects">
+              <span lang="en">See what we build</span><span lang="zh">看看我们在做什么</span>
+              <span class="btn__arrow" aria-hidden="true">→</span>
+            </a>
+            <a class="btn btn--ghost" href="#join">
+              <span lang="en">Join the team</span><span lang="zh">加入我们</span>
+              <span class="btn__arrow" aria-hidden="true">↗</span>
+            </a>
+          </div>
+
+          <div class="hero__meta reveal reveal--4">
+            <div class="meta-item">
+              <span class="meta-k">FOUNDED</span>
+              <span class="meta-v">2026 · 03 · 19</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-k">STAGE</span>
+              <span class="meta-v">
+                <span lang="en">Pre-seed · Hiring</span>
+                <span lang="zh">Pre-seed · 招募中</span>
+              </span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-k">FOCUS</span>
+              <span class="meta-v">Agent Quality OS</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-k">BASED</span>
+              <span class="meta-v">
+                <span lang="en">Shanghai, CN</span>
+                <span lang="zh">上海</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__scroll" aria-hidden="true">
+          <span class="scroll-line"></span>
+          <span class="scroll-label">SCROLL</span>
+        </div>
+      </section>
+
+      <!-- ════════════  MARQUEE STRIP  ════════════ -->
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <span>Agent Quality OS</span><span class="marquee__dot">◆</span>
+          <span>Production Failure Intelligence</span><span class="marquee__dot">◆</span>
+          <span>Session → Regression</span><span class="marquee__dot">◆</span>
+          <span>Data Flywheel</span><span class="marquee__dot">◆</span>
+          <span>Trajectory-level Eval</span><span class="marquee__dot">◆</span>
+          <span>Implicit Signal Layer</span><span class="marquee__dot">◆</span>
+          <span>定义 Agent 时代的质量标准</span><span class="marquee__dot">◆</span>
+          <!-- duplicate for seamless loop -->
+          <span>Agent Quality OS</span><span class="marquee__dot">◆</span>
+          <span>Production Failure Intelligence</span><span class="marquee__dot">◆</span>
+          <span>Session → Regression</span><span class="marquee__dot">◆</span>
+          <span>Data Flywheel</span><span class="marquee__dot">◆</span>
+          <span>Trajectory-level Eval</span><span class="marquee__dot">◆</span>
+          <span>Implicit Signal Layer</span><span class="marquee__dot">◆</span>
+          <span>定义 Agent 时代的质量标准</span><span class="marquee__dot">◆</span>
+        </div>
+      </div>
+
+      <!-- ════════════  CULTURE  ════════════ -->
+      <section class="section section--dark" id="culture">
+        <div class="shell section--split">
+          <aside class="section__rail">
+            <span class="rail__i">01</span>
+            <span class="rail__k">
+              <span lang="en">CULTURE</span><span lang="zh">文化</span>
+            </span>
+          </aside>
+
+          <div class="section__body">
+            <header class="section__head section__head--dark">
+              <p class="eyebrow eyebrow--light reveal">
+                <span class="dot"></span>
+                <span lang="en">What we believe</span>
+                <span lang="zh">我们相信什么</span>
+              </p>
+              <h2 class="section__title section__title--dark section__title--xl reveal reveal--1" data-warp>
+                <span lang="en">
+                  We don't stack features.<br>
+                  <em>We define the standard.</em>
+                </span>
+                <span lang="zh">
+                  不做功能的堆积，<br>
+                  <em>做定义标准的人。</em>
+                </span>
+              </h2>
+              <p class="section__lede section__lede--dark reveal reveal--2">
+                <span lang="en">
+                  ZERORE is an AI-native, Gen-Z studio. We believe the products that matter
+                  are forged inside real scenarios — and the best teams aren't a collection
+                  of divided roles, but a group of people who spark and compound on each other.
+                </span>
+                <span lang="zh">
+                  ZERORE 是一支 AI Native 的 Z 世代团队。我们相信真正有价值的产品，必须在真实场景中被打磨出来；
+                  最好的团队，不是每个人只完成分工，而是一群人彼此激发、共同进化。
+                </span>
+              </p>
+            </header>
+
+            <div class="pillars" id="pillars">
+              <article class="pillar reveal">
+                <div class="pillar__head">
+                  <span class="pillar__num" aria-hidden="true">01</span>
+                  <span class="pillar__dot" aria-hidden="true"></span>
+                </div>
+                <div class="pillar__body">
+                  <h3 class="pillar__title">
+                    <span lang="en">Long-termism</span>
+                    <span lang="zh">长期主义</span>
+                  </h3>
+                  <p class="pillar__sub">
+                    <span lang="en">The slow work compounds.</span>
+                    <span lang="zh">慢的东西才会复利。</span>
+                  </p>
+                  <p class="pillar__text">
+                    <span lang="en">
+                      We don't chase hype cycles. We stack what actually matters, brick by brick —
+                      product, tech, data, workflow, customer understanding — so the value compounds.
+                    </span>
+                    <span lang="zh">
+                      我们不追逐 hype 周期。把真正重要的东西，一砖一瓦搭起来 —— 从基础做起，
+                      把产品、技术、数据、工作流和用户理解，层层做深、做稳、做成长期价值。
+                    </span>
+                  </p>
+                </div>
+              </article>
+
+              <article class="pillar reveal reveal--1">
+                <div class="pillar__head">
+                  <span class="pillar__num" aria-hidden="true">02</span>
+                  <span class="pillar__dot" aria-hidden="true"></span>
+                </div>
+                <div class="pillar__body">
+                  <h3 class="pillar__title">
+                    <span lang="en">Standard, not a tool</span>
+                    <span lang="zh">做标准，不做工具</span>
+                  </h3>
+                  <p class="pillar__sub">
+                    <span lang="en">Tools get replaced. Standards don't.</span>
+                    <span lang="zh">工具会被替换，标准不会。</span>
+                  </p>
+                  <p class="pillar__text">
+                    <span lang="en">
+                      Our axis isn't feature parity or pricing — it's whose vocabulary the industry adopts.
+                      FICO for credit. J.D. Power for cars. ZERORE for Agent quality.
+                    </span>
+                    <span lang="zh">
+                      我们的竞争维度不是功能和价格，而是 —— 谁定义的语言被行业接受。
+                      FICO 之于信用、J.D. Power 之于汽车，ZERORE 之于 Agent 质量。
+                    </span>
+                  </p>
+                </div>
+              </article>
+
+              <article class="pillar reveal reveal--2">
+                <div class="pillar__head">
+                  <span class="pillar__num" aria-hidden="true">03</span>
+                  <span class="pillar__dot" aria-hidden="true"></span>
+                </div>
+                <div class="pillar__body">
+                  <h3 class="pillar__title">
+                    <span lang="en">AI Native by default</span>
+                    <span lang="zh">默认 AI 原生</span>
+                  </h3>
+                  <p class="pillar__sub">
+                    <span lang="en">AI as the first colleague, not a tool.</span>
+                    <span lang="zh">把 AI 当作第一个同事。</span>
+                  </p>
+                  <p class="pillar__text">
+                    <span lang="en">
+                      We use AI at every layer of our own workflow — research, writing, engineering,
+                      customer conversations. Not as a tool, but as our first teammate.
+                    </span>
+                    <span lang="zh">
+                      我们把 AI 用到自己工作流的每一层：从研究、写作、工程到客户对话。
+                      我们不是把 AI 当工具，而是把它当作团队里第一个同事。
+                    </span>
+                  </p>
+                </div>
+              </article>
+
+              <article class="pillar reveal reveal--3">
+                <div class="pillar__head">
+                  <span class="pillar__num" aria-hidden="true">04</span>
+                  <span class="pillar__dot" aria-hidden="true"></span>
+                </div>
+                <div class="pillar__body">
+                  <h3 class="pillar__title">
+                    <span lang="en">Grow sideways</span>
+                    <span lang="zh">允许横向生长</span>
+                  </h3>
+                  <p class="pillar__sub">
+                    <span lang="en">Great products grow out of collaboration.</span>
+                    <span lang="zh">新可能在协作里长出来。</span>
+                  </p>
+                  <p class="pillar__text">
+                    <span lang="en">
+                      Beyond the main runway, we invite teammates to explore side projects and ideas.
+                      We believe the best products often grow out of collaborative experiments.
+                    </span>
+                    <span lang="zh">
+                      我们鼓励团队在主航道之外探索自己的子项目与新想法，鼓励内部孵化。
+                      我们相信最好的产品，往往诞生在协作里长出来的新可能。
+                    </span>
+                  </p>
+                </div>
+              </article>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════  PROJECTS  (formerly Zeval)  ════════════ -->
+      <section class="section section--ink" id="projects">
+        <div class="zeval__aurora" aria-hidden="true">
+          <span class="aurora aurora--d"></span>
+          <span class="aurora aurora--e"></span>
+        </div>
+
+        <div class="shell section--split">
+          <aside class="section__rail">
+            <span class="rail__i">02</span>
+            <span class="rail__k">
+              <span lang="en">PROJECTS</span><span lang="zh">项目</span>
+            </span>
+          </aside>
+
+          <div class="section__body">
+            <header class="section__head section__head--dark">
+              <p class="eyebrow eyebrow--light reveal">
+                <span class="dot"></span>
+                <span lang="en">What we're building</span>
+                <span lang="zh">我们在做什么</span>
+              </p>
+              <h2 class="section__title section__title--dark section__title--xl reveal reveal--1" data-warp>
+                <span lang="en">
+                  Products that become<br>
+                  <em>infrastructure for the Agent era.</em>
+                </span>
+                <span lang="zh">
+                  做能成为<br>
+                  <em>Agent 时代基础设施的产品。</em>
+                </span>
+              </h2>
+              <p class="section__lede section__lede--dark reveal reveal--2">
+                <span lang="en">
+                  Each ZERORE project targets a structural gap between what Agent products
+                  can do today and what they need to become reliable. Below is our flagship —
+                  more are in incubation.
+                </span>
+                <span lang="zh">
+                  ZERORE 的每一个项目，都在填补 Agent 产品「能做」和「真正可靠」之间的结构性空缺。
+                  下面是我们的旗舰项目，更多正在孵化中。
+                </span>
+              </p>
+            </header>
+
+            <!-- Featured project: Zeval -->
+            <article class="project reveal">
+              <header class="project__head">
+                <span class="project__tag">FLAGSHIP · 01</span>
+                <h3 class="project__title" data-warp>
+                  <span>Zeval</span>
+                  <em>
+                    <span lang="en">The quality operating system for Agent product teams.</span>
+                    <span lang="zh">Agent 产品团队的质量操作系统。</span>
+                  </em>
+                </h3>
+                <p class="project__lede">
+                  <span lang="en">
+                    Agent products are deploying at scale, but existing tools only tell teams
+                    <em>whether the system is up</em>. Zeval sits at the workflow / operating layer,
+                    automatically turning failure patterns in real production sessions into
+                    <strong>explainable, rankable, recyclable quality assets.</strong>
+                  </span>
+                  <span lang="zh">
+                    Agent 产品正在大规模落地，但现有工具只告诉团队「系统有没有挂」。
+                    Zeval 站在 Workflow / Operating Layer，把真实生产会话中的 failure pattern
+                    <strong>自动转成</strong> 可解释、可排序、可回流的质量资产。
+                  </span>
+                </p>
+              </header>
+
+              <!-- Four-layer capability -->
+              <div class="layers">
+                <article class="layer reveal">
+                  <div class="layer__index">
+                    <span class="layer__num">01</span>
+                    <span class="layer__pulse" aria-hidden="true"></span>
+                  </div>
+                  <h4>
+                    <span lang="en">Ingest &amp; Normalize</span>
+                    <span lang="zh">采集与结构化层</span>
+                  </h4>
+                  <p class="layer__en">
+                    <span lang="en">Sessions → unified event stream</span>
+                    <span lang="zh">Ingest &amp; Normalize</span>
+                  </p>
+                  <p>
+                    <span lang="en">
+                      Turn real sessions, trajectories, tool calls, and session metadata into a
+                      unified event stream. Session / trace ingestion, tool-call normalization,
+                      user / agent turn alignment, outcome / drop / escalation labeling.
+                    </span>
+                    <span lang="zh">
+                      把真实会话、轨迹、tool call、session metadata 变成统一事件流。Session/trace ingestion、
+                      tool call normalization、user/agent turn 对齐、outcome / drop / escalation 事件标签。
+                    </span>
+                  </p>
+                </article>
+
+                <article class="layer reveal reveal--1">
+                  <div class="layer__index">
+                    <span class="layer__num">02</span>
+                    <span class="layer__pulse" aria-hidden="true"></span>
+                  </div>
+                  <h4>
+                    <span lang="en">Failure Discovery</span>
+                    <span lang="zh">问题发现层</span>
+                  </h4>
+                  <p class="layer__en">
+                    <span lang="en">From logs to failure patterns</span>
+                    <span lang="zh">Failure Discovery</span>
+                  </p>
+                  <p>
+                    <span lang="en">
+                      Not a log viewer — an automated failure-pattern surface. Failure clustering,
+                      recurring-issue detection, session-level anomalies, drop-off point recognition,
+                      tool misuse / plan breakage / memory drift classification.
+                    </span>
+                    <span lang="zh">
+                      不是展示日志，而是自动发现 failure patterns。Failure clustering、recurring issue detection、
+                      session 级异常、drop-off point 识别、工具误用 / 计划断裂 / 记忆漂移分类。
+                    </span>
+                  </p>
+                </article>
+
+                <article class="layer reveal reveal--2">
+                  <div class="layer__index">
+                    <span class="layer__num">03</span>
+                    <span class="layer__pulse" aria-hidden="true"></span>
+                  </div>
+                  <h4>
+                    <span lang="en">Production → Eval</span>
+                    <span lang="zh">评测回流层</span>
+                  </h4>
+                  <p class="layer__en">
+                    <span lang="en">Failures become regression sets</span>
+                    <span lang="zh">Production → Eval</span>
+                  </p>
+                  <p>
+                    <span lang="en">
+                      Convert failures into continuously validated assets. Auto-generate eval
+                      candidates from production traces, manage golden / regression sets, version
+                      diffing, fix-verification workflows.
+                    </span>
+                    <span lang="zh">
+                      让问题变成可持续验证的资产。从 production traces 自动生成 eval candidates、
+                      golden set / regression set 管理、版本间对比、fix 验证 workflow。
+                    </span>
+                  </p>
+                </article>
+
+                <article class="layer reveal reveal--3">
+                  <div class="layer__index">
+                    <span class="layer__num">04</span>
+                    <span class="layer__pulse" aria-hidden="true"></span>
+                  </div>
+                  <h4>
+                    <span lang="en">Decision Layer</span>
+                    <span lang="zh">决策层</span>
+                  </h4>
+                  <p class="layer__en">
+                    <span lang="en">Readable for PMs and founders</span>
+                    <span lang="zh">Decision Layer</span>
+                  </p>
+                  <p>
+                    <span lang="en">
+                      Make failure readable for PMs, ops, and founders. Where is it dropping,
+                      why, who's affected, what to fix first — translating technical errors
+                      into product language tied to business outcomes.
+                    </span>
+                    <span lang="zh">
+                      让 PM、运营、创始人看得懂、能行动。哪里掉、为什么掉、影响谁、先修哪个 ——
+                      把技术错误翻译为产品语言，连接业务指标。
+                    </span>
+                  </p>
+                </article>
+              </div>
+
+              <!-- Loop visual + stats -->
+              <div class="zeval__showcase">
+                <div class="loop reveal">
+                  <div class="loop__ring" aria-hidden="true">
+                    <svg viewBox="0 0 400 400">
+                      <defs>
+                        <linearGradient id="grad-ring" x1="0" y1="0" x2="1" y2="1">
+                          <stop offset="0%" stop-color="#cbff54" stop-opacity="0.85"/>
+                          <stop offset="100%" stop-color="#cbff54" stop-opacity="0.1"/>
+                        </linearGradient>
+                      </defs>
+                      <circle cx="200" cy="200" r="170" fill="none" stroke="url(#grad-ring)" stroke-width="1.2" stroke-dasharray="2 6"/>
+                      <circle cx="200" cy="200" r="120" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+                      <circle cx="200" cy="200" r="70"  fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                      <circle cx="200" cy="30" r="4" fill="#cbff54"/>
+                      <circle cx="370" cy="200" r="4" fill="#cbff54" opacity="0.7"/>
+                      <circle cx="200" cy="370" r="4" fill="#cbff54" opacity="0.45"/>
+                      <circle cx="30" cy="200" r="4" fill="#cbff54" opacity="0.3"/>
+                    </svg>
+                  </div>
+                  <div class="loop__nodes">
+                    <span class="loop__node loop__node--n" data-step="01">Production</span>
+                    <span class="loop__node loop__node--e" data-step="02">Diagnosis</span>
+                    <span class="loop__node loop__node--s" data-step="03">Regression</span>
+                    <span class="loop__node loop__node--w" data-step="04">Fix verify</span>
+                  </div>
+                  <div class="loop__core">
+                    <span class="loop__core-k">Data Flywheel</span>
+                    <span class="loop__core-v">
+                      <span lang="en">Self-compounding</span>
+                      <span lang="zh">越跑越准</span>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="stats">
+                  <article class="stat reveal">
+                    <span class="stat__n">4×</span>
+                    <span class="stat__l">
+                      <span lang="en">Four-layer architecture<br>Ingest → Discovery → Eval Loop → Decision</span>
+                      <span lang="zh">四层能力架构<br>Ingest → Discovery → Eval Loop → Decision</span>
+                    </span>
+                  </article>
+                  <article class="stat reveal reveal--1">
+                    <span class="stat__n">100<em>th</em></span>
+                    <span class="stat__l">
+                      <span lang="en">The 100th customer<br>more valuable than the 1st — network effect</span>
+                      <span lang="zh">第 100 个客户<br>比第 1 个更有价值的网络效应</span>
+                    </span>
+                  </article>
+                  <article class="stat reveal reveal--2">
+                    <span class="stat__n">57<em>%</em></span>
+                    <span class="stat__l">
+                      <span lang="en">of enterprises have deployed Agents<br>Quality is the biggest deployment blocker</span>
+                      <span lang="zh">已部署 Agent 的企业比例<br>质量不可控 = 最大部署障碍</span>
+                    </span>
+                  </article>
+                  <article class="stat reveal reveal--3">
+                    <span class="stat__n">∞</span>
+                    <span class="stat__l">
+                      <span lang="en">Data flywheel<br>Production failure feeds offline eval</span>
+                      <span lang="zh">数据飞轮<br>线上失败自动反哺离线评测</span>
+                    </span>
+                  </article>
+                </div>
+              </div>
+
+              <!-- Narrative thesis -->
+              <div class="thesis">
+                <h4 class="thesis__title reveal">
+                  <span lang="en">Four core theses</span>
+                  <span lang="zh">我们最核心的四个判断</span>
+                </h4>
+                <div class="thesis__grid">
+                  <article class="thesis__card reveal">
+                    <span class="thesis__i">01</span>
+                    <p>
+                      <span lang="en">
+                        Today's tools sit in the infra layer and are being commoditized by hyperscalers.
+                        The real moat lives upstream — in the workflow &amp; operating layer.
+                      </span>
+                      <span lang="zh">
+                        现有工具在 infra 层，正在被大厂商品化。真正值钱的护城河在上游 —— Workflow &amp; Operating Layer。
+                      </span>
+                    </p>
+                  </article>
+                  <article class="thesis__card reveal reveal--1">
+                    <span class="thesis__i">02</span>
+                    <p>
+                      <span lang="en">
+                        Tools win on features; standards win on first-mover, data, and ecosystem trust.
+                        We build the industry's vocabulary, not a product feature.
+                      </span>
+                      <span lang="zh">
+                        工具靠功能赢，标准靠先发 + 数据 + 生态认可赢。我们要做的是行业语言，不是产品功能。
+                      </span>
+                    </p>
+                  </article>
+                  <article class="thesis__card reveal reveal--2">
+                    <span class="thesis__i">03</span>
+                    <p>
+                      <span lang="en">
+                        Agent failure modes are structurally different from traditional software —
+                        APIs return 200, but tools fire at the wrong moment, context silently disappears.
+                      </span>
+                      <span lang="zh">
+                        Agent 的失败方式和传统软件根本不同 —— 接口返回 200，但工具用错时机、上下文悄悄丢失。
+                      </span>
+                    </p>
+                  </article>
+                  <article class="thesis__card reveal reveal--3">
+                    <span class="thesis__i">04</span>
+                    <p>
+                      <span lang="en">
+                        Production data that doesn't recycle into iteration assets is the biggest
+                        systemic waste across every Agent product shipping today.
+                      </span>
+                      <span lang="zh">
+                        线上真实数据没有回流为迭代资产，就是所有 Agent 产品迭代最大的系统性浪费。
+                      </span>
+                    </p>
+                  </article>
+                </div>
+              </div>
+            </article>
+
+            <!-- Upcoming placeholder -->
+            <article class="project project--coming reveal">
+              <span class="project__tag project__tag--muted">IN INCUBATION · 02 / 03 / …</span>
+              <h3 class="project__title project__title--muted">
+                <span lang="en">More standards are in the lab.</span>
+                <span lang="zh">更多标准正在内部孵化。</span>
+              </h3>
+              <p class="project__lede project__lede--muted">
+                <span lang="en">
+                  Every ZERORE teammate is encouraged to grow sideways. Projects that earn product-market
+                  signal get listed here as they graduate from incubation.
+                </span>
+                <span lang="zh">
+                  ZERORE 的每个人都被鼓励横向生长。从内部孵化中跑出 PMF 的新项目，会陆续在这里公布。
+                </span>
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════  TEAM  ════════════ -->
+      <section class="section section--dark" id="team">
+        <div class="shell section--split">
+          <aside class="section__rail">
+            <span class="rail__i">03</span>
+            <span class="rail__k">
+              <span lang="en">TEAM</span><span lang="zh">团队</span>
+            </span>
+          </aside>
+
+          <div class="section__body">
+            <header class="section__head section__head--dark">
+              <p class="eyebrow eyebrow--light reveal">
+                <span class="dot"></span>
+                <span lang="en">Who we are</span>
+                <span lang="zh">我们是谁</span>
+              </p>
+              <h2 class="section__title section__title--dark section__title--xl reveal reveal--1" data-warp>
+                <span lang="en">
+                  <em>AI-native Gen-Z team</em>
+                </span>
+                <span lang="zh">
+                  <em>一支 AI Native 的 Z 世代团队。</em>
+                </span>
+              </h2>
+              <p class="section__lede section__lede--dark reveal reveal--2">
+                <span lang="en">
+                </span>
+                <span lang="zh">
+                </span>
+              </p>
+            </header>
+
+            <div class="founders">
+              <article class="founder reveal">
+                <div class="founder__portrait">
+                  <img src="assets/team/roger-yang.jpg" alt="Roger Yang portrait" loading="lazy" decoding="async">
+                </div>
+                <div class="founder__meta">
+                  <span class="founder__role">FOUNDER · CEO</span>
+                  <h3>
+                    <span lang="en">Roger Yang <em>杨皓然</em></span>
+                    <span lang="zh">杨皓然 <em>Roger Yang</em></span>
+                  </h3>
+                  <p class="founder__sub">
+                    <span lang="en">Founder &amp; CEO</span>
+                    <span lang="zh">创始人 · CEO</span>
+                  </p>
+                </div>
+                <p class="founder__bio">
+                  <span lang="en">
+                    Graduated from the University of Chinese Academy of Sciences. Long-standing focus on
+                    productizing LLM applications and landing intelligent systems — extracting product
+                    direction from fuzzy requirements and driving the full loop from PMF validation to MVP.
+                    Fluent in Agent orchestration, context engineering, and harness optimization, with both
+                    C-side and B-side product experience. Contributed to NIO's in-car Agent evaluation stack,
+                    with deep understanding of AI capability validation, eval infrastructure, and scenario
+                    deployment.
+                  </span>
+                  <span lang="zh">
+                    毕业于中国科学院大学，长期聚焦大模型应用产品化与智能系统落地，擅长从模糊需求中提炼产品方向，
+                    并推动从 PMF 验证到 MVP 实现的完整闭环。熟悉 Agent 编排、上下文工程与 Harness 优化，
+                    兼具 C 端与 B 端产品实践经验。曾参与蔚来汽车 Agent 评估体系建设，对 AI 能力验证、
+                    评测基础设施与场景落地有深入理解。
+                  </span>
+                </p>
+              </article>
+
+              <article class="founder reveal reveal--1">
+                <div class="founder__portrait">
+                  <img src="assets/team/weiwei-zhang.jpg" alt="WeiWei Zhang portrait" loading="lazy" decoding="async">
+                </div>
+                <div class="founder__meta">
+                  <span class="founder__role">CO-FOUNDER · HEAD OF PRODUCT</span>
+                  <h3>
+                    <span lang="en">WeiWei Zhang <em>章伟伟</em></span>
+                    <span lang="zh">章伟伟 <em>WeiWei Zhang</em></span>
+                  </h3>
+                  <p class="founder__sub">
+                    <span lang="en">Head of Product · dual-stack product &amp; engineering</span>
+                    <span lang="zh">产品负责人 · 产品 + 开发双栈</span>
+                  </p>
+                </div>
+                <p class="founder__bio">
+                  <span lang="en">
+                    Dual-stack product &amp; engineering. Deeply involved in AI hardware prototyping
+                    and Agent framework construction; led OpenClaw — a unified Agent gateway — from
+                    concept to production. Strong at turning product ideas into runnable technical
+                    solutions at speed.
+                  </span>
+                  <span lang="zh">
+                    毕业于浙江工业大学，兼具产品与开发双重背景。本硕七年系统接受工业设计专业训练，
+                    拥有扎实的产品定义、设计表达与技术实现能力。曾参与灵宇宙下一代 AI 硬件产品的定义与原型开发，
+                    覆盖工业设计、Agent 搭建、软件开发及嵌入式等多个方向，擅长将前沿产品构想快速转化为可验证、可运行的技术方案。
+                  </span>
+                </p>
+              </article>
+
+              <article class="founder reveal reveal--2">
+                <div class="founder__portrait">
+                  <img src="assets/team/zhang-ziwen.jpg" alt="Zhang Ziwen portrait" loading="lazy" decoding="async">
+                </div>
+                <div class="founder__meta">
+                  <span class="founder__role">CO-FOUNDER · HEAD OF TECHNOLOGY</span>
+                  <h3>
+                    <span lang="en">Zhang Ziwen <em>张紫闻</em></span>
+                    <span lang="zh">张紫闻 <em>Zhang Ziwen</em></span>
+                  </h3>
+                  <p class="founder__sub">
+                    <span lang="en">Head of Technology · full-stack infrastructure</span>
+                    <span lang="zh">技术负责人 · 全栈基础设施</span>
+                  </p>
+                </div>
+                <p class="founder__bio">
+                  <span lang="en">
+                    Graduated from the Institute of Automation, Chinese Academy of Sciences.
+                    ICPC silver medalist, thousand-star GitHub open-source author, first-author on two papers
+                    and contributor to six top-conference publications. Full-stack engineer delivering
+                    the systems infrastructure behind complex AI applications — stable, efficient, and scalable.
+                  </span>
+                  <span lang="zh">
+                    毕业于中国科学院自动化研究所，国际大学生程序设计竞赛（ICPC）银奖，
+                    Github 千星开源作者，两篇一作/共一，参与了 6 篇顶会论文的研究，具备全栈开发能力，
+                    提供系统基础设施建设，为复杂 AI 应用提供稳定、高效的技术支撑。
+                  </span>
+                </p>
+              </article>
+
+              <article class="founder reveal reveal--3">
+                <div class="founder__portrait">
+                  <img src="assets/team/jiang-hangze.jpg" alt="Jiang Hangze portrait" loading="lazy" decoding="async">
+                </div>
+                <div class="founder__meta">
+                  <span class="founder__role">CO-FOUNDER · HEAD OF DESIGN</span>
+                  <h3>
+                    <span lang="en">Jiang Hangze <em>姜航泽</em></span>
+                    <span lang="zh">姜航泽 <em>Jiang Hangze</em></span>
+                  </h3>
+                  <p class="founder__sub">
+                    <span lang="en">Head of Design · 7 years cross-disciplinary</span>
+                    <span lang="zh">设计负责人 · 7 年跨领域</span>
+                  </p>
+                </div>
+                <p class="founder__bio">
+                  <span lang="en">
+                    Leads ZERORE's internal design and external design consultancy.
+                    Seven years across hardware, software, brand, service, spatial, and fashion design —
+                    helping companies iterate their design systems into the AI era, open new product
+                    categories, and land hits, with a clear nose for innovation direction.
+                  </span>
+                  <span lang="zh">
+                    负责团队内部设计工作和对外设计咨询服务，从业 7 年，
+                    涉猎硬件产品设计、软件产品设计、视觉品牌设计、服务设计、空间设计以及服装时尚设计等。
+                    致力于帮助企业完成 AI 时代的设计体系迭代与转化，为企业开发新品类与爆品，找准创新方向。
+                  </span>
+                </p>
+              </article>
+
+              <article class="founder reveal reveal--4">
+                <div class="founder__portrait">
+                  <img src="assets/team/huang-xiaoyan.jpg" alt="Huang Xiaoyan portrait" loading="lazy" decoding="async">
+                </div>
+                <div class="founder__meta">
+                  <span class="founder__role">CO-FOUNDER · HEAD OF BD</span>
+                  <h3>
+                    <span lang="en">Huang Xiaoyan <em>黄骁彦</em></span>
+                    <span lang="zh">黄骁彦 <em>Huang Xiaoyan</em></span>
+                  </h3>
+                  <p class="founder__sub">
+                    <span lang="en">Head of Business Development · customer + channel</span>
+                    <span lang="zh">商务拓展负责人 · 客户与渠道</span>
+                  </p>
+                </div>
+                <p class="founder__bio">
+                  <span lang="en">
+                    Owns customer acquisition, partnership development, and channel building,
+                    and plays the bridge between sales and engineering inside AI product development —
+                    with deep fluency in technical architecture, iteration logic, and application scenarios.
+                    Brings seasoned AI BD experience and is anchoring ZERORE's first symbiotic customers —
+                    turning technical capability into commercial value.
+                  </span>
+                  <span lang="zh">
+                    负责客户资源对接、合作伙伴开发与渠道建设，同时在 AI 产品开发过程中担任销售与技术的桥梁，
+                    深入理解技术架构、产品迭代逻辑及应用场景。拥有丰富 AI 行业 BD 经验，
+                    目前正为 ZERORE 建立第一批共生客户关系，助力项目实现技术能力向商业价值的转化。
+                  </span>
+                </p>
+              </article>
+            </div>
+
+            <!-- Advisors -->
+            <div class="advisors">
+              <h3 class="advisors__title reveal">
+                <span class="advisors__rail">A · 01 / 02</span>
+                <span lang="en">Advisors · standing alongside ZERORE</span>
+                <span lang="zh">顾问 · 与 ZERORE 并肩</span>
+              </h3>
+
+              <div class="advisors__grid">
+                <article class="advisor reveal">
+                  <div class="advisor__portrait">
+                    <img src="assets/team/cai-chang.jpg" alt="Cai Chang portrait" loading="lazy" decoding="async">
+                  </div>
+                  <div class="advisor__meta">
+                    <span class="advisor__role">STRATEGY ADVISOR</span>
+                    <h4>
+                      <span lang="en">Cai Chang <em>蔡畅</em></span>
+                      <span lang="zh">蔡畅 <em>Cai Chang</em></span>
+                    </h4>
+                    <p>
+                      <span lang="en">
+                        Master's student at the University of Hong Kong, focused on AI product design and
+                        deployment. Starts from user needs, structures product logic, builds the solution
+                        frame, and drives it into real implementation — combining strategic thinking with
+                        execution throughout the journey from concept to landing.
+                      </span>
+                      <span lang="zh">
+                        香港大学硕士在读，专注 AI 产品设计与应用落地。擅长从用户需求出发，梳理产品逻辑、
+                        搭建方案框架，并推动方案走向实际实现。在 AI 产品从构想到落地的过程中，兼具策略思考与执行视角。
+                      </span>
+                    </p>
+                  </div>
+                </article>
+
+                <article class="advisor reveal reveal--1">
+                  <div class="advisor__portrait">
+                    <img src="assets/team/ji-xingchen.jpg" alt="Ji Xingchen portrait" loading="lazy" decoding="async">
+                  </div>
+                  <div class="advisor__meta">
+                    <span class="advisor__role">PRODUCT ADVISOR</span>
+                    <h4>
+                      <span lang="en">Ji Xingchen <em>季星辰</em></span>
+                      <span lang="zh">季星辰 <em>Ji Xingchen</em></span>
+                    </h4>
+                    <p>
+                      <span lang="en">
+                        Psychology graduate from East China Normal University, specializing in human factors
+                        and UX — "how people use products, and how products serve people better." Combines
+                        HCI research with internet-product management practice; drives experience optimization
+                        and product strategy from user research so products stay close to real user needs.
+                      </span>
+                      <span lang="zh">
+                        毕业于华东师范大学心理学专业，研究方向为人因工程与用户体验，
+                        专注于理解「人如何使用产品、产品如何更好服务人」。兼具人机交互研究与互联网产品经理实践经验，
+                        擅长从用户研究出发，推动产品体验优化与产品策略落地，让产品更贴近真实用户需求。
+                      </span>
+                    </p>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════  JOIN  ════════════ -->
+      <section class="section section--ink section--join" id="join">
+        <div class="join__aurora" aria-hidden="true">
+          <span class="aurora aurora--f"></span>
+        </div>
+
+        <div class="shell section--split">
+          <aside class="section__rail">
+            <span class="rail__i">04</span>
+            <span class="rail__k">
+              <span lang="en">JOIN</span><span lang="zh">加入</span>
+            </span>
+          </aside>
+
+          <div class="section__body">
+            <header class="section__head section__head--dark">
+              <p class="eyebrow eyebrow--light reveal">
+                <span class="dot"></span>
+                <span lang="en">Join us · let's set the standard together</span>
+                <span lang="zh">一起把标准做出来</span>
+              </p>
+              <h2 class="section__title section__title--dark section__title--xl reveal reveal--1" data-warp>
+                <span lang="en">
+                  We're looking for<br>
+                  <em>the next sharp mind.</em>
+                </span>
+                <span lang="zh">
+                  我们正在寻找<br>
+                  <em>锐利的思考者</em>
+                </span>
+              </h2>
+              <p class="section__lede section__lede--dark reveal reveal--2">
+                <span lang="en">
+                  Co-founder level · equity design · a core decision-maker from day one.<br>
+                  If you believe in the long game and like building from the foundation up — this is the place.
+                </span>
+                <span lang="zh">
+                </span>
+              </p>
+            </header>
+
+            <div class="roles">
+              <article class="role reveal">
+                <header class="role__head">
+                  <span class="role__tag">CO-FOUNDER</span>
+                  <h3>
+                    <span lang="en">CMO · Chief Marketing Officer</span>
+                    <span lang="zh">CMO · 首席增长官</span>
+                  </h3>
+                  <p class="role__sub">
+                    <span lang="en">Cold-start AI builder ecosystem · deep content · symbiotic customers</span>
+                    <span lang="zh">AI Builder 生态冷启动 · 深度内容 · 共生客户</span>
+                  </p>
+                </header>
+                <ul class="role__list">
+                  <li>
+                    <span lang="en">Real network inside the AI product scene</span>
+                    <span lang="zh">在 AI 产品圈有真实人脉积累</span>
+                  </li>
+                  <li>
+                    <span lang="en">BD instinct · not afraid to cold-open relationships</span>
+                    <span lang="zh">有 BD 直觉 · 敢冷启动开口</span>
+                  </li>
+                  <li>
+                    <span lang="en">Can write or source best-in-class technical content</span>
+                    <span lang="zh">能写出 / 能找到业界最好的技术内容</span>
+                  </li>
+                  <li>
+                    <span lang="en">Self-directed · at ease with high uncertainty</span>
+                    <span lang="zh">自驱力强 · 愿意接受高不确定性</span>
+                  </li>
+                </ul>
+                <a class="role__cta" href="mailto:yanghaoran1118@gmail.com?subject=ZERORE%20CMO%20application">
+                  <span lang="en">Apply for CMO</span>
+                  <span lang="zh">申请 CMO 岗位</span>
+                  <span class="btn__arrow" aria-hidden="true">→</span>
+                </a>
+              </article>
+
+              <article class="role role--open reveal reveal--1">
+                <header class="role__head">
+                  <span class="role__tag">OPEN CONVERSATION</span>
+                  <h3>
+                    <span lang="en">You · if we haven't named the role yet</span>
+                    <span lang="zh">你 · 如果还没有一个岗位名能框住你</span>
+                  </h3>
+                  <p class="role__sub">
+                    <span lang="en">Research · engineering · founding customers · anything load-bearing</span>
+                    <span lang="zh">研究 · 工程 · 首批共生客户 · 任何承重的位置</span>
+                  </p>
+                </header>
+                <ul class="role__list">
+                  <li>
+                    <span lang="en">You've done something irreducible — can't be replaced by the average</span>
+                    <span lang="zh">做过别人替代不了的事 —— 独特到不能被平均</span>
+                  </li>
+                  <li>
+                    <span lang="en">You think about compounding — not the next sprint, the next decade</span>
+                    <span lang="zh">你的时间尺度是复利，不是冲刺</span>
+                  </li>
+                  <li>
+                    <span lang="en">You build things instead of explaining why they can't be built</span>
+                    <span lang="zh">你把想法落地，而不是解释为什么做不了</span>
+                  </li>
+                  <li>
+                    <span lang="en">You want co-founder stakes, not a salary bracket</span>
+                    <span lang="zh">你要的是合伙人位置，不是薪资区间</span>
+                  </li>
+                </ul>
+                <a class="role__cta" href="mailto:yanghaoran1118@gmail.com?subject=ZERORE%20%E2%80%94%20I%20want%20in">
+                  <span lang="en">Write to us directly</span>
+                  <span lang="zh">直接写信给我们</span>
+                  <span class="btn__arrow" aria-hidden="true">→</span>
+                </a>
+              </article>
+            </div>
+
+            <div class="join__contact reveal">
+              <div>
+                <p class="contact__k">
+                  <span lang="en">Reach out to</span>
+                  <span lang="zh">联系我们</span>
+                </p>
+                <p class="contact__v">Roger Yang · Founder</p>
+                <p class="contact__email">yanghaoran1118@gmail.com</p>
+              </div>
+              <a class="btn btn--primary btn--lg" href="mailto:yanghaoran1118@gmail.com?subject=ZERORE%20%E2%80%94%20Let%27s%20talk">
+                <span lang="en">Write us a letter</span>
+                <span lang="zh">写一封信给我们</span>
+                <span class="btn__arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════  FOOTER  ════════════ -->
+      <footer class="foot">
+        <div class="shell foot__shell">
+          <div class="foot__brand">
+            <img class="foot__logo" src="assets/logo-full-white.webp?v=20260421b" alt="ZERORE">
+          </div>
+          <p class="foot__tag">
+            <span lang="en">Defining the quality standard of the Agent era.</span>
+            <span lang="zh">定义 Agent 时代的质量标准。</span>
+          </p>
+          <ul class="foot__links">
+            <li><a href="#culture">
+              <span lang="en">Culture</span><span lang="zh">文化</span>
+            </a></li>
+            <li><a href="#projects">
+              <span lang="en">Projects</span><span lang="zh">项目</span>
+            </a></li>
+            <li><a href="#team">
+              <span lang="en">Team</span><span lang="zh">团队</span>
+            </a></li>
+            <li><a href="#join">
+              <span lang="en">Join</span><span lang="zh">加入</span>
+            </a></li>
+            <li><a href="mailto:yanghaoran1118@gmail.com">Email</a></li>
+          </ul>
+          <p class="foot__copy">© 2026 ZERORE · 零度重构 · All rights reserved.</p>
+        </div>
       </footer>
-    </div>
+    </main>
+
+    <script>
+      (function () {
+        var html = document.documentElement;
+
+        /* ───────── Language toggle ───────── */
+        var toggle = document.getElementById('langToggle');
+        function applyLang(lang) {
+          html.setAttribute('data-lang', lang);
+          html.setAttribute('lang', lang === 'zh' ? 'zh-CN' : 'en');
+          if (toggle) {
+            toggle.querySelectorAll('[data-lang-label]').forEach(function (el) {
+              el.classList.toggle('is-active', el.dataset.langLabel === lang);
+            });
+          }
+          try { localStorage.setItem('zerore-lang', lang); } catch (e) {}
+        }
+        var initial = html.getAttribute('data-lang') || 'en';
+        applyLang(initial);
+        if (toggle) {
+          toggle.addEventListener('click', function () {
+            applyLang(html.getAttribute('data-lang') === 'zh' ? 'en' : 'zh');
+          });
+        }
+
+        /* ───────── Curtain (page-load) ───────── */
+        window.addEventListener('load', function () {
+          document.body.classList.add('is-loaded');
+          setTimeout(function () {
+            document.body.classList.add('is-settled');
+          }, 900);
+        });
+
+        /* ───────── Nav scroll state ───────── */
+        var nav = document.getElementById('nav');
+        function onScroll() {
+          nav.classList.toggle('nav--scrolled', window.scrollY > 24);
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
+        /* ───────── Reveal on scroll ───────── */
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) {
+              e.target.classList.add('is-visible');
+              io.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.14, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+
+        /* ───────── Warp on scroll for big typography ───────── */
+        var warpTargets = document.querySelectorAll('[data-warp]');
+        var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!reduceMotion && warpTargets.length) {
+          var vh = window.innerHeight;
+          function onWarp() {
+            var y = window.scrollY;
+            warpTargets.forEach(function (el) {
+              var rect = el.getBoundingClientRect();
+              var center = rect.top + rect.height / 2;
+              var d = (center - vh / 2) / vh; // -1..1 (approx)
+              // skew only when near center, clamp aggressively
+              var skew = Math.max(-6, Math.min(6, d * 6));
+              var translate = Math.max(-40, Math.min(40, d * 40));
+              el.style.transform = 'translate3d(0,' + (-translate * 0.2) + 'px,0) skewY(' + (skew * -0.6) + 'deg)';
+            });
+          }
+          window.addEventListener('scroll', onWarp, { passive: true });
+          window.addEventListener('resize', function () { vh = window.innerHeight; onWarp(); });
+          onWarp();
+        }
+
+        /* ───────── Aurora parallax ───────── */
+        var auroras = document.querySelectorAll('.aurora');
+        window.addEventListener('scroll', function () {
+          var y = window.scrollY;
+          auroras.forEach(function (a, i) {
+            a.style.transform = 'translate3d(0,' + (y * 0.06 * (i % 2 ? -1 : 1)) + 'px,0)';
+          });
+        }, { passive: true });
+
+        /* ───────── Founders horizontal scroll ───────── */
+        var foundersRail = document.querySelector('.founders');
+        if (foundersRail) {
+          var founderCards = Array.from(foundersRail.querySelectorAll('.founder'));
+          var reduceMotionFounders = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          var foundersPaused = false;
+          var foundersDragging = false;
+          var foundersLoopWidth = 0;
+          var foundersLastTs = 0;
+          var foundersSpeed = 0.05; // px per ms
+
+          if (founderCards.length > 1 && !reduceMotionFounders) {
+            founderCards.forEach(function (card) {
+              var clone = card.cloneNode(true);
+              clone.classList.remove('reveal', 'reveal--1', 'reveal--2', 'reveal--3', 'reveal--4');
+              clone.classList.add('is-visible');
+              clone.setAttribute('aria-hidden', 'true');
+              foundersRail.appendChild(clone);
+            });
+
+            function measureFoundersLoop() {
+              var cards = foundersRail.querySelectorAll('.founder');
+              var firstOriginal = cards[0];
+              var firstClone = cards[founderCards.length];
+              if (firstOriginal && firstClone) {
+                foundersLoopWidth = firstClone.offsetLeft - firstOriginal.offsetLeft;
+              }
+            }
+
+            function autoplayFounders(ts) {
+              if (!foundersLastTs) foundersLastTs = ts;
+              var delta = ts - foundersLastTs;
+              foundersLastTs = ts;
+
+              if (!foundersPaused && !foundersDragging && !document.hidden && foundersLoopWidth > 0) {
+                foundersRail.scrollLeft += delta * foundersSpeed;
+                if (foundersRail.scrollLeft >= foundersLoopWidth) {
+                  foundersRail.scrollLeft -= foundersLoopWidth;
+                }
+              }
+
+              requestAnimationFrame(autoplayFounders);
+            }
+
+            measureFoundersLoop();
+            requestAnimationFrame(autoplayFounders);
+            window.addEventListener('resize', function () {
+              measureFoundersLoop();
+              foundersLastTs = 0;
+            });
+
+            foundersRail.addEventListener('pointerenter', function () {
+              foundersPaused = true;
+            });
+            foundersRail.addEventListener('pointerleave', function () {
+              foundersPaused = false;
+              foundersLastTs = 0;
+            });
+            foundersRail.addEventListener('focusin', function () {
+              foundersPaused = true;
+            });
+            foundersRail.addEventListener('focusout', function () {
+              foundersPaused = false;
+              foundersLastTs = 0;
+            });
+          }
+
+          foundersRail.addEventListener('wheel', function (e) {
+            if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
+            foundersRail.scrollLeft += e.deltaY;
+            e.preventDefault();
+          }, { passive: false });
+
+          if (matchMedia('(pointer: fine)').matches) {
+            var isDragging = false;
+            var startX = 0;
+            var startLeft = 0;
+
+            foundersRail.addEventListener('pointerdown', function (e) {
+              if (e.pointerType !== 'mouse' || e.button !== 0) return;
+              isDragging = true;
+              foundersDragging = true;
+              foundersPaused = true;
+              startX = e.clientX;
+              startLeft = foundersRail.scrollLeft;
+              foundersRail.classList.add('is-dragging');
+              foundersRail.setPointerCapture(e.pointerId);
+            });
+
+            foundersRail.addEventListener('pointermove', function (e) {
+              if (!isDragging) return;
+              foundersRail.scrollLeft = startLeft - (e.clientX - startX);
+            });
+
+            function stopDrag(e) {
+              if (!isDragging) return;
+              isDragging = false;
+              foundersDragging = false;
+              foundersRail.classList.remove('is-dragging');
+              foundersPaused = false;
+              foundersLastTs = 0;
+              if (e && foundersRail.hasPointerCapture && foundersRail.hasPointerCapture(e.pointerId)) {
+                foundersRail.releasePointerCapture(e.pointerId);
+              }
+            }
+
+            foundersRail.addEventListener('pointerup', stopDrag);
+            foundersRail.addEventListener('pointercancel', stopDrag);
+          }
+        }
+
+        /* ───────── Cursor follower ───────── */
+        var cursor = document.querySelector('.cursor');
+        if (cursor && matchMedia('(pointer: fine)').matches) {
+          var cx = 0, cy = 0, tx = 0, ty = 0, raf;
+          function loop() {
+            cx += (tx - cx) * 0.18;
+            cy += (ty - cy) * 0.18;
+            cursor.style.transform = 'translate3d(' + cx + 'px,' + cy + 'px,0)';
+            raf = requestAnimationFrame(loop);
+          }
+          window.addEventListener('pointermove', function (e) {
+            tx = e.clientX; ty = e.clientY;
+            if (!raf) loop();
+            cursor.classList.add('is-active');
+          });
+          window.addEventListener('pointerleave', function () {
+            cursor.classList.remove('is-active');
+          });
+          document.querySelectorAll('a,button,.founder,.project,.stat,.pillar,.layer,.thesis__card,.role')
+            .forEach(function (el) {
+              el.addEventListener('pointerenter', function () { cursor.classList.add('is-hover'); });
+              el.addEventListener('pointerleave', function () { cursor.classList.remove('is-hover'); });
+            });
+        }
+      })();
+    </script>
   </body>
 </html>
