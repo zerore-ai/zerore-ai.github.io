@@ -25,7 +25,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
-    <link rel="stylesheet" href="styles.css?v=20260430b">
+    <link rel="stylesheet" href="styles.css?v=20260430c">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -172,76 +172,383 @@
         </div>
       </div>
 
-      <!-- ════════════  HUB — section navigation  ════════════ -->
-      <section class="hub" id="hub">
+      <!-- ════════════  § 01 · THE PROBLEM  ════════════ -->
+      <section class="story story--ink" id="problem">
         <div class="shell">
-          <p class="eyebrow eyebrow--light hub__label reveal">
-            <span class="dot"></span>
-            <span lang="en">Explore ZERORE</span>
-            <span lang="zh">探索 ZERORE</span>
+          <p class="story__rail reveal">
+            <span lang="en">§ 01 · THE PROBLEM</span>
+            <span lang="zh">§ 01 · 问题</span>
           </p>
-          <div class="hub__grid reveal reveal--1">
+          <h2 class="story__title reveal reveal--1" data-warp>
+            <span lang="en">Agents fail<br><em>silently.</em></span>
+            <span lang="zh">Agent 正在<br><em>无声地失效。</em></span>
+          </h2>
+          <p class="story__lede reveal reveal--2">
+            <span lang="en">Agents don't crash — they smoothly do the wrong thing. APIs return 200, tools fire at the wrong moment, context drifts across turns, the answer reads fluent but is business-useless. Today's tools tell you whether the system is up. They can't tell you whether it's any good.</span>
+            <span lang="zh">Agent 不会崩溃——它们顺滑地做错事。接口返回 200，工具在错误的时机被调用，上下文在多轮中悄悄漂移，回答看似通顺却毫无业务价值。现有工具只能告诉你系统"挂没挂"，无法告诉你它"好不好"。</span>
+          </p>
 
-            <a class="hub__card" href="products.html">
-              <span class="hub__num">01</span>
-              <h2 class="hub__name">
-                <span lang="en">Products</span><span lang="zh">产品</span>
-              </h2>
-              <p class="hub__sub">
-                <span lang="en">Zeval &amp; Fast Hardware — infrastructure built for the Agent era.</span>
-                <span lang="zh">Zeval 与 Fast Hardware——Agent 时代的基础产品。</span>
+          <div class="stats-banner reveal reveal--2">
+            <div class="stat-cell">
+              <span class="stat-cell__num"><em>57%</em></span>
+              <span class="stat-cell__label"><span lang="en">Already in production</span><span lang="zh">已部署生产</span></span>
+              <p class="stat-cell__body">
+                <span lang="en">Of enterprises have already deployed AI Agents into production environments.</span>
+                <span lang="zh">企业已将 AI Agent 部署至真实生产环境。</span>
               </p>
-              <span class="hub__arrow" aria-hidden="true">→</span>
-            </a>
-
-            <a class="hub__card" href="industry.html">
-              <span class="hub__num">02</span>
-              <h2 class="hub__name">
-                <span lang="en">Industry</span><span lang="zh">行业</span>
-              </h2>
-              <p class="hub__sub">
-                <span lang="en">AI Companionship, Education, and Gov &amp; Enterprise — where quality failures cost most.</span>
-                <span lang="zh">AI 陪伴、教培与政企合规——质量失效代价最高的三个赛道。</span>
+            </div>
+            <div class="stat-cell">
+              <span class="stat-cell__num"><em>40%+</em></span>
+              <span class="stat-cell__label"><span lang="en">Predicted to fail · Gartner</span><span lang="zh">预计失败 · Gartner</span></span>
+              <p class="stat-cell__body">
+                <span lang="en">Of Agentic AI projects will be cancelled by 2027 — quality monitoring is the single biggest cause.</span>
+                <span lang="zh">的 Agentic AI 项目将于 2027 年前因质量监控缺失被叫停。</span>
               </p>
-              <span class="hub__arrow" aria-hidden="true">→</span>
-            </a>
-
-            <a class="hub__card" href="services.html">
-              <span class="hub__num">03</span>
-              <h2 class="hub__name">
-                <span lang="en">Services</span><span lang="zh">服务</span>
-              </h2>
-              <p class="hub__sub">
-                <span lang="en">From Agent eval and safety compliance to AI training and data-flywheel consulting.</span>
-                <span lang="zh">从 Agent 评测、安全合规到 AI 培训与数据飞轮咨询。</span>
+            </div>
+            <div class="stat-cell">
+              <span class="stat-cell__num"><em>0</em></span>
+              <span class="stat-cell__label"><span lang="en">Industry standard</span><span lang="zh">行业标准</span></span>
+              <p class="stat-cell__body">
+                <span lang="en">There is still no shared answer to the question: <em>what does Agent quality even mean?</em></span>
+                <span lang="zh">至今没有共同的答案来回答：<em>什么叫 Agent 质量合格？</em></span>
               </p>
-              <span class="hub__arrow" aria-hidden="true">→</span>
-            </a>
+            </div>
+          </div>
 
-            <a class="hub__card" href="resources.html">
-              <span class="hub__num">04</span>
-              <h2 class="hub__name">
-                <span lang="en">Resources</span><span lang="zh">资源</span>
-              </h2>
-              <p class="hub__sub">
-                <span lang="en">Whitepapers, certification frameworks, and industry benchmark reports.</span>
-                <span lang="zh">白皮书、认证标准与行业基准报告。</span>
+          <div class="gaps-grid">
+            <div class="gap-card reveal">
+              <span class="gap-card__num">GAP · 01</span>
+              <h3 class="gap-card__title">
+                <span lang="en">Smooth failures, invisible to logs</span>
+                <span lang="zh">顺滑的失败，日志看不见</span>
+              </h3>
+              <p class="gap-card__body">
+                <span lang="en">Tracing dashboards show latency and token cost. They don't show why the user gave up in turn 3, or why the demo worked but production doesn't.</span>
+                <span lang="zh">trace 看板能看延迟和 token 成本，但看不见用户为什么在第 3 轮放弃，也看不见 demo 能跑但生产不行的真正原因。</span>
               </p>
-              <span class="hub__arrow" aria-hidden="true">→</span>
-            </a>
-
-            <a class="hub__card" href="company.html">
-              <span class="hub__num">05</span>
-              <h2 class="hub__name">
-                <span lang="en">Company</span><span lang="zh">公司</span>
-              </h2>
-              <p class="hub__sub">
-                <span lang="en">Our values, our team, and what we believe about the Agent era.</span>
-                <span lang="zh">我们的价值观、团队，以及对 Agent 时代的判断。</span>
+            </div>
+            <div class="gap-card reveal reveal--1">
+              <span class="gap-card__num">GAP · 02</span>
+              <h3 class="gap-card__title">
+                <span lang="en">Multi-turn collapse, single-turn benchmarks</span>
+                <span lang="zh">多轮崩塌，单轮评测</span>
+              </h3>
+              <p class="gap-card__body">
+                <span lang="en">Real Agent quality lives in trajectories — context fidelity, tool timing, recovery, session-level goal completion. None of which a single-turn benchmark can capture.</span>
+                <span lang="zh">真正的质量发生在轨迹上——上下文保真、工具时机、错误恢复、会话级目标。这些是单轮 benchmark 永远抓不到的。</span>
               </p>
-              <span class="hub__arrow" aria-hidden="true">→</span>
-            </a>
+            </div>
+            <div class="gap-card reveal reveal--2">
+              <span class="gap-card__num">GAP · 03</span>
+              <h3 class="gap-card__title">
+                <span lang="en">No data flywheel from production</span>
+                <span lang="zh">线上数据没有飞轮</span>
+              </h3>
+              <p class="gap-card__body">
+                <span lang="en">Real failure logs accumulate by the millions. None of them automatically become the regression sets, failure taxonomies, or eval candidates that should drive the next iteration.</span>
+                <span lang="zh">百万级失败日志在堆积，却没有一条自动变成下一版的回归集、失败分类或评测样本。</span>
+              </p>
+            </div>
+          </div>
 
+          <a class="story__link reveal" href="industry.html">
+            <span lang="en">SEE WHO FEELS THIS MOST</span>
+            <span lang="zh">看看哪些行业最痛</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- ════════════  § 02 · OUR POSITION  ════════════ -->
+      <section class="story story--alt" id="position">
+        <div class="shell">
+          <div class="position-grid">
+            <div>
+              <p class="story__rail reveal">
+                <span lang="en">§ 02 · OUR POSITION</span>
+                <span lang="zh">§ 02 · 我们在哪一层</span>
+              </p>
+              <h2 class="story__title reveal reveal--1" data-warp>
+                <span lang="en">Not another tool.<br><em>The layer above.</em></span>
+                <span lang="zh">不是又一个工具，<br><em>是它们之上的一层。</em></span>
+              </h2>
+              <p class="story__lede reveal reveal--2">
+                <span lang="en">The infrastructure layer — Langfuse, LangSmith, Phoenix, Datadog — is being commoditized fast. We don't compete there. ZERORE sits one layer up: a workflow / operating layer that turns raw traces into prioritized failures, regression assets, and a shared quality language across PM, Engineering, and Ops.</span>
+                <span lang="zh">基础设施层——Langfuse、LangSmith、Phoenix、Datadog——正在被快速商品化。我们不在这里竞争。ZERORE 站在它们之上：一个 workflow / operating layer，把原始 trace 转化为有优先级的失败、回归资产，以及 PM、工程、运营之间共同的质量语言。</span>
+              </p>
+              <a class="story__link reveal" href="products.html">
+                <span lang="en">EXPLORE PRODUCTS</span>
+                <span lang="zh">查看产品</span>
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+
+            <!-- Stack diagram -->
+            <div class="stack reveal reveal--1">
+              <div class="stack__row stack__row--muted">
+                <div>
+                  <span class="stack__label">L0 · RUNTIME</span>
+                  <span class="stack__name"><span lang="en">Production Agent</span><span lang="zh">生产环境 Agent</span></span>
+                </div>
+                <span class="stack__tag">OpenTelemetry</span>
+              </div>
+              <span class="stack__connector" aria-hidden="true"></span>
+              <div class="stack__row stack__row--muted">
+                <div>
+                  <span class="stack__label">L1 · TRACING</span>
+                  <span class="stack__name">Langfuse · LangSmith · Phoenix</span>
+                </div>
+                <span class="stack__tag"><span lang="en">commoditizing</span><span lang="zh">商品化中</span></span>
+              </div>
+              <span class="stack__connector" aria-hidden="true"></span>
+              <div class="stack__row stack__row--zerore">
+                <div>
+                  <span class="stack__label">L2 · QUALITY OS</span>
+                  <span class="stack__name">ZERORE</span>
+                </div>
+                <span class="stack__tag"><span lang="en">we are here</span><span lang="zh">我们在这里</span></span>
+              </div>
+              <span class="stack__connector" aria-hidden="true"></span>
+              <div class="stack__row stack__row--muted">
+                <div>
+                  <span class="stack__label">L3 · TEAMS</span>
+                  <span class="stack__name"><span lang="en">PM · Engineering · Ops</span><span lang="zh">产品 · 工程 · 运营</span></span>
+                </div>
+                <span class="stack__tag"><span lang="en">decisions</span><span lang="zh">决策</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════  § 03 · FOUR LAYERS  ════════════ -->
+      <section class="story story--ink" id="layers">
+        <div class="shell">
+          <p class="story__rail reveal">
+            <span lang="en">§ 03 · WHAT WE BUILD</span>
+            <span lang="zh">§ 03 · 我们在构建</span>
+          </p>
+          <h2 class="story__title reveal reveal--1" data-warp>
+            <span lang="en">Four layers. <em>One closed loop.</em></span>
+            <span lang="zh">四层能力，<em>一个闭环。</em></span>
+          </h2>
+          <p class="story__lede reveal reveal--2">
+            <span lang="en">From production sessions to product decisions — every layer turns information into action that the next iteration can use.</span>
+            <span lang="zh">从真实生产会话到产品决策——每一层都把信息转化为下一次迭代可使用的行动。</span>
+          </p>
+
+          <div class="layers-grid reveal reveal--1">
+            <div class="layer-block">
+              <span class="layer-block__num">01</span>
+              <span class="layer-block__sub"><span lang="en">Collect</span><span lang="zh">采集</span></span>
+              <h3 class="layer-block__title">
+                <span lang="en">Sessions, structured</span>
+                <span lang="zh">会话结构化</span>
+              </h3>
+              <p class="layer-block__body">
+                <span lang="en">Trace ingestion, tool-call normalization, user/agent turn alignment, drop &amp; retry &amp; escalation events — all on OpenTelemetry, no lock-in.</span>
+                <span lang="zh">trace 摄取、工具调用归一化、用户/Agent 轮次对齐，drop / retry / escalation 事件——基于 OpenTelemetry，无锁定。</span>
+              </p>
+            </div>
+            <div class="layer-block">
+              <span class="layer-block__num">02</span>
+              <span class="layer-block__sub"><span lang="en">Discover</span><span lang="zh">发现</span></span>
+              <h3 class="layer-block__title">
+                <span lang="en">Failure patterns, ranked</span>
+                <span lang="zh">失败模式排序</span>
+              </h3>
+              <p class="layer-block__body">
+                <span lang="en">Auto-clustering of recurring failures, drop-off detection, tool misuse, plan rupture, memory drift — surfacing the worst, not the random.</span>
+                <span lang="zh">自动聚类反复出现的失败、流失点识别、工具误用、计划断裂、记忆漂移——浮现最值得修的，而不是随机抽样。</span>
+              </p>
+            </div>
+            <div class="layer-block">
+              <span class="layer-block__num">03</span>
+              <span class="layer-block__sub"><span lang="en">Reflow</span><span lang="zh">回流</span></span>
+              <h3 class="layer-block__title">
+                <span lang="en">Production → eval, automatic</span>
+                <span lang="zh">线上自动转评测</span>
+              </h3>
+              <p class="layer-block__body">
+                <span lang="en">Production traces become eval candidates, regression sets, and version-comparable benchmarks. Every fix is verifiable. Every release improves.</span>
+                <span lang="zh">生产 trace 自动生成评测样本、回归集、版本可对比基准。每次修复都可验证，每次发版都在变好。</span>
+              </p>
+            </div>
+            <div class="layer-block">
+              <span class="layer-block__num">04</span>
+              <span class="layer-block__sub"><span lang="en">Decide</span><span lang="zh">决策</span></span>
+              <h3 class="layer-block__title">
+                <span lang="en">A shared quality language</span>
+                <span lang="zh">共同的质量语言</span>
+              </h3>
+              <p class="layer-block__body">
+                <span lang="en">Translate technical failures into "what broke, why, who's affected, fix priority." PM, Eng, and Ops finally argue about the same thing.</span>
+                <span lang="zh">把技术失败翻译为"哪里坏、为什么、影响谁、先修哪个"。PM、工程、运营终于在讨论同一件事。</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════  § 04 · STANDARDS, NOT TOOLS  ════════════ -->
+      <section class="story story--alt" id="standard">
+        <div class="shell">
+          <p class="story__rail reveal">
+            <span lang="en">§ 04 · STANDARDS, NOT TOOLS</span>
+            <span lang="zh">§ 04 · 做标准，不做工具</span>
+          </p>
+          <h2 class="story__title reveal reveal--1" data-warp>
+            <span lang="en">Tools get replaced.<br><em>Standards don't.</em></span>
+            <span lang="zh">工具会被替换，<br><em>标准不会。</em></span>
+          </h2>
+          <p class="story__lede reveal reveal--2">
+            <span lang="en">Every category has a name that becomes the answer. The credit industry says FICO. The auto industry says J.D. Power. Fine dining says Michelin. Agent quality is still waiting for its.</span>
+            <span lang="zh">每一个行业，最终都会出现那个"代表答案"的名字。信用业是 FICO，汽车业是 J.D. Power，餐饮业是 Michelin。Agent 质量这个领域，还在等它的那一个。</span>
+          </p>
+
+          <div class="standards-row">
+            <div class="standard-card reveal">
+              <h3 class="standard-card__name">FICO</h3>
+              <span class="standard-card__domain"><span lang="en">Credit · since 1989</span><span lang="zh">信用 · 1989</span></span>
+              <p class="standard-card__line">
+                <span lang="en">Defined what "creditworthy" means. 90% of US lending decisions cite it.</span>
+                <span lang="zh">定义了什么叫"信用合格"。美国 90% 的贷款决策引用它。</span>
+              </p>
+            </div>
+            <div class="standard-card reveal reveal--1">
+              <h3 class="standard-card__name">J.D. Power</h3>
+              <span class="standard-card__domain"><span lang="en">Automotive · since 1968</span><span lang="zh">汽车 · 1968</span></span>
+              <p class="standard-card__line">
+                <span lang="en">Auto brands quote J.D. Power rankings in their own ads. Standards become marketing.</span>
+                <span lang="zh">汽车厂商在自家广告里主动报 J.D. Power 排名。标准本身成了营销。</span>
+              </p>
+            </div>
+            <div class="standard-card reveal reveal--2">
+              <h3 class="standard-card__name">Michelin</h3>
+              <span class="standard-card__domain"><span lang="en">Fine dining · since 1900</span><span lang="zh">餐饮 · 1900</span></span>
+              <p class="standard-card__line">
+                <span lang="en">A tire company that defined restaurant quality. Restaurants compete for its stars.</span>
+                <span lang="zh">一家轮胎公司定义了餐厅的质量。餐厅反过来争取它的星。</span>
+              </p>
+            </div>
+            <div class="standard-card standard-card--us reveal reveal--3">
+              <h3 class="standard-card__name">ZERORE</h3>
+              <span class="standard-card__domain"><span lang="en">Agent quality · 2026</span><span lang="zh">Agent 质量 · 2026</span></span>
+              <p class="standard-card__line">
+                <span lang="en">Defining what "Agent quality" means — before anyone else gets to.</span>
+                <span lang="zh">在任何人之前，定义什么叫"Agent 质量合格"。</span>
+              </p>
+            </div>
+          </div>
+
+          <p class="standards-tagline reveal">
+            <span lang="en">Whoever defines the language, <em>owns the conversation.</em></span>
+            <span lang="zh">谁定义了语言，<em>谁就拥有对话。</em></span>
+          </p>
+
+          <a class="story__link reveal" href="resources.html">
+            <span lang="en">VIEW THE STANDARDS WE'RE PUBLISHING</span>
+            <span lang="zh">查看我们正在发布的标准</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- ════════════  § 05 · DATA FLYWHEEL  ════════════ -->
+      <section class="story story--ink" id="flywheel">
+        <div class="shell">
+          <p class="story__rail reveal">
+            <span lang="en">§ 05 · WHY THIS COMPOUNDS</span>
+            <span lang="zh">§ 05 · 为什么会复利</span>
+          </p>
+
+          <div class="flywheel-grid">
+            <!-- Visual flywheel -->
+            <div class="flywheel reveal">
+              <svg class="flywheel__svg" viewBox="0 0 400 400" aria-hidden="true">
+                <circle class="glow" cx="200" cy="200" r="170"></circle>
+                <circle class="ring" cx="200" cy="200" r="160"></circle>
+                <circle class="ring" cx="200" cy="200" r="120" style="stroke-dasharray: 2 8; opacity:.4"></circle>
+                <!-- arrows along the ring -->
+                <g fill="none" stroke="rgba(203,255,84,.45)" stroke-width="1.5">
+                  <path d="M 200 40 A 160 160 0 0 1 360 200" />
+                  <path d="M 360 200 A 160 160 0 0 1 200 360" />
+                  <path d="M 200 360 A 160 160 0 0 1 40 200" />
+                  <path d="M 40 200 A 160 160 0 0 1 200 40" />
+                </g>
+              </svg>
+              <!-- Nodes around the circle -->
+              <div class="flywheel__node" style="top:7%; left:50%;">
+                <span class="flywheel__node-dot"></span>
+                <span class="flywheel__node-label"><span lang="en">PRODUCTION SESSIONS</span><span lang="zh">线上会话</span></span>
+              </div>
+              <div class="flywheel__node" style="top:50%; left:93%;">
+                <span class="flywheel__node-dot"></span>
+                <span class="flywheel__node-label"><span lang="en">FAILURE DIAGNOSIS</span><span lang="zh">失败诊断</span></span>
+              </div>
+              <div class="flywheel__node" style="top:93%; left:50%;">
+                <span class="flywheel__node-dot"></span>
+                <span class="flywheel__node-label"><span lang="en">REGRESSION ASSETS</span><span lang="zh">回归资产</span></span>
+              </div>
+              <div class="flywheel__node" style="top:50%; left:7%;">
+                <span class="flywheel__node-dot"></span>
+                <span class="flywheel__node-label"><span lang="en">VERIFIED FIX</span><span lang="zh">验证修复</span></span>
+              </div>
+              <!-- Center -->
+              <div class="flywheel__center">
+                <div class="flywheel__center-num">100×</div>
+                <div class="flywheel__center-label"><span lang="en">customer</span><span lang="zh">客户</span></div>
+              </div>
+            </div>
+
+            <!-- Text -->
+            <div class="flywheel-text">
+              <h3 class="reveal reveal--1">
+                <span lang="en">Our 100<sup>th</sup> customer is <em>more valuable</em> than our 1<sup>st</sup>.</span>
+                <span lang="zh">我们的第 100 个客户，<em>比第 1 个更有价值。</em></span>
+              </h3>
+              <p class="reveal reveal--2">
+                <span lang="en">Every customer integration deposits real ground truth into our system — what "good" looks like for that scenario, what failure modes recur, how user behavior translates to satisfaction. The taxonomy thickens. The benchmarks sharpen. The standard becomes inevitable.</span>
+                <span lang="zh">每一次客户接入，都向系统沉淀真实的 ground truth——这个场景下"好"的样子、反复出现的失败模式、用户行为如何映射到满意度。分类持续加厚，基准持续锐化，标准走向不可逆。</span>
+              </p>
+              <p class="reveal reveal--3">
+                <span lang="en">Functions can be copied. A 12-month head start of real-world failure data <em>cannot.</em></span>
+                <span lang="zh">功能可以被复制。但 12 个月的真实失败数据飞轮，<em>无法被复制。</em></span>
+              </p>
+              <a class="story__link reveal" href="company.html">
+                <span lang="en">MEET THE TEAM BUILDING THIS</span>
+                <span lang="zh">见见正在做这件事的团队</span>
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════  QUICK NAV STRIP  ════════════ -->
+      <section class="quick-nav">
+        <div class="shell">
+          <div class="quick-nav__row reveal">
+            <a href="products.html">
+              <span class="quick-nav__num">01</span>
+              <span class="quick-nav__name"><span lang="en">Products</span><span lang="zh">产品 →</span></span>
+            </a>
+            <a href="industry.html">
+              <span class="quick-nav__num">02</span>
+              <span class="quick-nav__name"><span lang="en">Industry</span><span lang="zh">行业 →</span></span>
+            </a>
+            <a href="services.html">
+              <span class="quick-nav__num">03</span>
+              <span class="quick-nav__name"><span lang="en">Services</span><span lang="zh">服务 →</span></span>
+            </a>
+            <a href="resources.html">
+              <span class="quick-nav__num">04</span>
+              <span class="quick-nav__name"><span lang="en">Resources</span><span lang="zh">资源 →</span></span>
+            </a>
+            <a href="company.html">
+              <span class="quick-nav__num">05</span>
+              <span class="quick-nav__name"><span lang="en">Company</span><span lang="zh">公司 →</span></span>
+            </a>
           </div>
         </div>
       </section>
