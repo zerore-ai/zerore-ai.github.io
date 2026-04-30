@@ -2253,6 +2253,87 @@ html[data-lang="en"] .foot__tag { font-family: var(--font-sans); }
 }
 
 /* ═══════════════════════════════════════════════
+   PAGE-LEVEL HELPERS
+   First section on sub-pages needs to clear fixed nav
+═══════════════════════════════════════════════ */
+.section--page-top {
+  padding-top: calc(var(--nav-h) + 80px) !important;
+}
+
+/* ═══════════════════════════════════════════════
+   HUB GRID  (landing page navigation panel)
+═══════════════════════════════════════════════ */
+.hub {
+  padding: 0 0 100px;
+  background: var(--ink-900);
+}
+.hub__label {
+  margin-bottom: 2.5rem;
+}
+.hub__grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border: 1px solid var(--line-on-dark);
+  border-radius: 18px;
+  overflow: hidden;
+}
+@media (max-width: 1100px) {
+  .hub__grid { grid-template-columns: repeat(3, 1fr); }
+  .hub__card:nth-child(3) { border-right: none; }
+  .hub__card:nth-child(4),
+  .hub__card:nth-child(5) { border-top: 1px solid var(--line-on-dark); }
+}
+@media (max-width: 640px) {
+  .hub__grid { grid-template-columns: 1fr 1fr; }
+  .hub__card:nth-child(2n) { border-right: none; }
+  .hub__card:nth-child(n+3) { border-top: 1px solid var(--line-on-dark); }
+  .hub__card:nth-child(3) { border-right: 1px solid var(--line-on-dark); }
+}
+
+.hub__card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 2rem 1.75rem 1.75rem;
+  border-right: 1px solid var(--line-on-dark);
+  text-decoration: none;
+  color: var(--paper-100);
+  transition: background 200ms var(--ease);
+  min-height: 220px;
+}
+.hub__card:last-child { border-right: none; }
+.hub__card:hover { background: rgba(203,255,84,.05); }
+.hub__card:hover .hub__arrow {
+  color: var(--lime);
+  transform: translate(3px, -3px);
+}
+
+.hub__num {
+  font-family: var(--font-mono);
+  font-size: .64rem;
+  letter-spacing: .12em;
+  color: rgba(246,245,241,.28);
+}
+.hub__name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+}
+.hub__sub {
+  font-size: .82rem;
+  color: var(--mute-on-dark);
+  line-height: 1.6;
+  flex: 1;
+}
+.hub__arrow {
+  font-size: .95rem;
+  color: rgba(246,245,241,.25);
+  transition: color 200ms var(--ease), transform 250ms var(--ease);
+  align-self: flex-start;
+}
+
+/* ═══════════════════════════════════════════════
    INDUSTRY V2  (Tezign-inspired)
    #industry — header + filter tabs + image cards
 ═══════════════════════════════════════════════ */
