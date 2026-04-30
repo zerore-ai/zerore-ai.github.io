@@ -310,103 +310,90 @@
       </section>
 
       <!-- ════════════  INDUSTRY  ════════════ -->
-      <section class="section section--dark" id="industry">
-        <div class="shell section--split">
-          <aside class="section__rail">
-            <span class="rail__i">02</span>
-            <span class="rail__k">
-              <span lang="en">INDUSTRY</span><span lang="zh">行业</span>
-            </span>
-          </aside>
+      <section class="section section--industry" id="industry">
+        <div class="shell">
 
-          <div class="section__body">
-            <header class="section__head section__head--dark">
+          <!-- Header row: rail + headline -->
+          <div class="industry-intro">
+            <aside class="section__rail">
+              <span class="rail__i">02</span>
+              <span class="rail__k">
+                <span lang="en">INDUSTRY</span><span lang="zh">行业</span>
+              </span>
+            </aside>
+            <div class="industry-headline">
               <p class="eyebrow eyebrow--light reveal">
                 <span class="dot"></span>
                 <span lang="en">Who we serve</span>
                 <span lang="zh">我们服务的行业</span>
               </p>
-              <h2 class="section__title section__title--dark section__title--xl reveal reveal--1" data-warp>
-                <span lang="en">
-                  Built for teams<br>
-                  <em>building AI products.</em>
-                </span>
-                <span lang="zh">
-                  为构建 AI 产品的<br>
-                  <em>团队量身而建。</em>
-                </span>
+              <h2 class="industry-headline__title reveal reveal--1" data-warp>
+                <span lang="en">Delivering sustainable AI value<br><em>across every industry.</em></span>
+                <span lang="zh">在不同行业中交付<br><em>可持续的 AI 质量价值。</em></span>
               </h2>
-              <p class="section__lede section__lede--dark reveal reveal--2">
-                <span lang="en">
-                  We focus where quality failures cost the most — AI companionship,
-                  AI education, and regulated enterprise products.
-                </span>
-                <span lang="zh">
-                  我们聚焦质量失效代价最高的三个赛道——AI 陪伴、AI 教培与企业合规产品。
-                </span>
+              <p class="industry-headline__sub reveal reveal--2">
+                <span lang="en">We go deep into companionship, education, and enterprise AI — turning evaluation infrastructure into deterministic quality outcomes in complex, high-stakes scenarios.</span>
+                <span lang="zh">深入 AI 陪伴、AI 教培与政企合规等核心领域，将评测基础设施转化为确定性质量结果，助力在复杂高风险场景中可靠交付。</span>
               </p>
-            </header>
-
-            <div class="industry-grid">
-
-              <!-- Vertical 1: AI Companionship -->
-              <div class="industry-card reveal">
-                <span class="industry-card__accent industry-card__accent--1"></span>
-                <span class="industry-card__tag">VERTICAL · 01</span>
-                <h3 class="industry-card__title">
-                  <span lang="en">AI Companionship</span>
-                  <span lang="zh">AI 陪伴</span>
-                </h3>
-                <p class="industry-card__body">
-                  <span lang="en">Emotional + efficiency AI products. One bad interaction breaks trust permanently. Eval infrastructure is how you stay ahead of failure.</span>
-                  <span lang="zh">情感与效率兼顾的 AI 产品。一次错误交互即可永久损失信任，评测基础设施是保持领先的唯一方式。</span>
-                </p>
-                <ul class="industry-card__list">
-                  <li><span lang="en">Session quality scoring</span><span lang="zh">会话质量评分</span></li>
-                  <li><span lang="en">Tone &amp; safety eval</span><span lang="zh">语气与安全评测</span></li>
-                  <li><span lang="en">Failure pattern detection</span><span lang="zh">失效模式识别</span></li>
-                </ul>
-              </div>
-
-              <!-- Vertical 2: AI Education -->
-              <div class="industry-card reveal reveal--1">
-                <span class="industry-card__accent industry-card__accent--2"></span>
-                <span class="industry-card__tag">VERTICAL · 02</span>
-                <h3 class="industry-card__title">
-                  <span lang="en">AI Education</span>
-                  <span lang="zh">AI 教培</span>
-                </h3>
-                <p class="industry-card__body">
-                  <span lang="en">AI tutors, STEM platforms, certification training. Learner outcomes depend on Agent reliability — we make that measurable.</span>
-                  <span lang="zh">AI 家教、STEAM 平台、认证培训。学习效果依赖 Agent 可靠性——我们让这一点可量化。</span>
-                </p>
-                <ul class="industry-card__list">
-                  <li><span lang="en">Learning outcome alignment</span><span lang="zh">学习成效对齐</span></li>
-                  <li><span lang="en">Curriculum quality audit</span><span lang="zh">课程质量审查</span></li>
-                  <li><span lang="en">Hallucination detection</span><span lang="zh">幻觉检测</span></li>
-                </ul>
-              </div>
-
-              <!-- Vertical 3: Gov & Enterprise -->
-              <div class="industry-card reveal reveal--2">
-                <span class="industry-card__accent industry-card__accent--3"></span>
-                <span class="industry-card__tag">VERTICAL · 03</span>
-                <h3 class="industry-card__title">
-                  <span lang="en">Gov &amp; Enterprise</span>
-                  <span lang="zh">政企合规</span>
-                </h3>
-                <p class="industry-card__body">
-                  <span lang="en">Regulated AI deployments need proof, not promises. Content safety, data-residency, and compliance evidence built in from the start.</span>
-                  <span lang="zh">监管场景的 AI 部署需要证据，不是承诺。内容安全、数据合规与合规举证，从起点就内嵌于系统。</span>
-                </p>
-                <ul class="industry-card__list">
-                  <li><span lang="en">Content safety certification</span><span lang="zh">内容安全认证</span></li>
-                  <li><span lang="en">Data residency compliance</span><span lang="zh">数据合规边界</span></li>
-                  <li><span lang="en">Regulatory alignment reports</span><span lang="zh">监管对齐报告</span></li>
-                </ul>
-              </div>
-
             </div>
+          </div>
+
+          <!-- Filter tabs -->
+          <div class="industry-filter reveal">
+            <button class="industry-filter__btn is-active" data-filter="all" type="button">ALL</button>
+            <button class="industry-filter__btn" data-filter="companionship" type="button">
+              <span lang="en">AI Companionship</span><span lang="zh">AI 陪伴</span>
+            </button>
+            <button class="industry-filter__btn" data-filter="education" type="button">
+              <span lang="en">AI Education</span><span lang="zh">AI 教培</span>
+            </button>
+            <button class="industry-filter__btn" data-filter="enterprise" type="button">
+              <span lang="en">Gov &amp; Enterprise</span><span lang="zh">政企合规</span>
+            </button>
+          </div>
+
+          <!-- Large image cards -->
+          <div class="industry-cards">
+
+            <a class="ind-card reveal" href="industry-companionship.html" data-category="companionship">
+              <div class="ind-card__visual ind-card__visual--companionship" aria-hidden="true"></div>
+              <div class="ind-card__label">
+                <div class="ind-card__text">
+                  <span class="ind-card__en">AI Companionship</span>
+                  <span class="ind-card__zh">AI 陪伴产品</span>
+                </div>
+                <span class="ind-card__cta">
+                  <span lang="en">Explore →</span><span lang="zh">了解更多 →</span>
+                </span>
+              </div>
+            </a>
+
+            <a class="ind-card reveal reveal--1" href="industry-education.html" data-category="education">
+              <div class="ind-card__visual ind-card__visual--education" aria-hidden="true"></div>
+              <div class="ind-card__label">
+                <div class="ind-card__text">
+                  <span class="ind-card__en">AI Education</span>
+                  <span class="ind-card__zh">AI 教培平台</span>
+                </div>
+                <span class="ind-card__cta">
+                  <span lang="en">Explore →</span><span lang="zh">了解更多 →</span>
+                </span>
+              </div>
+            </a>
+
+            <a class="ind-card reveal reveal--2" href="industry-enterprise.html" data-category="enterprise">
+              <div class="ind-card__visual ind-card__visual--enterprise" aria-hidden="true"></div>
+              <div class="ind-card__label">
+                <div class="ind-card__text">
+                  <span class="ind-card__en">Gov &amp; Enterprise</span>
+                  <span class="ind-card__zh">政企合规部署</span>
+                </div>
+                <span class="ind-card__cta">
+                  <span lang="en">Explore →</span><span lang="zh">了解更多 →</span>
+                </span>
+              </div>
+            </a>
+
           </div>
         </div>
       </section>
@@ -1406,6 +1393,24 @@
             foundersRail.addEventListener('pointercancel', stopDrag);
           }
         }
+
+        /* ───────── Industry filter tabs ───────── */
+        var filterBtns = document.querySelectorAll('.industry-filter__btn');
+        var indCards   = document.querySelectorAll('.ind-card');
+        filterBtns.forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            filterBtns.forEach(function (b) { b.classList.remove('is-active'); });
+            btn.classList.add('is-active');
+            var f = btn.dataset.filter;
+            indCards.forEach(function (card) {
+              if (f === 'all' || card.dataset.category === f) {
+                card.classList.remove('is-hidden');
+              } else {
+                card.classList.add('is-hidden');
+              }
+            });
+          });
+        });
 
         /* ───────── Cursor follower ───────── */
         var cursor = document.querySelector('.cursor');
