@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Zeval — Quality Operating System for Agent Teams · ZERORE</title>
+    <meta
+      name="description"
+      content="Zeval is the quality operating system for Agent product teams. Automatically turn production failures into explainable, rankable, recyclable quality assets — closing the loop from real sessions back to offline eval."
+    >
+    <meta name="theme-color" content="#0a0a0b">
+    <meta name="format-detection" content="telephone=no, email=no, address=no">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZERORE">
+    <meta property="og:title" content="Zeval — Quality Operating System for Agent Teams">
+    <meta property="og:description" content="Production failure intelligence for Agent product teams. Sessions → Diagnosis → Regression → Fix verify.">
+    <meta property="og:url" content="https://zerore.ai/zeval.html">
+    <meta property="og:image" content="https://zerore.ai/assets/og-cover.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Zeval — Quality Operating System for Agent Teams">
+    <meta name="twitter:description" content="Production failure intelligence for Agent product teams.">
+    <meta name="twitter:image" content="https://zerore.ai/assets/og-cover.png">
+    <link rel="canonical" href="https://zerore.ai/zeval.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+    >
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="stylesheet" href="styles.css?v=20260429a">
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('zerore-lang');
+          if (stored === 'zh' || stored === 'en') {
+            document.documentElement.setAttribute('data-lang', stored);
+            document.documentElement.setAttribute('lang', stored === 'zh' ? 'zh-CN' : 'en');
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">
+      <span lang="en">Skip to content</span><span lang="zh">跳到正文</span>
+    </a>
+
+    <div class="grain" aria-hidden="true"></div>
+    <div class="cursor" aria-hidden="true"><span></span></div>
+
+    <!-- NAV -->
+    <header class="nav nav--scrolled" id="nav">
+      <a class="nav__brand" href="index.html" aria-label="ZERORE home">
+        <img class="nav__logo" src="assets/logo-full-white.webp?v=20260421b" alt="ZERORE">
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="index.html#culture">
+          <span lang="en">Culture</span><span lang="zh">文化</span>
+        </a>
+        <a href="index.html#projects">
+          <span lang="en">Projects</span><span lang="zh">项目</span>
+        </a>
+        <a href="index.html#team">
+          <span lang="en">Team</span><span lang="zh">团队</span>
+        </a>
+        <a href="index.html#join">
+          <span lang="en">Join</span><span lang="zh">加入</span>
+        </a>
+      </nav>
+      <div class="nav__right">
+        <button
+          type="button"
+          class="lang"
+          id="langToggle"
+          aria-label="Toggle language / 切换语言"
+          aria-live="polite"
+        >
+          <span class="lang__slot" data-lang-label="en">EN</span>
+          <span class="lang__sep">/</span>
+          <span class="lang__slot" data-lang-label="zh">中</span>
+        </button>
+        <a class="nav__cta" href="mailto:roger@zerore.ai?subject=Zeval%20%E2%80%94%20Let%27s%20talk">
+          <span lang="en">Let's talk</span><span lang="zh">聊聊合作</span>
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </header>
+
+    <main id="main">
+
+      <!-- ════════════  HERO  ════════════ -->
+      <section class="product-hero">
+        <div class="product-hero__bg" aria-hidden="true">
+          <span class="aurora aurora--a"></span>
+          <span class="aurora aurora--b"></span>
+        </div>
+
+        <div class="shell product-hero__inner">
+          <div class="product-hero__crumbs">
+            <a href="index.html">ZERORE</a><span>/</span>
+            <a href="index.html#projects"><span lang="en">Projects</span><span lang="zh">项目</span></a><span>/</span>
+            <span>Zeval</span>
+          </div>
+          <span class="product-hero__tag">FLAGSHIP · 01</span>
+          <h1 class="product-hero__title" data-warp>
+            <span class="accent">Zeval</span>
+          </h1>
+          <p class="product-hero__sub">
+            <span lang="en">
+              The quality operating system for Agent product teams.
+              <em>Production failure intelligence</em>, automatically turned into explainable assets.
+            </span>
+            <span lang="zh">
+              Agent 产品团队的质量操作系统。
+              <em>把生产失败模式</em>，自动转化为可解释、可排序、可回流的质量资产。
+            </span>
+          </p>
+          <div class="product-hero__meta">
+            <div>
+              <span lang="en">Layer</span><span lang="zh">所处层级</span>
+              <strong>Workflow / Operating</strong>
+            </div>
+            <div>
+              <span lang="en">Stage</span><span lang="zh">阶段</span>
+              <strong><span lang="en">Early access</span><span lang="zh">早期共建</span></strong>
+            </div>
+            <div>
+              <span lang="en">For</span><span lang="zh">面向</span>
+              <strong><span lang="en">Agent product teams</span><span lang="zh">Agent 产品团队</span></strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════  OVERVIEW  ════════════ -->
+      <section class="section section--ink">
+        <div class="shell section--split">
+          <aside class="section__rail">
+            <span class="rail__i">01</span>
+            <span class="rail__k">
+              <span lang="en">OVERVIEW</span><span lang="zh">概览</span>
+            </span>
+          </aside>
+
+          <div class="section__body">
+            <header class="section__head section__head--dark">
+              <p class="eyebrow eyebrow--light reveal">
+                <span class="dot"></span>
+                <span lang="en">Why Zeval</span>
+                <span lang="zh">为什么是 Zeval</span>
+              </p>
+              <h2 class="section__title section__title--dark section__title--xl reveal reveal--1" data-warp>
+                <span lang="en">
+                  Existing tools tell you<br>
+                  <em>whether the system is up.</em>
+                </span>
+                <span lang="zh">
+                  现有工具只告诉你<br>
+                  <em>系统有没有挂。</em>
+                </span>
+              </h2>
+              <p class="section__lede section__lede--dark reveal reveal--2">
+                <span lang="en">
+                  Agent products are deploying at scale, but their failure modes are structurally
+                  different from traditional software — APIs return 200 while tools fire at the
+                  wrong moment and context silently disappears. Zeval sits at the workflow /
+                  operating layer, automatically turning failure patterns in real production
+                  sessions into <strong>explainable, rankable, recyclable quality assets.</strong>
+                </span>
+                <span lang="zh">
+                  Agent 产品正在大规模落地，但它的失败方式和传统软件根本不同 ——
+                  接口返回 200，但工具用错时机、上下文悄悄丢失。
+                  Zeval 站在 Workflow / Operating Layer，把真实生产会话中的 failure pattern
+                  <strong>自动转成</strong> 可解释、可排序、可回流的质量资产。
+                </span>
+              </p>
+            </header>
+
+            <!-- Four-layer capability -->
+            <div class="layers">
+              <article class="layer reveal">
+                <div class="layer__index">
+                  <span class="layer__num">01</span>
+                  <span class="layer__pulse" aria-hidden="true"></span>
+                </div>
+                <h4>
+                  <span lang="en">Ingest &amp; Normalize</span>
+                  <span lang="zh">采集与结构化层</span>
+                </h4>
+                <p class="layer__en">
+                  <span lang="en">Sessions → unified event stream</span>
+                  <span lang="zh">Ingest &amp; Normalize</span>
+                </p>
+                <p>
+                  <span lang="en">
+                    Turn real sessions, trajectories, tool calls, and session metadata into a
+                    unified event stream. Session / trace ingestion, tool-call normalization,
+                    user / agent turn alignment, outcome / drop / escalation labeling.
+                  </span>
+                  <span lang="zh">
+                    把真实会话、轨迹、tool call、session metadata 变成统一事件流。Session/trace ingestion、
+                    tool call normalization、user/agent turn 对齐、outcome / drop / escalation 事件标签。
+                  </span>
+                </p>
+              </article>
+
+              <article class="layer reveal reveal--1">
+                <div class="layer__index">
+                  <span class="layer__num">02</span>
+                  <span class="layer__pulse" aria-hidden="true"></span>
+                </div>
+                <h4>
+                  <span lang="en">Failure Discovery</span>
+                  <span lang="zh">问题发现层</span>
+                </h4>
+                <p class="layer__en">
+                  <span lang="en">From logs to failure patterns</span>
+                  <span lang="zh">Failure Discovery</span>
+                </p>
+                <p>
+                  <span lang="en">
+                    Not a log viewer — an automated failure-pattern surface. Failure clustering,
+                    recurring-issue detection, session-level anomalies, drop-off point recognition,
+                    tool misuse / plan breakage / memory drift classification.
+                  </span>
+                  <span lang="zh">
+                    不是展示日志，而是自动发现 failure patterns。Failure clustering、recurring issue detection、
+                    session 级异常、drop-off point 识别、工具误用 / 计划断裂 / 记忆漂移分类。
+                  </span>
+                </p>
+              </article>
+
+              <article class="layer reveal reveal--2">
+                <div class="layer__index">
+                  <span class="layer__num">03</span>
+                  <span class="layer__pulse" aria-hidden="true"></span>
+                </div>
+                <h4>
+                  <span lang="en">Production → Eval</span>
+                  <span lang="zh">评测回流层</span>
+                </h4>
+                <p class="layer__en">
+                  <span lang="en">Failures become regression sets</span>
+                  <span lang="zh">Production → Eval</span>
+                </p>
+                <p>
+                  <span lang="en">
+                    Convert failures into continuously validated assets. Auto-generate eval
+                    candidates from production traces, manage golden / regression sets, version
+                    diffing, fix-verification workflows.
+                  </span>
+                  <span lang="zh">
+                    让问题变成可持续验证的资产。从 production traces 自动生成 eval candidates、
+                    golden set / regression set 管理、版本间对比、fix 验证 workflow。
+                  </span>
+                </p>
+              </article>
+
+              <article class="layer reveal reveal--3">
+                <div class="layer__index">
+                  <span class="layer__num">04</span>
+                  <span class="layer__pulse" aria-hidden="true"></span>
+                </div>
+                <h4>
+                  <span lang="en">Decision Layer</span>
+                  <span lang="zh">决策层</span>
+                </h4>
+                <p class="layer__en">
+                  <span lang="en">Readable for PMs and founders</span>
+                  <span lang="zh">Decision Layer</span>
+                </p>
+                <p>
+                  <span lang="en">
+                    Make failure readable for PMs, ops, and founders. Where is it dropping,
+                    why, who's affected, what to fix first — translating technical errors
+                    into product language tied to business outcomes.
+                  </span>
+                  <span lang="zh">
+                    让 PM、运营、创始人看得懂、能行动。哪里掉、为什么掉、影响谁、先修哪个 ——
+                    把技术错误翻译为产品语言，连接业务指标。
+                  </span>
+                </p>
+              </article>
+            </div>
+
+            <!-- Loop visual + stats -->
+            <div class="zeval__showcase">
+              <div class="loop reveal">
+                <div class="loop__ring" aria-hidden="true">
+                  <svg viewBox="0 0 400 400">
+                    <defs>
+                      <linearGradient id="grad-ring" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#cbff54" stop-opacity="0.85"/>
+                        <stop offset="100%" stop-color="#cbff54" stop-opacity="0.1"/>
+                      </linearGradient>
+                    </defs>
+                    <circle cx="200" cy="200" r="170" fill="none" stroke="url(#grad-ring)" stroke-width="1.2" stroke-dasharray="2 6"/>
+                    <circle cx="200" cy="200" r="120" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+                    <circle cx="200" cy="200" r="70"  fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                    <circle cx="200" cy="30" r="4" fill="#cbff54"/>
+                    <circle cx="370" cy="200" r="4" fill="#cbff54" opacity="0.7"/>
+                    <circle cx="200" cy="370" r="4" fill="#cbff54" opacity="0.45"/>
+                    <circle cx="30" cy="200" r="4" fill="#cbff54" opacity="0.3"/>
+                  </svg>
+                </div>
+                <div class="loop__nodes">
+                  <span class="loop__node loop__node--n" data-step="01">Production</span>
+                  <span class="loop__node loop__node--e" data-step="02">Diagnosis</span>
+                  <span class="loop__node loop__node--s" data-step="03">Regression</span>
+                  <span class="loop__node loop__node--w" data-step="04">Fix verify</span>
+                </div>
+                <div class="loop__core">
+                  <span class="loop__core-k">Data Flywheel</span>
+                  <span class="loop__core-v">
+                    <span lang="en">Self-compounding</span>
+                    <span lang="zh">越跑越准</span>
+                  </span>
+                </div>
+              </div>
+
+              <div class="stats">
+                <article class="stat reveal">
+                  <span class="stat__n">4×</span>
+                  <span class="stat__l">
+                    <span lang="en">Four-layer architecture<br>Ingest → Discovery → Eval Loop → Decision</span>
+                    <span lang="zh">四层能力架构<br>Ingest → Discovery → Eval Loop → Decision</span>
+                  </span>
+                </article>
+                <article class="stat reveal reveal--1">
+                  <span class="stat__n">100<em>th</em></span>
+                  <span class="stat__l">
+                    <span lang="en">The 100th customer<br>more valuable than the 1st — network effect</span>
+                    <span lang="zh">第 100 个客户<br>比第 1 个更有价值的网络效应</span>
+                  </span>
+                </article>
+                <article class="stat reveal reveal--2">
+                  <span class="stat__n">57<em>%</em></span>
+                  <span class="stat__l">
+                    <span lang="en">of enterprises have deployed Agents<br>Quality is the biggest deployment blocker</span>
+                    <span lang="zh">已部署 Agent 的企业比例<br>质量不可控 = 最大部署障碍</span>
+                  </span>
+                </article>
+                <article class="stat reveal reveal--3">
+                  <span class="stat__n">∞</span>
+                  <span class="stat__l">
+                    <span lang="en">Data flywheel<br>Production failure feeds offline eval</span>
+                    <span lang="zh">数据飞轮<br>线上失败自动反哺离线评测</span>
+                  </span>
+                </article>
+              </div>
+            </div>
+
+            <!-- Narrative thesis -->
+            <div class="thesis">
+              <h4 class="thesis__title reveal">
+                <span lang="en">Four core theses</span>
+                <span lang="zh">我们最核心的四个判断</span>
+              </h4>
+              <div class="thesis__grid">
+                <article class="thesis__card reveal">
+                  <span class="thesis__i">01</span>
+                  <p>
+                    <span lang="en">
+                      Today's tools sit in the infra layer and are being commoditized by hyperscalers.
+                      The real moat lives upstream — in the workflow &amp; operating layer.
+                    </span>
+                    <span lang="zh">
+                      现有工具在 infra 层，正在被大厂商品化。真正值钱的护城河在上游 —— Workflow &amp; Operating Layer。
+                    </span>
+                  </p>
+                </article>
+                <article class="thesis__card reveal reveal--1">
+                  <span class="thesis__i">02</span>
+                  <p>
+                    <span lang="en">
+                      Tools win on features; standards win on first-mover, data, and ecosystem trust.
+                      We build the industry's vocabulary, not a product feature.
+                    </span>
+                    <span lang="zh">
+                      工具靠功能赢，标准靠先发 + 数据 + 生态认可赢。我们要做的是行业语言，不是产品功能。
+                    </span>
+                  </p>
+                </article>
+                <article class="thesis__card reveal reveal--2">
+                  <span class="thesis__i">03</span>
+                  <p>
+                    <span lang="en">
+                      Agent failure modes are structurally different from traditional software —
+                      APIs return 200, but tools fire at the wrong moment, context silently disappears.
+                    </span>
+                    <span lang="zh">
+                      Agent 的失败方式和传统软件根本不同 —— 接口返回 200，但工具用错时机、上下文悄悄丢失。
+                    </span>
+                  </p>
+                </article>
+                <article class="thesis__card reveal reveal--3">
+                  <span class="thesis__i">04</span>
+                  <p>
+                    <span lang="en">
+                      Production data that doesn't recycle into iteration assets is the biggest
+                      systemic waste across every Agent product shipping today.
+                    </span>
+                    <span lang="zh">
+                      线上真实数据没有回流为迭代资产，就是所有 Agent 产品迭代最大的系统性浪费。
+                    </span>
+                  </p>
+                </article>
+              </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="fh-cta reveal">
+              <div>
+                <h3>
+                  <span lang="en">Want early access?</span>
+                  <span lang="zh">想要早期接入？</span>
+                </h3>
+                <p>
+                  <span lang="en">
+                    We're working with a small group of Agent product teams to harden the
+                    Production → Eval loop in real environments. Write to Roger directly.
+                  </span>
+                  <span lang="zh">
+                    我们正在和一小批 Agent 产品团队一起，在真实场景里打磨 Production → Eval 闭环。
+                    直接写信给 Roger。
+                  </span>
+                </p>
+              </div>
+              <a class="btn btn--primary btn--lg" href="mailto:roger@zerore.ai?subject=Zeval%20%E2%80%94%20Early%20access">
+                <span lang="en">Apply for early access</span>
+                <span lang="zh">申请早期接入</span>
+                <span class="btn__arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════  FOOTER  ════════════ -->
+      <footer class="foot">
+        <div class="shell foot__shell">
+          <div class="foot__brand">
+            <img class="foot__logo" src="assets/logo-full-white.webp?v=20260421b" alt="ZERORE">
+          </div>
+          <p class="foot__tag">
+            <span lang="en">Defining the quality standard of the Agent era.</span>
+            <span lang="zh">定义 Agent 时代的质量标准。</span>
+          </p>
+          <ul class="foot__links">
+            <li><a href="index.html#culture">
+              <span lang="en">Culture</span><span lang="zh">文化</span>
+            </a></li>
+            <li><a href="index.html#projects">
+              <span lang="en">Projects</span><span lang="zh">项目</span>
+            </a></li>
+            <li><a href="index.html#team">
+              <span lang="en">Team</span><span lang="zh">团队</span>
+            </a></li>
+            <li><a href="index.html#join">
+              <span lang="en">Join</span><span lang="zh">加入</span>
+            </a></li>
+            <li><a href="mailto:roger@zerore.ai">Email</a></li>
+          </ul>
+          <p class="foot__copy">© 2026 ZERORE · 零度重构 · All rights reserved.</p>
+        </div>
+      </footer>
+    </main>
+
+    <script>
+      (function () {
+        var html = document.documentElement;
+
+        var toggle = document.getElementById('langToggle');
+        function applyLang(lang) {
+          html.setAttribute('data-lang', lang);
+          html.setAttribute('lang', lang === 'zh' ? 'zh-CN' : 'en');
+          if (toggle) {
+            toggle.querySelectorAll('[data-lang-label]').forEach(function (el) {
+              el.classList.toggle('is-active', el.dataset.langLabel === lang);
+            });
+          }
+          try { localStorage.setItem('zerore-lang', lang); } catch (e) {}
+        }
+        var initial = html.getAttribute('data-lang') || 'en';
+        applyLang(initial);
+        if (toggle) {
+          toggle.addEventListener('click', function () {
+            applyLang(html.getAttribute('data-lang') === 'zh' ? 'en' : 'zh');
+          });
+        }
+
+        document.body.classList.add('is-loaded', 'is-settled');
+
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) {
+              e.target.classList.add('is-visible');
+              io.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.14, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+
+        var auroras = document.querySelectorAll('.aurora');
+        window.addEventListener('scroll', function () {
+          var y = window.scrollY;
+          auroras.forEach(function (a, i) {
+            a.style.transform = 'translate3d(0,' + (y * 0.06 * (i % 2 ? -1 : 1)) + 'px,0)';
+          });
+        }, { passive: true });
+
+        var cursor = document.querySelector('.cursor');
+        if (cursor && matchMedia('(pointer: fine)').matches) {
+          var cx = 0, cy = 0, tx = 0, ty = 0, raf;
+          function loop() {
+            cx += (tx - cx) * 0.18;
+            cy += (ty - cy) * 0.18;
+            cursor.style.transform = 'translate3d(' + cx + 'px,' + cy + 'px,0)';
+            raf = requestAnimationFrame(loop);
+          }
+          window.addEventListener('pointermove', function (e) {
+            tx = e.clientX; ty = e.clientY;
+            if (!raf) loop();
+            cursor.classList.add('is-active');
+          });
+          window.addEventListener('pointerleave', function () {
+            cursor.classList.remove('is-active');
+          });
+          document.querySelectorAll('a,button,.layer,.thesis__card,.stat')
+            .forEach(function (el) {
+              el.addEventListener('pointerenter', function () { cursor.classList.add('is-hover'); });
+              el.addEventListener('pointerleave', function () { cursor.classList.remove('is-hover'); });
+            });
+        }
+      })();
+    </script>
+  </body>
+</html>

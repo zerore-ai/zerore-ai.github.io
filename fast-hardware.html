@@ -1,0 +1,1180 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Fast Hardware — AI-assisted Circuit Design Tool · ZERORE</title>
+    <meta
+      name="description"
+      content="Fast Hardware is an AI-assisted circuit design tool — a hardware reader for makers, students and DIY enthusiasts. Electron desktop app, offline-capable, with Skill modules and Human-in-the-Loop design flow."
+    >
+    <meta name="theme-color" content="#0a0a0b">
+    <meta name="format-detection" content="telephone=no, email=no, address=no">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZERORE">
+    <meta property="og:title" content="Fast Hardware — AI-assisted Circuit Design Tool">
+    <meta property="og:description" content="The hardware reader for makers. Don't draw — read hardware.">
+    <meta property="og:url" content="https://zerore.ai/fast-hardware.html">
+    <meta property="og:image" content="https://zerore.ai/assets/og-cover.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Fast Hardware — AI-assisted Circuit Design Tool">
+    <meta name="twitter:description" content="The hardware reader for makers. Don't draw — read hardware.">
+    <meta name="twitter:image" content="https://zerore.ai/assets/og-cover.png">
+    <link rel="canonical" href="https://zerore.ai/fast-hardware.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+    >
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="stylesheet" href="styles.css?v=20260429a">
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('zerore-lang');
+          if (stored === 'zh' || stored === 'en') {
+            document.documentElement.setAttribute('data-lang', stored);
+            document.documentElement.setAttribute('lang', stored === 'zh' ? 'zh-CN' : 'en');
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">
+      <span lang="en">Skip to content</span><span lang="zh">跳到正文</span>
+    </a>
+
+    <div class="grain" aria-hidden="true"></div>
+    <div class="cursor" aria-hidden="true"><span></span></div>
+
+    <!-- NAV -->
+    <header class="nav nav--scrolled" id="nav">
+      <a class="nav__brand" href="index.html" aria-label="ZERORE home">
+        <img class="nav__logo" src="assets/logo-full-white.webp?v=20260421b" alt="ZERORE">
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="index.html#culture">
+          <span lang="en">Culture</span><span lang="zh">文化</span>
+        </a>
+        <a href="index.html#projects">
+          <span lang="en">Projects</span><span lang="zh">项目</span>
+        </a>
+        <a href="index.html#team">
+          <span lang="en">Team</span><span lang="zh">团队</span>
+        </a>
+        <a href="index.html#join">
+          <span lang="en">Join</span><span lang="zh">加入</span>
+        </a>
+      </nav>
+      <div class="nav__right">
+        <button
+          type="button"
+          class="lang"
+          id="langToggle"
+          aria-label="Toggle language / 切换语言"
+          aria-live="polite"
+        >
+          <span class="lang__slot" data-lang-label="en">EN</span>
+          <span class="lang__sep">/</span>
+          <span class="lang__slot" data-lang-label="zh">中</span>
+        </button>
+        <a class="nav__cta" href="https://github.com/Designer-Awei/fast-hardware" target="_blank" rel="noopener">
+          <span lang="en">GitHub</span><span lang="zh">GitHub</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </header>
+
+    <main id="main">
+
+      <!-- ════════════  HERO  ════════════ -->
+      <section class="product-hero">
+        <div class="product-hero__bg" aria-hidden="true">
+          <span class="aurora aurora--a"></span>
+          <span class="aurora aurora--c"></span>
+        </div>
+
+        <div class="shell product-hero__inner">
+          <div class="product-hero__crumbs">
+            <a href="index.html">ZERORE</a><span>/</span>
+            <a href="index.html#projects"><span lang="en">Projects</span><span lang="zh">项目</span></a><span>/</span>
+            <span>Fast Hardware</span>
+          </div>
+          <span class="product-hero__tag">PRODUCT · 02 · v0.2.8</span>
+          <h1 class="product-hero__title" data-warp>
+            <span class="accent">Fast&nbsp;Hardware</span>
+          </h1>
+          <p class="product-hero__sub">
+            <span lang="en">
+              An AI-assisted circuit design tool for new makers, electronics hobbyists and
+              non-major students. <em>Don't draw — read hardware.</em>
+            </span>
+            <span lang="zh">
+              面向新手创客、电子爱好者与非科班学生的 AI 辅助电路设计工具。
+              <em>别画了，来读读硬件。</em>
+            </span>
+          </p>
+          <div class="product-hero__meta">
+            <div>
+              <span lang="en">Version</span><span lang="zh">版本</span>
+              <strong>v0.2.8 · 2026.04</strong>
+            </div>
+            <div>
+              <span lang="en">Architecture</span><span lang="zh">架构</span>
+              <strong>Electron 27 · Offline-capable</strong>
+            </div>
+            <div>
+              <span lang="en">For</span><span lang="zh">面向</span>
+              <strong><span lang="en">Makers · Students · STEAM educators</span><span lang="zh">创客 · 学生 · 科创教师</span></strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════  OVERVIEW + BACKGROUND  ════════════ -->
+      <section class="section section--ink">
+        <div class="shell section--split">
+          <aside class="section__rail">
+            <span class="rail__i">01</span>
+            <span class="rail__k">
+              <span lang="en">OVERVIEW</span><span lang="zh">产品概述</span>
+            </span>
+          </aside>
+
+          <div class="section__body">
+            <header class="section__head section__head--dark">
+              <p class="eyebrow eyebrow--light reveal">
+                <span class="dot"></span>
+                <span lang="en">What it is</span>
+                <span lang="zh">是什么</span>
+              </p>
+              <h2 class="section__title section__title--dark section__title--xl reveal reveal--1" data-warp>
+                <span lang="en">
+                  Not another EDA.<br>
+                  <em>A hardware reader.</em>
+                </span>
+                <span lang="zh">
+                  不是又一个 EDA，<br>
+                  <em>是一台硬件阅读器。</em>
+                </span>
+              </h2>
+              <p class="section__lede section__lede--dark reveal reveal--2">
+                <span lang="en">
+                  Fast Hardware breaks the high-barrier, operation-heavy ceiling of traditional EDA
+                  tools. Pioneering the "hardware reader" positioning, it uses LLMs as a
+                  cognitive translator — turning abstract electrical parameters and netlists
+                  into natural-language explanations and visual analogies. Built on Electron, it
+                  runs offline, loads Skill modules on demand, and ships with a Human-in-the-Loop
+                  design flow. More than a tool — a maker ecosystem of <strong>learn, design,
+                  share, iterate.</strong>
+                </span>
+                <span lang="zh">
+                  Fast Hardware 打破了传统 EDA 软件「高门槛、重操作」的局限，首创「硬件阅读器」定位，
+                  利用 AI 大模型充当认知翻译官，将抽象的电气参数、网表逻辑转化为自然语言解释与可视化类比。
+                  Electron 桌面架构，支持离线可用、按需加载 Skill 模块与 Human-in-the-Loop 协同设计流。
+                  不仅是设计工具，更是一个集「学习、设计、分享、迭代」于一体的硬件创客生态平台。
+                </span>
+              </p>
+            </header>
+
+            <!-- Background -->
+            <div class="fh-grid-3" style="margin-bottom: 56px;">
+              <article class="fh-card reveal">
+                <span class="fh-card__num">01</span>
+                <h3 class="fh-card__title">
+                  <span lang="en">A widening tool gap</span>
+                  <span lang="zh">创客教育爆发与工具代差</span>
+                </h3>
+                <p>
+                  <span lang="en">
+                    With STEAM education and the maker movement going mainstream, hardware design
+                    is moving from "for engineers" to "for everyone." But while AI penetration in
+                    software / content already exceeds 60%, hardware design is still under 5% —
+                    a massive tool gap.
+                  </span>
+                  <span lang="zh">
+                    随着 STEAM 教育与创客运动普及，硬件设计从「工程师专属」走向「大众创作」。
+                    但 AI 在软件/内容领域的渗透率已超 60%，硬件设计领域仍不足 5%，存在巨大的「工具代差」。
+                  </span>
+                </p>
+              </article>
+
+              <article class="fh-card reveal reveal--1">
+                <span class="fh-card__num">02</span>
+                <h3 class="fh-card__title">
+                  <span lang="en">Cognitive walls in legacy EDA</span>
+                  <span lang="zh">传统 EDA 的认知壁垒</span>
+                </h3>
+                <p>
+                  <span lang="en">
+                    Altium, LCEDA and friends focus on engineering compliance. Learning curves
+                    span weeks. Non-major users hit dense schematics, netlists and datasheets and
+                    drown in cognitive overload — "I can't read this, I'll wire it wrong, I'll
+                    burn the board."
+                  </span>
+                  <span lang="zh">
+                    Altium、立创 EDA 等专业工具聚焦工程合规性，学习周期长达数周。
+                    非科班用户面对密密麻麻的原理图、网表和 Datasheet 时，往往产生
+                    「看不懂、怕接错、怕烧板」的认知超载与恐惧感。
+                  </span>
+                </p>
+              </article>
+
+              <article class="fh-card reveal reveal--2">
+                <span class="fh-card__num">03</span>
+                <h3 class="fh-card__title">
+                  <span lang="en">LLMs as the catalyst</span>
+                  <span lang="zh">AI 大模型的催化</span>
+                </h3>
+                <p>
+                  <span lang="en">
+                    The rise of LLMs makes "cognitive assistance" possible. Through natural
+                    language interaction, smart recommendation and automated generation, AI can
+                    convert hardware's "operation barrier" into a much lower "understanding
+                    barrier" — letting makers shift from <em>drawing</em> to <em>reading</em>
+                    hardware.
+                  </span>
+                  <span lang="zh">
+                    LLM 的爆发为「认知辅助」提供了可能。通过自然语言交互、智能推荐与自动化生成，
+                    AI 有能力将硬件设计的「操作门槛」转化为「理解门槛」，
+                    让创客从「画图」转向「读懂硬件」。
+                  </span>
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════  USERS + PAIN  ════════════ -->
+      <section class="section section--ink" style="border-top: 1px solid var(--line-on-dark);">
+        <div class="shell section--split">
+          <aside class="section__rail">
+            <span class="rail__i">02</span>
+            <span class="rail__k">
+              <span lang="en">USERS &amp; PAIN</span><span lang="zh">用户与痛点</span>
+            </span>
+          </aside>
+
+          <div class="section__body">
+            <header class="section__head section__head--dark">
+              <p class="eyebrow eyebrow--light reveal">
+                <span class="dot"></span>
+                <span lang="en">Who it's for</span>
+                <span lang="zh">为谁而做</span>
+              </p>
+              <h2 class="section__title section__title--dark section__title--xl reveal reveal--1" data-warp>
+                <span lang="en">
+                  Built for the people<br>
+                  <em>who were locked out of hardware.</em>
+                </span>
+                <span lang="zh">
+                  做给那些<br>
+                  <em>被硬件挡在门外的人。</em>
+                </span>
+              </h2>
+            </header>
+
+            <!-- Persona table -->
+            <table class="fh-table reveal" style="margin-bottom: 64px;">
+              <thead>
+                <tr>
+                  <th><span lang="en">Persona</span><span lang="zh">用户类型</span></th>
+                  <th><span lang="en">Profile</span><span lang="zh">特征</span></th>
+                  <th><span lang="en">Core need</span><span lang="zh">核心诉求</span></th>
+                  <th><span lang="en">Scenario</span><span lang="zh">场景</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="Persona"><strong><span lang="en">University makers</span><span lang="zh">大学生创客</span></strong></td>
+                  <td data-label="Profile">
+                    <span lang="en">EE / automation / CS, 18–25, theory-strong but practice-light</span>
+                    <span lang="zh">电子 / 自动化 / 计算机专业，18–25 岁，有基础理论但缺乏实战经验</span>
+                  </td>
+                  <td data-label="Core need">
+                    <span lang="en">Validate ideas fast, ship coursework / contest builds</span>
+                    <span lang="zh">快速验证方案、完成课程设计 / 电赛</span>
+                  </td>
+                  <td data-label="Scenario">
+                    <span lang="en">Coursework, contests, capstones</span>
+                    <span lang="zh">课程设计、电子竞赛、毕业设计</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td data-label="Persona"><strong><span lang="en">DIY enthusiasts</span><span lang="zh">DIY 爱好者</span></strong></td>
+                  <td data-label="Profile">
+                    <span lang="en">Self-taught, idea-rich, hands-on</span>
+                    <span lang="zh">非科班但有硬件创意，自学能力强，喜欢动手</span>
+                  </td>
+                  <td data-label="Core need">
+                    <span lang="en">Lower the entry barrier, see real builds quickly</span>
+                    <span lang="zh">降低入门门槛、快速看到实物效果</span>
+                  </td>
+                  <td data-label="Scenario">
+                    <span lang="en">Personal projects, smart home mods</span>
+                    <span lang="zh">个人项目、兴趣制作、智能家居改造</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td data-label="Persona"><strong><span lang="en">K-12 STEAM teachers</span><span lang="zh">中小学科创教师</span></strong></td>
+                  <td data-label="Profile">
+                    <span lang="en">IT / general-tech teachers needing classroom-friendly tools</span>
+                    <span lang="zh">信息科技 / 通用技术老师，需要适合教学的简易工具</span>
+                  </td>
+                  <td data-label="Core need">
+                    <span lang="en">Reduce student frustration, standardized teaching cases</span>
+                    <span lang="zh">降低学生挫败感、提供标准化教学案例</span>
+                  </td>
+                  <td data-label="Scenario">
+                    <span lang="en">School curriculum, clubs, science contests</span>
+                    <span lang="zh">校本课程、社团活动、科创比赛辅导</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td data-label="Persona"><strong><span lang="en">Maker spaces / labs</span><span lang="zh">创客空间 / 实验室</span></strong></td>
+                  <td data-label="Profile">
+                    <span lang="en">Universities, training centers, incubators running batch training</span>
+                    <span lang="zh">高校 / 培训机构 / 众创空间，需要批量培训与方案复用</span>
+                  </td>
+                  <td data-label="Core need">
+                    <span lang="en">Lower teaching cost, build internal knowledge assets</span>
+                    <span lang="zh">降低教学成本、建立内部知识资产库</span>
+                  </td>
+                  <td data-label="Scenario">
+                    <span lang="en">Trainee onboarding, project incubation, talks</span>
+                    <span lang="zh">学员培训、项目孵化、技术分享</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <header class="section__head section__head--dark">
+              <p class="eyebrow eyebrow--light reveal">
+                <span class="dot"></span>
+                <span lang="en">Three cognitive loads</span>
+                <span lang="zh">三大认知负荷痛点</span>
+              </p>
+              <h2 class="section__title section__title--dark reveal reveal--1" data-warp>
+                <span lang="en">
+                  <em>Where the cognitive load lives.</em>
+                </span>
+                <span lang="zh">
+                  <em>认知负荷藏在哪里。</em>
+                </span>
+              </h2>
+            </header>
+
+            <div class="fh-grid-3">
+              <article class="fh-card reveal">
+                <span class="fh-card__num">01</span>
+                <p class="fh-card__sub">Intrinsic</p>
+                <h3 class="fh-card__title">
+                  <span lang="en">Concepts are abstract</span>
+                  <span lang="zh">内在负荷超载（概念抽象）</span>
+                </h3>
+                <p>
+                  <span lang="en">
+                    Voltage, current, signal flow — abstract concepts that exceed working
+                    memory. Without grounded analogies, beginners can't form an intuitive model.
+                  </span>
+                  <span lang="zh">
+                    电压 / 电流 / 信号流向等概念抽象，工作记忆容量有限。
+                    缺乏生活化类比，新手难以建立直观认知。
+                  </span>
+                </p>
+              </article>
+              <article class="fh-card reveal reveal--1">
+                <span class="fh-card__num">02</span>
+                <p class="fh-card__sub">Extraneous</p>
+                <h3 class="fh-card__title">
+                  <span lang="en">Tools are over-complex</span>
+                  <span lang="zh">外在负荷激增（工具复杂）</span>
+                </h3>
+                <p>
+                  <span lang="en">
+                    Legacy EDA UI is dense, steps are redundant, cognitive guidance is missing.
+                    "Afraid to burn the board, afraid to wire it wrong, afraid of datasheets" —
+                    fear silently consumes working memory.
+                  </span>
+                  <span lang="zh">
+                    传统 EDA 界面复杂、步骤冗余、缺乏认知引导。
+                    「怕烧板子、怕接错线、怕看不懂 Datasheet」的恐惧感占用大量工作记忆。
+                  </span>
+                </p>
+              </article>
+              <article class="fh-card reveal reveal--2">
+                <span class="fh-card__num">03</span>
+                <p class="fh-card__sub">Germane</p>
+                <h3 class="fh-card__title">
+                  <span lang="en">Knowledge is fragmented</span>
+                  <span lang="zh">关联负荷缺失（知识碎片化）</span>
+                </h3>
+                <p>
+                  <span lang="en">
+                    Community content lives as static files or dry code — hard to reuse
+                    structurally. Great designs lack a Fork mechanism, blocking schema transfer
+                    and second-round iteration.
+                  </span>
+                  <span lang="zh">
+                    社区内容多为静态文件或枯燥代码，难以结构化复用。
+                    优秀方案缺乏 Fork 机制，无法促进知识图式迁移与二次迭代。
+                  </span>
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════  USE CASES (USER STORIES) ════════════ -->
+      <section class="section section--ink" style="border-top: 1px solid var(--line-on-dark);">
+        <div class="shell section--split">
+          <aside class="section__rail">
+            <span class="rail__i">03</span>
+            <span class="rail__k">
+              <span lang="en">USE CASES</span><span lang="zh">用户故事</span>
+            </span>
+          </aside>
+
+          <div class="section__body">
+            <header class="section__head section__head--dark">
+              <p class="eyebrow eyebrow--light reveal">
+                <span class="dot"></span>
+                <span lang="en">Two real-world stories</span>
+                <span lang="zh">两个真实场景</span>
+              </p>
+              <h2 class="section__title section__title--dark section__title--xl reveal reveal--1" data-warp>
+                <span lang="en">
+                  How Fast Hardware<br>
+                  <em>changes the day.</em>
+                </span>
+                <span lang="zh">
+                  Fast Hardware<br>
+                  <em>怎样改变一天。</em>
+                </span>
+              </h2>
+            </header>
+
+            <div class="fh-grid-2">
+              <article class="fh-story reveal">
+                <span class="fh-story__role">
+                  <span lang="en">STORY 01 · STUDENT</span>
+                  <span lang="zh">故事 01 · 学生</span>
+                </span>
+                <h4>
+                  <span lang="en">Wang's coursework comeback</span>
+                  <span lang="zh">小王的课程设计逆袭</span>
+                </h4>
+                <p>
+                  <span lang="en">
+                    Wang, a junior, gets handed a "smart desk lamp" coursework brief and freezes
+                    in front of Altium. With Fast Hardware, he types his idea in plain language;
+                    AI picks parts, generates a schematic, highlights pin functions. Stuck on
+                    capacitor charging? AI draws a "water bucket" analogy. Three days later he's
+                    not just done — he publishes the build to the Maker Marketplace and racks up
+                    50+ likes.
+                  </span>
+                  <span lang="zh">
+                    大三学生小王接到「智能台灯」课程设计，面对 Altium 无从下手。
+                    使用 Fast Hardware，他输入自然语言需求，AI 自动推荐元件、生成原理图并高亮引脚功能。
+                    遇到不懂的电容充放电，AI 用「水桶蓄水」类比解释。
+                    3 天后，他不仅完成了电路搭建，还一键发布方案到创客集市，获得了 50+ 点赞。
+                  </span>
+                </p>
+              </article>
+
+              <article class="fh-story reveal reveal--1">
+                <span class="fh-story__role">
+                  <span lang="en">STORY 02 · TEACHER</span>
+                  <span lang="zh">故事 02 · 教师</span>
+                </span>
+                <h4>
+                  <span lang="en">Ms. Li's STEAM classroom</span>
+                  <span lang="zh">李老师的科创课堂</span>
+                </h4>
+                <p>
+                  <span lang="en">
+                    Middle-school IT teacher Li wants to launch an IoT club, but skill levels are
+                    all over the map. She uses Fast Hardware's modular Skills, loads only the
+                    "canvas-wiring" skill, and the UI auto-simplifies. Students Fork her base
+                    project, ask the built-in agent questions, and ship personalized builds.
+                    Class completion rate climbs from 40% to 80%.
+                  </span>
+                  <span lang="zh">
+                    中学信息老师李老师想开设 IoT 社团课，但学生基础参差不齐。
+                    她利用 Fast Hardware 的 Skill 模块化功能，按需加载「画布连线」skill，界面自动简化。
+                    学生通过 Fork 机制复制她的基础方案，向内置 agent 询问，即可实现个性化项目。
+                    课堂任务完成率从 40% 升至 80%。
+                  </span>
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════  SOLUTION + HIGHLIGHTS  ════════════ -->
+      <section class="section section--ink" style="border-top: 1px solid var(--line-on-dark);">
+        <div class="shell section--split">
+          <aside class="section__rail">
+            <span class="rail__i">04</span>
+            <span class="rail__k">
+              <span lang="en">SOLUTION</span><span lang="zh">解决方案</span>
+            </span>
+          </aside>
+
+          <div class="section__body">
+            <header class="section__head section__head--dark">
+              <p class="eyebrow eyebrow--light reveal">
+                <span class="dot"></span>
+                <span lang="en">From operating to understanding</span>
+                <span lang="zh">从「操作」到「理解」</span>
+              </p>
+              <h2 class="section__title section__title--dark section__title--xl reveal reveal--1" data-warp>
+                <span lang="en">
+                  A "hardware reader" paradigm<br>
+                  <em>powered by AI + cognitive design.</em>
+                </span>
+                <span lang="zh">
+                  「硬件阅读器」范式 ——<br>
+                  <em>由 AI + 认知设计驱动。</em>
+                </span>
+              </h2>
+            </header>
+
+            <div class="fh-grid-4" style="margin-bottom: 80px;">
+              <article class="fh-card reveal">
+                <span class="fh-card__num">01</span>
+                <h3 class="fh-card__title">
+                  <span lang="en">Cognitive translation</span>
+                  <span lang="zh">认知翻译层</span>
+                </h3>
+                <p>
+                  <span lang="en">
+                    AI as translator: abstract electrical parameters become natural-language
+                    explanations and visual analogies. Lowers intrinsic load.
+                  </span>
+                  <span lang="zh">
+                    AI 充当翻译官，将抽象电气参数转化为自然语言解释与可视化类比，降低内在负荷。
+                  </span>
+                </p>
+              </article>
+              <article class="fh-card reveal reveal--1">
+                <span class="fh-card__num">02</span>
+                <h3 class="fh-card__title">
+                  <span lang="en">Progressive disclosure</span>
+                  <span lang="zh">渐进式披露</span>
+                </h3>
+                <p>
+                  <span lang="en">
+                    Skill modules load on demand to prevent feature overload. Advanced features
+                    unlock with proficiency, matching the user's schema-building pace.
+                  </span>
+                  <span lang="zh">
+                    Skill 模块化按需加载，避免功能过载；随熟练度逐步解锁高级功能，
+                    匹配图式构建节奏。
+                  </span>
+                </p>
+              </article>
+              <article class="fh-card reveal reveal--2">
+                <span class="fh-card__num">03</span>
+                <h3 class="fh-card__title">
+                  <span lang="en">Human-in-the-Loop</span>
+                  <span lang="zh">HITL 协同流</span>
+                </h3>
+                <p>
+                  <span lang="en">
+                    User confirms → AI executes → feedback refines. Keeps the user in control,
+                    eliminates uncertainty anxiety.
+                  </span>
+                  <span lang="zh">
+                    用户确认 → AI 执行 → 反馈优化，保持控制感，消除不确定性焦虑。
+                  </span>
+                </p>
+              </article>
+              <article class="fh-card reveal reveal--3">
+                <span class="fh-card__num">04</span>
+                <h3 class="fh-card__title">
+                  <span lang="en">Maker Marketplace</span>
+                  <span lang="zh">创客集市生态</span>
+                </h3>
+                <p>
+                  <span lang="en">
+                    Fork projects, diff versions, credit contributors. Drives knowledge transfer
+                    and community-level co-evolution.
+                  </span>
+                  <span lang="zh">
+                    支持方案 Fork、版本对比、贡献者署名，促进知识迁移与社区协同进化。
+                  </span>
+                </p>
+              </article>
+            </div>
+
+            <header class="section__head section__head--dark">
+              <p class="eyebrow eyebrow--light reveal">
+                <span class="dot"></span>
+                <span lang="en">Five core highlights</span>
+                <span lang="zh">五大核心亮点</span>
+              </p>
+              <h2 class="section__title section__title--dark reveal reveal--1" data-warp>
+                <span lang="en"><em>What makes it different.</em></span>
+                <span lang="zh"><em>为什么它不一样。</em></span>
+              </h2>
+            </header>
+
+            <div class="thesis__grid thesis__grid--5">
+              <article class="thesis__card reveal">
+                <span class="thesis__i">01</span>
+                <p>
+                  <span lang="en">
+                    "Hardware reader" positioning — not industrial PCB precision, but cognitive
+                    understanding and educational support.
+                  </span>
+                  <span lang="zh">
+                    「硬件阅读器」定位 —— 不追求工业级 PCB 精度，聚焦认知理解与教育辅助。
+                  </span>
+                </p>
+              </article>
+              <article class="thesis__card reveal reveal--1">
+                <span class="thesis__i">02</span>
+                <p>
+                  <span lang="en">
+                    Skill modularity controls cognitive load. Arduino, IoT, sensor packs load
+                    on demand — focused attention, no feature overload.
+                  </span>
+                  <span lang="zh">
+                    Skill 模块化与认知负荷控制。Arduino / IoT / 传感器场景插件按需加载，
+                    避免功能过载，专注力集中。
+                  </span>
+                </p>
+              </article>
+              <article class="thesis__card reveal reveal--2">
+                <span class="thesis__i">03</span>
+                <p>
+                  <span lang="en">
+                    HITL relieves fear. AI shows reasoning, parameters are editable, AI
+                    re-computes and previews impact. Every action is reversible.
+                  </span>
+                  <span lang="zh">
+                    HITL 协同与恐惧感缓解。AI 显示推理依据，参数可改、AI 重算并提示影响，
+                    所有操作可逆。
+                  </span>
+                </p>
+              </article>
+              <article class="thesis__card reveal reveal--3">
+                <span class="thesis__i">04</span>
+                <p>
+                  <span lang="en">
+                    Marketplace + Fork-style iteration. One-click Fork to local sandbox, branch
+                    on edit, contributor lineage tracked — a "GitHub × RedNote" hybrid for
+                    hardware.
+                  </span>
+                  <span lang="zh">
+                    创客集市与 Fork 式迭代。一键 Fork 至本地沙箱，修改后生成新分支，
+                    系统记录贡献者链条 —— 硬件领域的「GitHub + 小红书」混合生态。
+                  </span>
+                </p>
+              </article>
+              <article class="thesis__card reveal reveal--3">
+                <span class="thesis__i">05</span>
+                <p>
+                  <span lang="en">
+                    Offline-capable, professional feel. 114 MB lightweight installer, autosave,
+                    state recovery, keyboard shortcuts — desktop-grade UX.
+                  </span>
+                  <span lang="zh">
+                    离线可用与专业体验。114MB 轻量安装包，核心功能离线可用，
+                    自动保存、状态恢复、快捷键支持。
+                  </span>
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════  ARCHITECTURE + TECH ════════════ -->
+      <section class="section section--ink" style="border-top: 1px solid var(--line-on-dark);">
+        <div class="shell section--split">
+          <aside class="section__rail">
+            <span class="rail__i">05</span>
+            <span class="rail__k">
+              <span lang="en">ARCHITECTURE</span><span lang="zh">架构</span>
+            </span>
+          </aside>
+
+          <div class="section__body">
+            <header class="section__head section__head--dark">
+              <p class="eyebrow eyebrow--light reveal">
+                <span class="dot"></span>
+                <span lang="en">Four-layer architecture</span>
+                <span lang="zh">四层架构</span>
+              </p>
+              <h2 class="section__title section__title--dark section__title--xl reveal reveal--1" data-warp>
+                <span lang="en">
+                  Extensible. Maintainable.<br>
+                  <em>Cognitively friendly.</em>
+                </span>
+                <span lang="zh">
+                  可扩展、易维护、<br>
+                  <em>认知友好。</em>
+                </span>
+              </h2>
+            </header>
+
+            <div class="reveal" style="margin-bottom: 80px;">
+              <div class="fh-arch-row">
+                <div class="fh-arch-row__k">
+                  <span lang="en">Presentation</span><span lang="zh">表现层</span>
+                </div>
+                <div class="fh-arch-row__v">
+                  <span lang="en">
+                    <strong>Electron desktop + HTML5 Canvas.</strong> Component drag-drop, smart
+                    routing, live preview, multi-project tabs.
+                  </span>
+                  <span lang="zh">
+                    <strong>Electron 桌面端 + HTML5 Canvas 交互画布。</strong>
+                    支持元件拖拽、智能连线、实时预览、多项目标签页切换。
+                  </span>
+                </div>
+              </div>
+              <div class="fh-arch-row">
+                <div class="fh-arch-row__k">
+                  <span lang="en">Capability</span><span lang="zh">能力层</span>
+                </div>
+                <div class="fh-arch-row__v">
+                  <span lang="en">
+                    <strong>SiliconFlow API + local rule engine + Skill plugin bus.</strong>
+                    AI scheme generation, smart part selection, DRC checks, on-demand
+                    capability scheduling.
+                  </span>
+                  <span lang="zh">
+                    <strong>SiliconFlow API + 本地规则引擎 + Skill 插件总线。</strong>
+                    实现 AI 方案生成、智能选型、DRC 规则校验、按需能力调度。
+                  </span>
+                </div>
+              </div>
+              <div class="fh-arch-row">
+                <div class="fh-arch-row__k">
+                  <span lang="en">Data</span><span lang="zh">数据层</span>
+                </div>
+                <div class="fh-arch-row__v">
+                  <span lang="en">
+                    <strong>JSON local storage + Supabase cloud sync.</strong> Privacy-safe and
+                    collaborative — version snapshots and diffing supported.
+                  </span>
+                  <span lang="zh">
+                    <strong>JSON 本地存储 + 创客集市 Supabase 云端数据库同步。</strong>
+                    兼顾隐私安全与协作共享，支持版本快照与差异对比。
+                  </span>
+                </div>
+              </div>
+              <div class="fh-arch-row">
+                <div class="fh-arch-row__k">
+                  <span lang="en">Interaction</span><span lang="zh">交互层</span>
+                </div>
+                <div class="fh-arch-row__v">
+                  <span lang="en">
+                    <strong>HITL flow + progressive disclosure.</strong> Critical actions
+                    double-confirmed, infinite undo stack, transparent reasoning, control
+                    preserved.
+                  </span>
+                  <span lang="zh">
+                    <strong>Human-in-the-Loop 协同流 + 渐进式披露。</strong>
+                    关键操作二次确认、无限撤销栈、推理过程透明化、控制感保障。
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <header class="section__head section__head--dark">
+              <p class="eyebrow eyebrow--light reveal">
+                <span class="dot"></span>
+                <span lang="en">Tech stack</span>
+                <span lang="zh">技术栈</span>
+              </p>
+              <h2 class="section__title section__title--dark reveal reveal--1" data-warp>
+                <span lang="en"><em>What it's built with.</em></span>
+                <span lang="zh"><em>用什么搭起来的。</em></span>
+              </h2>
+            </header>
+
+            <div class="fh-grid-3">
+              <article class="fh-card reveal">
+                <p class="fh-card__sub">Frontend</p>
+                <h3 class="fh-card__title">Electron 27 · HTML5 · ES6</h3>
+                <p>
+                  <span lang="en">Electron 27.0.0 + HTML5 + CSS3 + JavaScript ES6.</span>
+                  <span lang="zh">Electron 27.0.0 + HTML5 + CSS3 + JavaScript ES6。</span>
+                </p>
+              </article>
+              <article class="fh-card reveal reveal--1">
+                <p class="fh-card__sub">AI integration</p>
+                <h3 class="fh-card__title">SiliconFlow API</h3>
+                <p>
+                  <span lang="en">
+                    Default Qwen3.5-27B; pluggable across GLM / Qwen / DeepSeek and other models.
+                  </span>
+                  <span lang="zh">
+                    默认 Qwen3.5-27B，支持 GLM / Qwen / DeepSeek 等多模型切换。
+                  </span>
+                </p>
+              </article>
+              <article class="fh-card reveal reveal--2">
+                <p class="fh-card__sub">Render engine</p>
+                <h3 class="fh-card__title">HTML5 Canvas · marked.js</h3>
+                <p>
+                  <span lang="en">Canvas API for circuit visualization, marked.js for Markdown rendering.</span>
+                  <span lang="zh">HTML5 Canvas API（可视化电路设计）+ marked.js（Markdown 渲染）。</span>
+                </p>
+              </article>
+              <article class="fh-card reveal">
+                <p class="fh-card__sub">Storage</p>
+                <h3 class="fh-card__title">JSON · Supabase</h3>
+                <p>
+                  <span lang="en">JSON file system + persistent local config + cloud marketplace sync.</span>
+                  <span lang="zh">JSON 文件系统 + 本地配置持久化 + 云端集市同步。</span>
+                </p>
+              </article>
+              <article class="fh-card reveal reveal--1">
+                <p class="fh-card__sub">Cross-platform</p>
+                <h3 class="fh-card__title">Windows 10/11 · macOS / Linux</h3>
+                <p>
+                  <span lang="en">
+                    Deeply optimized for Windows 10/11 (64-bit). macOS / Linux versions on the roadmap.
+                  </span>
+                  <span lang="zh">
+                    Windows 10/11（64 位）深度优化，macOS / Linux 版本规划中。
+                  </span>
+                </p>
+              </article>
+              <article class="fh-card reveal reveal--2">
+                <p class="fh-card__sub">Footprint</p>
+                <h3 class="fh-card__title">114 MB · Offline</h3>
+                <p>
+                  <span lang="en">Lightweight installer; core flow works offline.</span>
+                  <span lang="zh">轻量安装包，核心功能离线可用。</span>
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════  PRICING + ROADMAP  ════════════ -->
+      <section class="section section--ink" style="border-top: 1px solid var(--line-on-dark);">
+        <div class="shell section--split">
+          <aside class="section__rail">
+            <span class="rail__i">06</span>
+            <span class="rail__k">
+              <span lang="en">PRICING</span><span lang="zh">商业模式</span>
+            </span>
+          </aside>
+
+          <div class="section__body">
+            <header class="section__head section__head--dark">
+              <p class="eyebrow eyebrow--light reveal">
+                <span class="dot"></span>
+                <span lang="en">Buy-once + value-add</span>
+                <span lang="zh">买断制 + 增值服务</span>
+              </p>
+              <h2 class="section__title section__title--dark section__title--xl reveal reveal--1" data-warp>
+                <span lang="en">
+                  No subscription anxiety.<br>
+                  <em>Pay once. Own it.</em>
+                </span>
+                <span lang="zh">
+                  拒绝订阅焦虑 ——<br>
+                  <em>一次买断，长期持有。</em>
+                </span>
+              </h2>
+            </header>
+
+            <table class="fh-table reveal" style="margin-bottom: 64px;">
+              <thead>
+                <tr>
+                  <th><span lang="en">Edition</span><span lang="zh">版本</span></th>
+                  <th><span lang="en">Price</span><span lang="zh">价格</span></th>
+                  <th><span lang="en">Includes</span><span lang="zh">功能权益</span></th>
+                  <th><span lang="en">Best for</span><span lang="zh">目标用户</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="Edition"><strong>Personal</strong><br><span lang="en">Personal edition</span><span lang="zh">个人版</span></td>
+                  <td data-label="Price">
+                    <strong>¥99</strong><br>
+                    <span lang="en">one-time, lifetime</span><span lang="zh">永久买断</span>
+                  </td>
+                  <td data-label="Includes">
+                    <span lang="en">AI scheme generation, smart part selection, multi-project management</span>
+                    <span lang="zh">AI 方案生成、智能选型、多项目管理</span>
+                  </td>
+                  <td data-label="Best for">
+                    <span lang="en">Individual makers / DIY enthusiasts</span>
+                    <span lang="zh">个人创客 / DIY 爱好者</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td data-label="Edition"><strong>Education</strong><br><span lang="en">Education edition</span><span lang="zh">教育版</span></td>
+                  <td data-label="Price">
+                    <strong>¥999</strong><br>
+                    <span lang="en">per school / year</span><span lang="zh">每校 / 年</span>
+                  </td>
+                  <td data-label="Includes">
+                    <span lang="en">50-seat batch license, dedicated support group, teaching case packs</span>
+                    <span lang="zh">批量授权（50 席）、售后群专属支持、教学案例包</span>
+                  </td>
+                  <td data-label="Best for">
+                    <span lang="en">Universities, K-12, training institutions</span>
+                    <span lang="zh">高校 / 中小学 / 培训机构</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="fh-grid-3" style="margin-bottom: 48px;">
+              <article class="fh-card reveal">
+                <p class="fh-card__sub">
+                  <span lang="en">Revenue extension 01</span><span lang="zh">延伸 01</span>
+                </p>
+                <h3 class="fh-card__title">
+                  <span lang="en">BOM-driven commerce</span>
+                  <span lang="zh">元器件导流</span>
+                </h3>
+                <p>
+                  <span lang="en">One-click BOM ordering with 5–10% commission.</span>
+                  <span lang="zh">BOM 一键下单，赚佣金（5–10%）。</span>
+                </p>
+              </article>
+              <article class="fh-card reveal reveal--1">
+                <p class="fh-card__sub">
+                  <span lang="en">Revenue extension 02</span><span lang="zh">延伸 02</span>
+                </p>
+                <h3 class="fh-card__title">
+                  <span lang="en">Custom development</span>
+                  <span lang="zh">定制开发</span>
+                </h3>
+                <p>
+                  <span lang="en">Project-based custom part libraries and features for enterprises / institutions.</span>
+                  <span lang="zh">企业 / 机构定制元件库与功能（项目制）。</span>
+                </p>
+              </article>
+              <article class="fh-card reveal reveal--2">
+                <p class="fh-card__sub">
+                  <span lang="en">Revenue extension 03</span><span lang="zh">延伸 03</span>
+                </p>
+                <h3 class="fh-card__title">
+                  <span lang="en">Targeted ads</span>
+                  <span lang="zh">广告合作</span>
+                </h3>
+                <p>
+                  <span lang="en">Vendor placements (LCSC, Taobao stores) with high targeting precision.</span>
+                  <span lang="zh">元器件厂商精准广告（立创 / 淘宝店）。</span>
+                </p>
+              </article>
+            </div>
+
+            <header class="section__head section__head--dark">
+              <p class="eyebrow eyebrow--light reveal">
+                <span class="dot"></span>
+                <span lang="en">Roadmap</span>
+                <span lang="zh">未来规划</span>
+              </p>
+              <h2 class="section__title section__title--dark reveal reveal--1" data-warp>
+                <span lang="en"><em>Where we're going.</em></span>
+                <span lang="zh"><em>我们正走向哪里。</em></span>
+              </h2>
+            </header>
+
+            <div class="fh-roadmap">
+              <article class="fh-roadmap__item reveal">
+                <span class="fh-roadmap__when">2026 Q2</span>
+                <p class="fh-roadmap__what">
+                  <span lang="en">
+                    v1.0 GA release. Maker Marketplace 1.0 goes live with 100+ open-source builds.
+                  </span>
+                  <span lang="zh">
+                    完成 v1.0 正式版发布，上线创客集市 1.0，积累 100+ 开源方案。
+                  </span>
+                </p>
+              </article>
+              <article class="fh-roadmap__item reveal reveal--1">
+                <span class="fh-roadmap__when">2026 Q3</span>
+                <p class="fh-roadmap__what">
+                  <span lang="en">
+                    macOS / Linux releases. Lightweight web collaboration support.
+                  </span>
+                  <span lang="zh">
+                    推出 macOS / Linux 版本，支持 Web 端轻量协作。
+                  </span>
+                </p>
+              </article>
+              <article class="fh-roadmap__item reveal reveal--2">
+                <span class="fh-roadmap__when">2026 Q4</span>
+                <p class="fh-roadmap__what">
+                  <span lang="en">
+                    Multimodal AI: snap a photo of a real part and generate a schematic. The
+                    "Hardware Copilot."
+                  </span>
+                  <span lang="zh">
+                    接入多模态 AI（支持拍照识别实物生成原理图），推出「硬件版 Copilot」。
+                  </span>
+                </p>
+              </article>
+              <article class="fh-roadmap__item reveal reveal--3">
+                <span class="fh-roadmap__when">
+                  <span lang="en">Long term</span><span lang="zh">长期愿景</span>
+                </span>
+                <p class="fh-roadmap__what">
+                  <span lang="en">
+                    Build the world's largest hardware UGC community — every idea, readable
+                    and reusable.
+                  </span>
+                  <span lang="zh">
+                    构建全球最大的硬件 UGC 社区，让每个创意都能被「阅读」和「复用」。
+                  </span>
+                </p>
+              </article>
+            </div>
+
+            <!-- CTA -->
+            <div class="fh-cta reveal">
+              <div>
+                <h3>
+                  <span lang="en">Fast Hardware — don't draw, read hardware.</span>
+                  <span lang="zh">Fast Hardware —— 别画了，来读读硬件。</span>
+                </h3>
+                <p>
+                  <span lang="en">
+                    Download builds, browse the GitHub repo, or write to us about education
+                    licensing and custom builds.
+                  </span>
+                  <span lang="zh">
+                    下载构建版本、查看 GitHub 仓库，或就教育授权和定制开发与我们联系。
+                  </span>
+                </p>
+              </div>
+              <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+                <a class="btn btn--primary" href="https://github.com/Designer-Awei/fast-hardware" target="_blank" rel="noopener">
+                  <span lang="en">View on GitHub</span>
+                  <span lang="zh">查看 GitHub</span>
+                  <span class="btn__arrow" aria-hidden="true">↗</span>
+                </a>
+                <a class="btn btn--ghost" href="mailto:1974379701@qq.com?subject=Fast%20Hardware%20%E2%80%94%20Hello">
+                  <span lang="en">Contact us</span>
+                  <span lang="zh">联系我们</span>
+                  <span class="btn__arrow" aria-hidden="true">→</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════  FOOTER  ════════════ -->
+      <footer class="foot">
+        <div class="shell foot__shell">
+          <div class="foot__brand">
+            <img class="foot__logo" src="assets/logo-full-white.webp?v=20260421b" alt="ZERORE">
+          </div>
+          <p class="foot__tag">
+            <span lang="en">Defining the quality standard of the Agent era.</span>
+            <span lang="zh">定义 Agent 时代的质量标准。</span>
+          </p>
+          <ul class="foot__links">
+            <li><a href="index.html#culture">
+              <span lang="en">Culture</span><span lang="zh">文化</span>
+            </a></li>
+            <li><a href="index.html#projects">
+              <span lang="en">Projects</span><span lang="zh">项目</span>
+            </a></li>
+            <li><a href="index.html#team">
+              <span lang="en">Team</span><span lang="zh">团队</span>
+            </a></li>
+            <li><a href="index.html#join">
+              <span lang="en">Join</span><span lang="zh">加入</span>
+            </a></li>
+            <li><a href="mailto:roger@zerore.ai">Email</a></li>
+          </ul>
+          <p class="foot__copy">© 2026 ZERORE · 零度重构 · All rights reserved.</p>
+        </div>
+      </footer>
+    </main>
+
+    <script>
+      (function () {
+        var html = document.documentElement;
+
+        var toggle = document.getElementById('langToggle');
+        function applyLang(lang) {
+          html.setAttribute('data-lang', lang);
+          html.setAttribute('lang', lang === 'zh' ? 'zh-CN' : 'en');
+          if (toggle) {
+            toggle.querySelectorAll('[data-lang-label]').forEach(function (el) {
+              el.classList.toggle('is-active', el.dataset.langLabel === lang);
+            });
+          }
+          try { localStorage.setItem('zerore-lang', lang); } catch (e) {}
+        }
+        var initial = html.getAttribute('data-lang') || 'en';
+        applyLang(initial);
+        if (toggle) {
+          toggle.addEventListener('click', function () {
+            applyLang(html.getAttribute('data-lang') === 'zh' ? 'en' : 'zh');
+          });
+        }
+
+        document.body.classList.add('is-loaded', 'is-settled');
+
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) {
+              e.target.classList.add('is-visible');
+              io.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.14, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+
+        var auroras = document.querySelectorAll('.aurora');
+        window.addEventListener('scroll', function () {
+          var y = window.scrollY;
+          auroras.forEach(function (a, i) {
+            a.style.transform = 'translate3d(0,' + (y * 0.06 * (i % 2 ? -1 : 1)) + 'px,0)';
+          });
+        }, { passive: true });
+
+        var cursor = document.querySelector('.cursor');
+        if (cursor && matchMedia('(pointer: fine)').matches) {
+          var cx = 0, cy = 0, tx = 0, ty = 0, raf;
+          function loop() {
+            cx += (tx - cx) * 0.18;
+            cy += (ty - cy) * 0.18;
+            cursor.style.transform = 'translate3d(' + cx + 'px,' + cy + 'px,0)';
+            raf = requestAnimationFrame(loop);
+          }
+          window.addEventListener('pointermove', function (e) {
+            tx = e.clientX; ty = e.clientY;
+            if (!raf) loop();
+            cursor.classList.add('is-active');
+          });
+          window.addEventListener('pointerleave', function () {
+            cursor.classList.remove('is-active');
+          });
+          document.querySelectorAll('a,button,.fh-card,.fh-story,.thesis__card')
+            .forEach(function (el) {
+              el.addEventListener('pointerenter', function () { cursor.classList.add('is-hover'); });
+              el.addEventListener('pointerleave', function () { cursor.classList.remove('is-hover'); });
+            });
+        }
+      })();
+    </script>
+  </body>
+</html>
