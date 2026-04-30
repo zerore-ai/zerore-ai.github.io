@@ -3265,3 +3265,487 @@ html[data-lang="en"] .foot__tag { font-family: var(--font-sans); }
   font-family: var(--font-mono);
   letter-spacing: .04em;
 }
+
+/* ═══════════════════════════════════════════════════════════════════
+   DESIGN V2 — PAPER-FIRST AESTHETIC (2026-04-30)
+   Inspired by increase.com layout & motion language.
+   Cream as primary, dark sections used as dramatic accents only.
+   Adds: serif italic emphasis · counter animation · line-draw reveals.
+   ═══════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* Paper / cream palette */
+  --cream-50:  #fbf9f4;
+  --cream-100: #f4f1e8;
+  --cream-200: #ebe7d7;
+  --cream-300: #ddd8c5;
+  --cream-400: #b5b09c;
+
+  --ink-text:  #16161a;
+  --ink-mute:  rgba(22, 22, 26, 0.62);
+  --ink-line:  rgba(22, 22, 26, 0.10);
+  --ink-line-strong: rgba(22, 22, 26, 0.20);
+
+  --lime-bg:   #e9f5b0;
+  --lime-soft-bg: #f5fbe0;
+  --lime-deep: #5d7a16;
+
+  --font-serif: 'Crimson Pro', 'Spectral', Georgia, 'Times New Roman', serif;
+
+  --shadow-soft: 0 1px 2px rgba(22,22,26,.04), 0 8px 24px rgba(22,22,26,.06);
+  --shadow-card: 0 1px 3px rgba(22,22,26,.05), 0 12px 36px rgba(22,22,26,.08);
+}
+
+/* ─── Switch base bg to cream ─── */
+html {
+  background: var(--cream-100);
+  color: var(--ink-text);
+}
+body {
+  background: var(--cream-100);
+  color: var(--ink-text);
+}
+
+/* ─── Serif italic emphasis (used in hero / headlines) ─── */
+em {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: -0.005em;
+}
+
+/* ─── Selection color on cream ─── */
+::selection { background: var(--lime); color: var(--ink-text); }
+
+/* ─── Grain on cream looks better at lower opacity ─── */
+.grain {
+  opacity: 0.04;
+  mix-blend-mode: multiply;
+  background-image:
+    radial-gradient(rgba(22,22,26,0.7) 1px, transparent 1px),
+    radial-gradient(rgba(22,22,26,0.4) 1px, transparent 1px);
+}
+
+/* ─── Cursor on cream ─── */
+.cursor span { background: var(--ink-text); }
+.cursor.is-hover span { background: var(--lime-deep); }
+
+/* ─── Curtain — keep dark for dramatic load-in ─── */
+/* (already uses var(--ink-950), no change) */
+
+/* ═══════════ NAV — adapts to background section ═══════════ */
+.nav {
+  background: linear-gradient(to bottom, rgba(244,241,232,.85), rgba(244,241,232,0));
+}
+.nav--scrolled {
+  background: rgba(244,241,232,0.78);
+  backdrop-filter: saturate(160%) blur(18px);
+  -webkit-backdrop-filter: saturate(160%) blur(18px);
+  border-bottom-color: var(--ink-line);
+}
+/* When nav sits over a dark section it auto-flips */
+.nav--over-dark {
+  background: linear-gradient(to bottom, rgba(10,10,11,0.7), rgba(10,10,11,0));
+}
+.nav--over-dark.nav--scrolled {
+  background: rgba(10,10,11,0.7);
+  border-bottom-color: var(--line-on-dark);
+}
+/* Logo: invert on cream so it's visible */
+.nav__logo {
+  filter: invert(1) brightness(0.05);
+  transition: filter 320ms var(--ease);
+}
+.nav--over-dark .nav__logo {
+  filter: drop-shadow(0 0 14px rgba(203, 255, 84, 0.1));
+}
+/* Nav text on cream */
+.nav__links { color: var(--ink-mute); }
+.nav__links a:hover { color: var(--ink-text); }
+.nav--over-dark .nav__links { color: var(--mute-on-dark); }
+.nav--over-dark .nav__links a:hover { color: var(--paper-100); }
+/* Lang & CTA on cream */
+.lang {
+  border-color: var(--ink-line-strong);
+  color: var(--ink-mute);
+}
+.lang:hover { border-color: var(--lime-deep); color: var(--ink-text); }
+.lang__slot.is-active { color: var(--ink-text); background: var(--lime); }
+.nav--over-dark .lang { border-color: var(--line-on-dark-strong); color: var(--mute-on-dark); }
+.nav--over-dark .lang:hover { border-color: var(--lime); color: var(--paper-100); }
+
+.nav__cta {
+  border-color: var(--ink-line-strong);
+  color: var(--ink-text);
+}
+.nav__cta:hover {
+  background: var(--ink-text);
+  color: var(--cream-100);
+  border-color: var(--ink-text);
+}
+.nav--over-dark .nav__cta {
+  border-color: var(--line-on-dark-strong);
+  color: var(--paper-100);
+}
+.nav--over-dark .nav__cta:hover {
+  background: var(--lime);
+  color: var(--ink-900);
+  border-color: var(--lime);
+}
+
+/* ═══════════ HERO — cream + dramatic typography ═══════════ */
+.hero {
+  background: var(--cream-100);
+  color: var(--ink-text);
+  position: relative;
+  border-bottom: 1px solid var(--ink-line);
+}
+/* Subtle paper texture + soft accent glows */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 18% 30%, rgba(203,255,84,0.22) 0%, transparent 45%),
+    radial-gradient(ellipse at 82% 70%, rgba(255,160,90,0.10) 0%, transparent 50%);
+  opacity: 0.85;
+}
+.hero__bg { display: none; } /* hide old aurora */
+.hero__title { color: var(--ink-text); }
+.hero__title em { color: var(--lime-deep); }
+.hero__line--accent .word { color: var(--ink-text); }
+.hero__sub { color: var(--ink-mute); }
+.hero__sub em { color: var(--ink-text); font-weight: 600; }
+.hero__scroll { color: var(--ink-mute); }
+.scroll-line { background: var(--ink-line-strong); }
+.scroll-label { color: var(--ink-mute); }
+
+/* Buttons on cream */
+.btn--primary {
+  background: var(--ink-text);
+  color: var(--cream-50);
+  border-color: var(--ink-text);
+}
+.btn--primary:hover {
+  background: var(--lime);
+  color: var(--ink-text);
+  border-color: var(--lime);
+}
+.btn--ghost {
+  border-color: var(--ink-line-strong);
+  color: var(--ink-text);
+  background: transparent;
+}
+.btn--ghost:hover {
+  background: var(--ink-text);
+  color: var(--cream-50);
+  border-color: var(--ink-text);
+}
+
+/* ═══════════ MARQUEE — soft cream variant ═══════════ */
+.marquee {
+  background: var(--cream-50);
+  border-top: 1px solid var(--ink-line);
+  border-bottom: 1px solid var(--ink-line);
+  color: var(--ink-mute);
+}
+.marquee__track span { color: var(--ink-mute); }
+.marquee__dot { color: var(--lime-deep) !important; opacity: 0.6; }
+
+/* ═══════════ STORY SECTION VARIANTS ═══════════ */
+.story--ink   { background: var(--ink-900); color: var(--paper-100); }
+.story--paper { background: var(--cream-100); color: var(--ink-text); }
+.story--tint  { background: var(--cream-200); color: var(--ink-text); }
+.story--lime  { background: var(--lime-soft-bg); color: var(--ink-text); }
+.story--alt   { background: var(--cream-200); color: var(--ink-text); } /* override old */
+
+/* Story typography on light bg */
+.story--paper .story__title,
+.story--tint  .story__title,
+.story--lime  .story__title { color: var(--ink-text); }
+.story--paper .story__lede,
+.story--tint  .story__lede,
+.story--lime  .story__lede  { color: var(--ink-mute); }
+.story--paper .story__title em,
+.story--tint  .story__title em,
+.story--lime  .story__title em { color: var(--lime-deep); }
+.story--paper .story__rail,
+.story--tint  .story__rail,
+.story--lime  .story__rail  { color: var(--lime-deep); }
+.story--paper .story__rail::before,
+.story--tint  .story__rail::before,
+.story--lime  .story__rail::before { background: var(--lime-deep); }
+.story--paper .story__link,
+.story--tint  .story__link,
+.story--lime  .story__link  {
+  color: var(--ink-text);
+  border-bottom-color: var(--ink-line-strong);
+}
+.story--paper .story__link:hover,
+.story--tint  .story__link:hover,
+.story--lime  .story__link:hover { border-bottom-color: var(--lime-deep); }
+
+/* ═══════════ STATS BANNER on cream ═══════════ */
+.story--paper .stats-banner,
+.story--tint  .stats-banner,
+.story--lime  .stats-banner {
+  border-top-color: var(--ink-line);
+  border-bottom-color: var(--ink-line);
+}
+.story--paper .stat-cell,
+.story--tint  .stat-cell,
+.story--lime  .stat-cell { border-right-color: var(--ink-line); }
+.story--paper .stat-cell__num,
+.story--tint  .stat-cell__num,
+.story--lime  .stat-cell__num { color: var(--ink-text); }
+.story--paper .stat-cell__num em,
+.story--tint  .stat-cell__num em,
+.story--lime  .stat-cell__num em { color: var(--lime-deep); }
+.story--paper .stat-cell__label,
+.story--tint  .stat-cell__label,
+.story--lime  .stat-cell__label { color: var(--ink-mute); }
+.story--paper .stat-cell__body,
+.story--tint  .stat-cell__body,
+.story--lime  .stat-cell__body { color: rgba(22,22,26,.7); }
+
+/* ═══════════ GAP CARDS on cream ═══════════ */
+.story--paper .gap-card,
+.story--tint  .gap-card,
+.story--lime  .gap-card {
+  background: var(--cream-50);
+  border-color: var(--ink-line);
+  box-shadow: var(--shadow-soft);
+}
+.story--paper .gap-card:hover,
+.story--tint  .gap-card:hover,
+.story--lime  .gap-card:hover {
+  border-color: var(--lime-deep);
+  box-shadow: var(--shadow-card);
+}
+.story--paper .gap-card__num,
+.story--tint  .gap-card__num,
+.story--lime  .gap-card__num { color: var(--lime-deep); }
+.story--paper .gap-card__title,
+.story--tint  .gap-card__title,
+.story--lime  .gap-card__title { color: var(--ink-text); }
+.story--paper .gap-card__body,
+.story--tint  .gap-card__body,
+.story--lime  .gap-card__body { color: var(--ink-mute); }
+
+/* ═══════════ STACK DIAGRAM on cream ═══════════ */
+.story--paper .stack__row,
+.story--tint  .stack__row,
+.story--lime  .stack__row {
+  background: var(--cream-50);
+  border-color: var(--ink-line);
+  box-shadow: var(--shadow-soft);
+}
+.story--paper .stack__row--muted,
+.story--tint  .stack__row--muted,
+.story--lime  .stack__row--muted {
+  background: rgba(22,22,26,.025);
+  opacity: 0.8;
+}
+.story--paper .stack__row--zerore,
+.story--tint  .stack__row--zerore,
+.story--lime  .stack__row--zerore {
+  background:
+    radial-gradient(ellipse at 80% 50%, rgba(203,255,84,.4) 0%, transparent 60%),
+    linear-gradient(135deg, var(--lime-bg) 0%, var(--lime-soft-bg) 100%);
+  border-color: var(--lime-deep);
+  box-shadow: 0 0 0 4px rgba(203,255,84,.18), 0 12px 32px rgba(22,22,26,.1);
+  opacity: 1;
+}
+.story--paper .stack__label,
+.story--tint  .stack__label,
+.story--lime  .stack__label { color: var(--ink-mute); }
+.story--paper .stack__row--zerore .stack__label,
+.story--tint  .stack__row--zerore .stack__label,
+.story--lime  .stack__row--zerore .stack__label { color: var(--lime-deep); }
+.story--paper .stack__name,
+.story--tint  .stack__name,
+.story--lime  .stack__name { color: var(--ink-text); }
+.story--paper .stack__tag,
+.story--tint  .stack__tag,
+.story--lime  .stack__tag { color: var(--ink-mute); }
+.story--paper .stack__row--zerore .stack__tag,
+.story--tint  .stack__row--zerore .stack__tag,
+.story--lime  .stack__row--zerore .stack__tag {
+  color: var(--lime-deep);
+  background: rgba(255,255,255,.55);
+  border-color: var(--lime-deep);
+}
+.story--paper .stack__connector,
+.story--tint  .stack__connector,
+.story--lime  .stack__connector {
+  background: linear-gradient(to bottom, transparent, var(--ink-line-strong), transparent);
+}
+
+/* ═══════════ LAYERS GRID on cream ═══════════ */
+.story--paper .layers-grid,
+.story--tint  .layers-grid,
+.story--lime  .layers-grid {
+  border-color: var(--ink-line);
+  background: var(--cream-50);
+  box-shadow: var(--shadow-soft);
+}
+.story--paper .layer-block,
+.story--tint  .layer-block,
+.story--lime  .layer-block {
+  background: transparent;
+  border-right-color: var(--ink-line);
+}
+.story--paper .layer-block:hover,
+.story--tint  .layer-block:hover,
+.story--lime  .layer-block:hover { background: rgba(203,255,84,.1); }
+.story--paper .layer-block__num,
+.story--tint  .layer-block__num,
+.story--lime  .layer-block__num { color: rgba(22,22,26,.18); }
+.story--paper .layer-block:hover .layer-block__num,
+.story--tint  .layer-block:hover .layer-block__num,
+.story--lime  .layer-block:hover .layer-block__num { color: var(--lime-deep); }
+.story--paper .layer-block__title,
+.story--tint  .layer-block__title,
+.story--lime  .layer-block__title { color: var(--ink-text); }
+.story--paper .layer-block__sub,
+.story--tint  .layer-block__sub,
+.story--lime  .layer-block__sub { color: var(--lime-deep); }
+.story--paper .layer-block__body,
+.story--tint  .layer-block__body,
+.story--lime  .layer-block__body { color: var(--ink-mute); }
+
+/* ═══════════ STANDARDS ROW on cream ═══════════ */
+.story--paper .standard-card,
+.story--tint  .standard-card,
+.story--lime  .standard-card {
+  background: var(--cream-50);
+  border-color: var(--ink-line);
+  box-shadow: var(--shadow-soft);
+}
+.story--paper .standard-card:hover,
+.story--tint  .standard-card:hover,
+.story--lime  .standard-card:hover {
+  border-color: var(--ink-line-strong);
+  box-shadow: var(--shadow-card);
+}
+.story--paper .standard-card--us,
+.story--tint  .standard-card--us,
+.story--lime  .standard-card--us {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(203,255,84,.4) 0%, transparent 70%),
+    linear-gradient(180deg, var(--lime-bg) 0%, var(--cream-50) 100%);
+  border-color: var(--lime-deep);
+  box-shadow: 0 0 0 4px rgba(203,255,84,.15), var(--shadow-card);
+}
+.story--paper .standard-card__name,
+.story--tint  .standard-card__name,
+.story--lime  .standard-card__name { color: var(--ink-text); }
+.story--paper .standard-card--us .standard-card__name,
+.story--tint  .standard-card--us .standard-card__name,
+.story--lime  .standard-card--us .standard-card__name { color: var(--lime-deep); }
+.story--paper .standard-card__domain,
+.story--tint  .standard-card__domain,
+.story--lime  .standard-card__domain { color: var(--ink-mute); }
+.story--paper .standard-card__line,
+.story--tint  .standard-card__line,
+.story--lime  .standard-card__line { color: rgba(22,22,26,.65); }
+.story--paper .standards-tagline,
+.story--tint  .standards-tagline,
+.story--lime  .standards-tagline { color: var(--ink-text); }
+.story--paper .standards-tagline em,
+.story--tint  .standards-tagline em,
+.story--lime  .standards-tagline em { color: var(--lime-deep); }
+
+/* ═══════════ FLYWHEEL on cream ═══════════ */
+.story--paper .flywheel__svg circle.ring,
+.story--tint  .flywheel__svg circle.ring,
+.story--lime  .flywheel__svg circle.ring { stroke: var(--lime-deep); opacity: 0.5; }
+.story--paper .flywheel__svg circle.glow,
+.story--tint  .flywheel__svg circle.glow,
+.story--lime  .flywheel__svg circle.glow { fill: rgba(203,255,84,.12); }
+.story--paper .flywheel__svg g path,
+.story--tint  .flywheel__svg g path,
+.story--lime  .flywheel__svg g path { stroke: var(--lime-deep) !important; opacity: 0.7; }
+.story--paper .flywheel__node-label,
+.story--tint  .flywheel__node-label,
+.story--lime  .flywheel__node-label {
+  background: var(--cream-50);
+  color: var(--ink-text);
+  border-color: var(--ink-line-strong);
+  box-shadow: var(--shadow-soft);
+}
+.story--paper .flywheel__node-dot,
+.story--tint  .flywheel__node-dot,
+.story--lime  .flywheel__node-dot {
+  background: var(--lime-deep);
+  box-shadow: 0 0 0 4px rgba(203,255,84,.25), 0 0 16px rgba(203,255,84,.4);
+}
+.story--paper .flywheel__center-num,
+.story--tint  .flywheel__center-num,
+.story--lime  .flywheel__center-num { color: var(--lime-deep); }
+.story--paper .flywheel__center-label,
+.story--tint  .flywheel__center-label,
+.story--lime  .flywheel__center-label { color: var(--ink-mute); }
+.story--paper .flywheel-text h3,
+.story--tint  .flywheel-text h3,
+.story--lime  .flywheel-text h3 { color: var(--ink-text); }
+.story--paper .flywheel-text h3 em,
+.story--tint  .flywheel-text h3 em,
+.story--lime  .flywheel-text h3 em { color: var(--lime-deep); }
+.story--paper .flywheel-text p,
+.story--tint  .flywheel-text p,
+.story--lime  .flywheel-text p { color: var(--ink-mute); }
+.story--paper .flywheel-text p em,
+.story--tint  .flywheel-text p em,
+.story--lime  .flywheel-text p em { color: var(--ink-text); }
+
+/* ═══════════ QUICK NAV on cream ═══════════ */
+.quick-nav { background: var(--cream-100); }
+.quick-nav__row {
+  border-top-color: var(--ink-line);
+  border-bottom-color: var(--ink-line);
+}
+.quick-nav__row a {
+  border-right-color: var(--ink-line);
+  color: var(--ink-text);
+}
+.quick-nav__row a:hover { background: rgba(203,255,84,.18); }
+.quick-nav__num { color: var(--ink-mute); }
+
+/* Hide old hub on landing if present */
+.hub { background: var(--cream-100); }
+
+/* ═══════════ JOIN section override ═══════════ */
+.section--join.section--ink { /* keep dark for drama */ }
+
+/* ═══════════ FOOTER override ═══════════ */
+.foot {
+  background: var(--ink-text);
+  color: var(--cream-100);
+}
+
+/* ═══════════ COUNTER ANIMATION ═══════════ */
+.counter[data-counter-target] { display: inline-block; }
+.stat-cell .counter { font-variant-numeric: tabular-nums; }
+
+/* ═══════════ LINE-DRAW ON TITLE (kicker) ═══════════ */
+.story__rail.is-visible::before {
+  animation: railDraw 700ms var(--ease) forwards;
+  transform-origin: left center;
+  width: 0;
+  animation-delay: 100ms;
+}
+@keyframes railDraw {
+  to { width: 32px; }
+}
+
+/* ═══════════ Section breathing room ═══════════ */
+.story { padding: 140px 0; }
+@media (max-width: 720px) { .story { padding: 80px 0; } }
+
+/* ═══════════ Hero spacing refined ═══════════ */
+.hero__title {
+  font-feature-settings: 'ss01', 'cv11', 'kern';
+}
+

@@ -20,12 +20,13 @@
     <link rel="canonical" href="https://zerore.ai/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;600;700;800;900&family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600;1,700&family=JetBrains+Mono:wght@400;500&display=swap">
+    <meta name="theme-color" content="#f4f1e8">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
-    <link rel="stylesheet" href="styles.css?v=20260430c">
+    <link rel="stylesheet" href="styles.css?v=20260430d">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -190,7 +191,7 @@
 
           <div class="stats-banner reveal reveal--2">
             <div class="stat-cell">
-              <span class="stat-cell__num"><em>57%</em></span>
+              <span class="stat-cell__num"><em><span class="counter" data-counter-target="57" data-counter-suffix="%">0%</span></em></span>
               <span class="stat-cell__label"><span lang="en">Already in production</span><span lang="zh">已部署生产</span></span>
               <p class="stat-cell__body">
                 <span lang="en">Of enterprises have already deployed AI Agents into production environments.</span>
@@ -198,7 +199,7 @@
               </p>
             </div>
             <div class="stat-cell">
-              <span class="stat-cell__num"><em>40%+</em></span>
+              <span class="stat-cell__num"><em><span class="counter" data-counter-target="40" data-counter-suffix="%+">0%+</span></em></span>
               <span class="stat-cell__label"><span lang="en">Predicted to fail · Gartner</span><span lang="zh">预计失败 · Gartner</span></span>
               <p class="stat-cell__body">
                 <span lang="en">Of Agentic AI projects will be cancelled by 2027 — quality monitoring is the single biggest cause.</span>
@@ -260,7 +261,7 @@
       </section>
 
       <!-- ════════════  § 02 · OUR POSITION  ════════════ -->
-      <section class="story story--alt" id="position">
+      <section class="story story--paper" id="position">
         <div class="shell">
           <div class="position-grid">
             <div>
@@ -322,7 +323,7 @@
       </section>
 
       <!-- ════════════  § 03 · FOUR LAYERS  ════════════ -->
-      <section class="story story--ink" id="layers">
+      <section class="story story--tint" id="layers">
         <div class="shell">
           <p class="story__rail reveal">
             <span lang="en">§ 03 · WHAT WE BUILD</span>
@@ -391,7 +392,7 @@
       </section>
 
       <!-- ════════════  § 04 · STANDARDS, NOT TOOLS  ════════════ -->
-      <section class="story story--alt" id="standard">
+      <section class="story story--paper" id="standard">
         <div class="shell">
           <p class="story__rail reveal">
             <span lang="en">§ 04 · STANDARDS, NOT TOOLS</span>
@@ -496,7 +497,7 @@
               </div>
               <!-- Center -->
               <div class="flywheel__center">
-                <div class="flywheel__center-num">100×</div>
+                <div class="flywheel__center-num"><span class="counter" data-counter-target="100" data-counter-suffix="×">0×</span></div>
                 <div class="flywheel__center-label"><span lang="en">customer</span><span lang="zh">客户</span></div>
               </div>
             </div>
@@ -748,7 +749,18 @@
           setTimeout(function () { document.body.classList.add('is-settled'); }, 900);
         });
         var nav = document.getElementById('nav');
-        function onScroll() { nav.classList.toggle('nav--scrolled', window.scrollY > 24); }
+        var darkSections = document.querySelectorAll('.story--ink, .section--ink, .section--dark');
+        function onScroll() {
+          nav.classList.toggle('nav--scrolled', window.scrollY > 24);
+          // Detect if nav sits over a dark section — flips logo + text colors
+          var navBottom = nav.getBoundingClientRect().bottom;
+          var overDark = false;
+          darkSections.forEach(function (s) {
+            var r = s.getBoundingClientRect();
+            if (r.top <= navBottom && r.bottom >= 0) overDark = true;
+          });
+          nav.classList.toggle('nav--over-dark', overDark);
+        }
         window.addEventListener('scroll', onScroll, { passive: true });
         onScroll();
         var io = new IntersectionObserver(function (entries) {
@@ -757,6 +769,34 @@
           });
         }, { threshold: 0.14, rootMargin: '0px 0px -40px 0px' });
         document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+
+        /* ───────── Counter animation ───────── */
+        function animateCounter(el) {
+          var target = parseFloat(el.dataset.counterTarget) || 0;
+          var suffix = el.dataset.counterSuffix || '';
+          var duration = 1800;
+          var start = performance.now();
+          function tick(now) {
+            var t = Math.min(1, (now - start) / duration);
+            // ease-out cubic
+            var eased = 1 - Math.pow(1 - t, 3);
+            var current = Math.round(target * eased);
+            el.textContent = current + suffix;
+            if (t < 1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+        }
+        var counterIO = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) {
+              animateCounter(e.target);
+              counterIO.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.5 });
+        document.querySelectorAll('.counter[data-counter-target]').forEach(function (el) {
+          counterIO.observe(el);
+        });
         var warpTargets = document.querySelectorAll('[data-warp]');
         var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         if (!reduceMotion && warpTargets.length) {
