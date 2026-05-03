@@ -3749,3 +3749,227 @@ em {
   font-feature-settings: 'ss01', 'cv11', 'kern';
 }
 
+
+/* ═══════════════════════════════════════════════════════════════════
+   DESIGN V2 — UI BUG FIXES & POLISH
+   Issues found in audit:
+   1. Industry sub-pages (.ind-section) had no bg → content invisible
+      on cream body
+   2. Stat counter numbers wrapped in <em> → became serif italic, looked
+      weak vs bold display intent
+   3. Hero too bare on cream after hero__bg hidden
+   4. Stack-diagram cards too low contrast on cream bg
+   5. Stack diagram + layers grid borders too faint
+   6. Quick-nav → footer sharp transition
+   7. Footer logo lost visibility (white logo on dark footer is OK,
+      but the prior cream-mode invert filter shouldn't apply in <footer>)
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ─── 1. Industry sub-pages: keep dark theme intact ─── */
+.ind-section {
+  background: var(--ink-900);
+  color: var(--paper-100);
+  border-bottom: 1px solid var(--line-on-dark);
+}
+.ind-section--alt {
+  background: var(--ink-850);
+  color: var(--paper-100);
+}
+/* Footer on industry sub-pages should connect cleanly */
+.ind-section + .foot { margin-top: 0; }
+
+/* ─── 2. Stat numbers stay bold sans (override serif from <em>) ─── */
+.stat-cell__num em,
+.stat-cell__num em .counter {
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+.flywheel__center-num,
+.flywheel__center-num em,
+.flywheel__center-num .counter {
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 800;
+}
+/* Stat label — slightly more contrast */
+.story--ink .stat-cell__label { color: rgba(246,245,241,.78); }
+.story--ink .stat-cell__num em { color: var(--lime); }
+
+/* ─── 3. Hero on cream: stronger ambient + grain ─── */
+.hero {
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  padding: calc(var(--nav-h) + 60px) 0 80px;
+}
+.hero::before {
+  background:
+    radial-gradient(ellipse 80% 60% at 12% 28%, rgba(203,255,84,0.35) 0%, transparent 55%),
+    radial-gradient(ellipse 70% 60% at 88% 72%, rgba(255,170,90,0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 50% 100%, rgba(140,170,255,0.12) 0%, transparent 60%);
+  opacity: 1;
+  z-index: 0;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(rgba(22,22,26,0.8) 1px, transparent 1px),
+    radial-gradient(rgba(22,22,26,0.4) 1px, transparent 1px);
+  background-size: 3px 3px, 5px 5px;
+  background-position: 0 0, 1px 1px;
+  opacity: 0.025;
+  mix-blend-mode: multiply;
+  z-index: 1;
+}
+.hero__shell { position: relative; z-index: 2; }
+.hero__scroll { z-index: 2; }
+/* Subtle horizontal hairline marking the bottom of hero */
+.hero { border-bottom-color: var(--ink-line-strong); }
+
+/* ─── 4. Stack diagram: stronger contrast on cream ─── */
+.story--paper .stack__row,
+.story--tint  .stack__row {
+  background: #fff;
+  border-color: var(--ink-line-strong);
+  box-shadow: var(--shadow-soft);
+}
+.story--paper .stack__row--muted,
+.story--tint  .stack__row--muted {
+  background: rgba(22,22,26,.04);
+  border-color: var(--ink-line);
+  opacity: 0.88;
+}
+.story--paper .stack__row--zerore,
+.story--tint  .stack__row--zerore {
+  background:
+    radial-gradient(ellipse at 80% 50%, rgba(203,255,84,.55) 0%, transparent 60%),
+    linear-gradient(135deg, var(--lime-bg) 0%, #fff 100%);
+  border-color: var(--lime-deep);
+  box-shadow: 0 0 0 4px rgba(203,255,84,.22), 0 16px 36px rgba(22,22,26,.12);
+}
+
+/* ─── 5. Layers grid border + card surface on tint ─── */
+.story--tint .layers-grid {
+  background: #fff;
+  border-color: var(--ink-line-strong);
+  box-shadow: var(--shadow-card);
+}
+.story--tint .layer-block {
+  border-right-color: var(--ink-line);
+}
+.story--tint .layer-block:hover { background: rgba(203,255,84,.14); }
+
+/* Gap card on cream — slightly brighter */
+.story--ink .gap-card {
+  background: rgba(255,255,255,0.025);
+  border-color: rgba(255,255,255,.1);
+}
+.story--paper .gap-card,
+.story--tint  .gap-card { background: #fff; }
+
+/* ─── 6. Quick-nav → footer: add breathing room + divider ─── */
+.quick-nav { padding: 0 0 0; }
+.quick-nav__row { border-bottom: none; }
+.foot {
+  margin-top: 0;
+  padding-top: 80px;
+  padding-bottom: 64px;
+  border-top: 1px solid var(--line-on-dark);
+}
+
+/* ─── 7. Footer logo should NOT be inverted ─── */
+.foot__logo { filter: none !important; }
+
+/* ─── 8. Standards card body more readable ─── */
+.story--paper .standard-card__line,
+.story--tint  .standard-card__line,
+.story--lime  .standard-card__line {
+  color: rgba(22,22,26,.78);
+}
+
+/* ─── 9. Hub markup is gone but legacy CSS shouldn't paint ─── */
+.hub:empty { display: none; }
+
+/* ─── 10. Story rail (kicker) needs proper dot treatment in story--ink ─── */
+.story--ink .story__rail { color: var(--lime); }
+.story--ink .story__rail::before { background: var(--lime); }
+.story--ink .story__title { color: var(--paper-100); }
+.story--ink .story__title em { color: var(--lime); }
+.story--ink .story__lede { color: rgba(246,245,241,.72); }
+.story--ink .story__link {
+  color: var(--paper-100);
+  border-bottom-color: rgba(246,245,241,.3);
+}
+.story--ink .story__link:hover { border-bottom-color: var(--lime); color: var(--lime); }
+.story--ink .stats-banner {
+  border-top-color: var(--line-on-dark);
+  border-bottom-color: var(--line-on-dark);
+}
+.story--ink .stat-cell { border-right-color: var(--line-on-dark); }
+.story--ink .stat-cell__num { color: var(--paper-100); }
+.story--ink .stat-cell__body { color: rgba(246,245,241,.7); }
+.story--ink .gap-card__title { color: var(--paper-100); }
+.story--ink .gap-card__body { color: rgba(246,245,241,.6); }
+.story--ink .gap-card__num { color: var(--lime); }
+
+/* ─── 11. Flywheel on dark (story--ink) — keep it crisp ─── */
+.story--ink .flywheel-text h3 { color: var(--paper-100); }
+.story--ink .flywheel-text h3 em { color: var(--lime); }
+.story--ink .flywheel-text p { color: rgba(246,245,241,.7); }
+.story--ink .flywheel-text p em { color: var(--paper-100); font-weight: 600; }
+
+/* ─── 12. Hero subtitle italic should stay italic serif (override old normal) ─── */
+.hero__sub em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  color: var(--ink-text);
+}
+
+/* ─── 13. Marquee dot color sync ─── */
+.marquee__track { color: var(--ink-mute); }
+
+/* ─── 14. Hero buttons row wrap on smaller widths ─── */
+.hero__actions { flex-wrap: wrap; gap: 0.875rem; }
+
+/* ─── 15. Ind-hero (industry sub-page hero) on body cream ─── */
+/* Make sure nothing leaks through */
+.ind-hero { color: var(--paper-100); }
+.ind-hero__bg { z-index: 0; }
+.ind-hero__shell { position: relative; z-index: 1; }
+
+/* ─── 16. Section--industry on industry.html — small polish ─── */
+.section--industry {
+  border-bottom: 1px solid var(--line-on-dark);
+}
+
+/* ─── 17. Curtain background safer ─── */
+.curtain { background: #050507; }
+
+/* ─── 18. Refined transitions for filter buttons ─── */
+.industry-filter__btn {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+}
+
+/* ─── 19. Better scroll label on cream ─── */
+.scroll-label {
+  font-family: var(--font-mono);
+  letter-spacing: 0.18em;
+  font-size: 0.65rem;
+}
+
+/* ─── 20. Reveal animation fallback for very narrow screens ─── */
+@media (max-width: 480px) {
+  .stats-banner .stat-cell__num { font-size: 2.5rem; }
+  .story__title { font-size: clamp(2rem, 8vw, 3rem); }
+  .industry-filter__btn { padding: 0.45rem 1rem; font-size: 0.72rem; }
+}
+
