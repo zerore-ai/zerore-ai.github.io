@@ -3973,3 +3973,219 @@ em {
   .industry-filter__btn { padding: 0.45rem 1rem; font-size: 0.72rem; }
 }
 
+
+/* ═══════════════════════════════════════════════════════════════════
+   DESIGN V3 — REVERT TO UNIFIED DARK (2026-05-04)
+   User feedback: "整个 landing page 用统一色调 暗色"
+   - Reverts cream-first body/hero/marquee/nav/footer/quick-nav back
+     to dark, while keeping the structural V2 improvements (story
+     sections, counter animation, line-draw, new components)
+   - Unifies <em> font: drop Crimson Pro for body-text em; keep only
+     for big display headlines where serif italic adds editorial feel
+   - Adds .story--ink-soft variant (ink-850) for subtle section rhythm
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ─── Revert base bg to dark ─── */
+html { background: var(--ink-900); color: var(--paper-100); }
+body { background: var(--ink-900); color: var(--paper-100); }
+
+/* ─── Em: use site-default font (consistent with body) ───
+   Only big display headlines opt-in to serif via .display-em class
+   or specific selectors. */
+em {
+  font-family: inherit;
+  font-style: italic;
+  font-weight: inherit;
+  letter-spacing: inherit;
+}
+/* Big editorial headlines keep serif italic for impact */
+.story__title em,
+.standards-tagline em {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: -0.005em;
+}
+
+/* ─── Selection on dark ─── */
+::selection { background: var(--lime); color: var(--ink-900); }
+
+/* ─── Grain back to original luminosity ─── */
+.grain {
+  opacity: 0.08;
+  mix-blend-mode: overlay;
+  background-image:
+    radial-gradient(rgba(255,255,255,0.9) 1px, transparent 1px),
+    radial-gradient(rgba(255,255,255,0.55) 1px, transparent 1px);
+}
+
+/* ─── Cursor back to white-on-dark ─── */
+.cursor span { background: #fff; }
+.cursor.is-hover span { background: var(--lime); }
+
+/* ─── Nav: revert to dark glass ─── */
+.nav { background: linear-gradient(to bottom, rgba(10,10,11,0.85), rgba(10,10,11,0)); }
+.nav--scrolled {
+  background: rgba(10,10,11,0.7);
+  border-bottom-color: var(--line-on-dark);
+}
+.nav__logo { filter: drop-shadow(0 0 14px rgba(203, 255, 84, 0.1)); }
+.nav__links { color: var(--mute-on-dark); }
+.nav__links a:hover { color: var(--paper-100); }
+.lang { border-color: var(--line-on-dark-strong); color: var(--mute-on-dark); background: transparent; }
+.lang:hover { border-color: var(--lime); color: var(--paper-100); }
+.lang__slot.is-active { color: var(--ink-900); background: var(--lime); }
+.nav__cta { border-color: var(--line-on-dark-strong); color: var(--paper-100); }
+.nav__cta:hover { background: var(--lime); color: var(--ink-900); border-color: var(--lime); }
+/* nav--over-dark already exists; effectively redundant now but keep for safety */
+
+/* ─── Hero: dark with original auroras ─── */
+.hero {
+  background: var(--ink-900);
+  color: var(--paper-100);
+  border-bottom: 1px solid var(--line-on-dark);
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  padding: calc(var(--nav-h) + 60px) 0 80px;
+}
+.hero::before, .hero::after { display: none; }
+.hero__bg { display: block; }
+.hero__title { color: var(--paper-100); }
+.hero__title em { color: var(--lime); }
+.hero__line--accent .word { color: var(--paper-100); }
+.hero__sub { color: rgba(246,245,241,.72); }
+.hero__sub em {
+  font-family: inherit;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--paper-100);
+}
+.hero__scroll { color: var(--mute-on-dark); }
+.scroll-line { background: var(--line-on-dark-strong); }
+.scroll-label { color: var(--mute-on-dark); }
+
+/* ─── Buttons: revert to lime-primary on dark ─── */
+.btn--primary {
+  background: var(--lime);
+  color: var(--ink-900);
+  border-color: var(--lime);
+}
+.btn--primary:hover {
+  background: var(--paper-100);
+  color: var(--ink-900);
+  border-color: var(--paper-100);
+}
+.btn--ghost {
+  border-color: var(--line-on-dark-strong);
+  color: var(--paper-100);
+  background: transparent;
+}
+.btn--ghost:hover {
+  background: var(--paper-100);
+  color: var(--ink-900);
+  border-color: var(--paper-100);
+}
+
+/* ─── Marquee: revert to dark ─── */
+.marquee {
+  background: var(--ink-900);
+  border-top: 1px solid var(--line-on-dark);
+  border-bottom: 1px solid var(--line-on-dark);
+  color: var(--mute-on-dark);
+}
+.marquee__track { color: var(--mute-on-dark); }
+.marquee__track span { color: var(--mute-on-dark); }
+.marquee__dot { color: var(--lime) !important; opacity: 1; }
+
+/* ─── New ink-soft variant for subtle section rhythm ─── */
+.story--ink-soft {
+  background: var(--ink-850);
+  color: var(--paper-100);
+}
+.story--ink-soft .story__rail { color: var(--lime); }
+.story--ink-soft .story__rail::before { background: var(--lime); }
+.story--ink-soft .story__title { color: var(--paper-100); }
+.story--ink-soft .story__title em { color: var(--lime); }
+.story--ink-soft .story__lede { color: rgba(246,245,241,.72); }
+.story--ink-soft .story__link {
+  color: var(--paper-100);
+  border-bottom-color: rgba(246,245,241,.3);
+}
+.story--ink-soft .story__link:hover {
+  color: var(--lime);
+  border-bottom-color: var(--lime);
+}
+
+/* Layers grid on ink-soft */
+.story--ink-soft .layers-grid {
+  background: transparent;
+  border-color: var(--line-on-dark);
+  box-shadow: none;
+}
+.story--ink-soft .layer-block {
+  background: rgba(255,255,255,.025);
+  border-right-color: var(--line-on-dark);
+}
+.story--ink-soft .layer-block:hover { background: rgba(203,255,84,.06); }
+.story--ink-soft .layer-block__num { color: rgba(246,245,241,.18); }
+.story--ink-soft .layer-block:hover .layer-block__num { color: var(--lime); }
+.story--ink-soft .layer-block__title { color: var(--paper-100); }
+.story--ink-soft .layer-block__sub { color: var(--lime); }
+.story--ink-soft .layer-block__body { color: rgba(246,245,241,.55); }
+
+/* ─── Stack diagram on dark (story--ink) ─── */
+.story--ink .stack__row {
+  background: rgba(255,255,255,.025);
+  border-color: rgba(255,255,255,.1);
+  box-shadow: none;
+}
+.story--ink .stack__row--muted { background: rgba(255,255,255,.02); opacity: 0.65; }
+.story--ink .stack__row--zerore {
+  background:
+    radial-gradient(ellipse at 80% 50%, rgba(203,255,84,.18) 0%, transparent 60%),
+    linear-gradient(135deg, rgba(203,255,84,.08) 0%, rgba(203,255,84,.02) 100%);
+  border-color: rgba(203,255,84,.45);
+  box-shadow: 0 0 0 4px rgba(203,255,84,.05), 0 12px 32px rgba(0,0,0,.4);
+}
+.story--ink .stack__label { color: rgba(246,245,241,.4); }
+.story--ink .stack__row--zerore .stack__label { color: var(--lime); }
+.story--ink .stack__name { color: var(--paper-100); }
+.story--ink .stack__tag { color: var(--mute-on-dark); }
+.story--ink .stack__row--zerore .stack__tag {
+  color: var(--lime);
+  background: rgba(203,255,84,.12);
+  border-color: rgba(203,255,84,.3);
+}
+.story--ink .stack__connector {
+  background: linear-gradient(to bottom, transparent, var(--line-on-dark-strong), transparent);
+}
+
+/* ─── Quick-nav: dark ─── */
+.quick-nav {
+  background: var(--ink-900);
+  padding: 0 0 80px;
+}
+.quick-nav__row {
+  border-top-color: var(--line-on-dark);
+  border-bottom-color: var(--line-on-dark);
+}
+.quick-nav__row a {
+  border-right-color: var(--line-on-dark);
+  color: var(--paper-100);
+}
+.quick-nav__row a:hover { background: rgba(203,255,84,.08); }
+.quick-nav__row a:hover .quick-nav__name { color: var(--lime); }
+.quick-nav__num { color: rgba(246,245,241,.4); }
+
+/* ─── Footer: original dark ─── */
+.foot {
+  background: var(--ink-950);
+  color: var(--paper-100);
+  border-top: 1px solid var(--line-on-dark);
+}
+.foot__logo { filter: drop-shadow(0 0 14px rgba(203, 255, 84, 0.1)) !important; }
+
+/* ─── Industry filter — block already removed from HTML, keep CSS dormant ─── */
+
+/* ─── Industry sub-pages: ind-section already has explicit dark bg from V2 fix ─── */
+
