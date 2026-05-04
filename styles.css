@@ -4189,3 +4189,105 @@ em {
 
 /* ─── Industry sub-pages: ind-section already has explicit dark bg from V2 fix ─── */
 
+
+/* ═══════════════════════════════════════════════════════════════════
+   DESIGN V4 — REFINED JOIN SECTION (2026-05-04)
+   "少一些线框，更优雅，少一些AI味"
+   - Strip lime-bordered boxes from role cards and contact block
+   - Replace card frames with editorial typography hierarchy
+   - Reduce neon lime to accent-only (not structural)
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ─── Role cards: drop the box-frame look ─── */
+.role {
+  border: none;
+  border-top: 1px solid var(--line-on-dark);
+  border-radius: 0;
+  background: none;
+  padding: clamp(40px, 4vw, 64px) 0;
+  transition: none;
+}
+.role:hover {
+  transform: none;
+  border-color: var(--line-on-dark);
+}
+.role--featured {
+  border: none;
+  border-top: 1px solid rgba(246,245,241,0.18);
+  background: none;
+}
+.role--open {
+  border-style: solid;
+  border: none;
+  border-top: 1px solid var(--line-on-dark);
+  background: none;
+}
+
+/* ─── Role tag: plain text label, no pill border ─── */
+.role__tag {
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  color: var(--mute-on-dark);
+  margin-bottom: 20px;
+}
+
+/* ─── Role CTA: text-link style, drop the pill border ─── */
+.role__cta {
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--paper-100);
+  border-bottom: 1px solid rgba(246,245,241,0.3);
+  padding-bottom: 2px;
+}
+.role__cta:hover {
+  background: none;
+  color: var(--lime);
+  border-color: var(--lime);
+  transform: none;
+}
+
+/* ─── Section h4 labels: drop lime, use muted ─── */
+.role__section h4 {
+  color: var(--mute-on-dark);
+  font-size: 10px;
+}
+
+/* ─── Offer line: simpler ─── */
+.role__offer {
+  border-top: 1px solid var(--line-on-dark);
+  color: rgba(246,245,241,0.55);
+}
+
+/* ─── Contact block: editorial, no box ─── */
+.join__contact {
+  border: none;
+  border-top: 1px solid var(--line-on-dark);
+  border-radius: 0;
+  background: none;
+  padding: 48px 0 0;
+}
+.contact__k {
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  color: var(--mute-on-dark);
+  font-family: var(--font-mono);
+}
+.contact__v {
+  font-size: clamp(22px, 2.4vw, 32px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--paper-100);
+}
+.contact__email {
+  color: rgba(246,245,241,0.45);
+  font-size: 13px;
+}
+
