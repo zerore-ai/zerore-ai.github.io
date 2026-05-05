@@ -4612,9 +4612,9 @@ html[data-lang="zh"] .prod-header__title {
   letter-spacing: -0.02em;
 }
 .prod-header__title em {
-  font-family: inherit;   /* same family as the line above it */
-  font-style: italic;
-  font-weight: 800;       /* match parent weight */
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 800;
   color: var(--paper-100);
   background: none;
   -webkit-background-clip: unset;
