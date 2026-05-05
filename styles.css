@@ -4527,3 +4527,90 @@ html[data-lang="en"] .res-item__body { font-family: var(--font-sans); }
   .res-item { border-bottom: 1px solid var(--line-on-dark); }
 }
 
+/* ═══════════════════════════════════════════════════════════════════
+   DESIGN V7 — SERVICES LIST + GLOBAL TITLE UNIFICATION (2026-05-05)
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Services: 2×2 editorial grid */
+.svc-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 clamp(32px, 4vw, 64px);
+  border-top: 1px solid var(--line-on-dark);
+  margin-bottom: 80px;
+}
+
+.svc-item {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(36px, 4vw, 52px) 0;
+  border-bottom: 1px solid var(--line-on-dark);
+  text-decoration: none;
+  color: inherit;
+}
+
+.svc-item__top {
+  margin-bottom: 20px;
+}
+.svc-item__icon {
+  color: rgba(246,245,241,0.25);
+}
+.svc-item__icon svg { display: block; }
+
+.svc-item__title {
+  margin: 0 0 14px;
+  font-family: var(--font-zh), var(--font-sans);
+  font-size: clamp(17px, 1.6vw, 22px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--paper-100);
+  transition: color 260ms var(--ease);
+}
+html[data-lang="en"] .svc-item__title { font-family: var(--font-sans); }
+.svc-item:hover .svc-item__title { color: var(--lime); }
+
+.svc-item__body {
+  margin: 0 0 28px;
+  font-size: 13px;
+  line-height: 1.75;
+  color: rgba(246,245,241,0.55);
+  font-family: var(--font-zh), var(--font-sans);
+  flex: 1;
+}
+html[data-lang="en"] .svc-item__body { font-family: var(--font-sans); }
+
+.svc-item__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--paper-100);
+  border-bottom: 1px solid rgba(246,245,241,0.2);
+  padding-bottom: 2px;
+  width: fit-content;
+  transition: color 220ms var(--ease), border-color 220ms var(--ease);
+}
+.svc-item:hover .svc-item__cta {
+  color: var(--lime);
+  border-color: rgba(203,255,84,0.5);
+}
+
+@media (max-width: 640px) {
+  .svc-list { grid-template-columns: 1fr; }
+}
+
+/* Unified: prod-header em = italic serif, white (no lime gradient) */
+.prod-header__title em {
+  font-style: italic;
+  font-family: var(--font-serif);
+  font-weight: 500;
+  color: var(--paper-100);
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+}
+
