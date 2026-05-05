@@ -4603,11 +4603,18 @@ html[data-lang="en"] .svc-item__body { font-family: var(--font-sans); }
   .svc-list { grid-template-columns: 1fr; }
 }
 
-/* Unified: prod-header em = italic serif, white (no lime gradient) */
+/* Unified: prod-header title — same font family on both lines */
+.prod-header__title {
+  font-family: var(--font-sans);
+}
+html[data-lang="zh"] .prod-header__title {
+  font-family: var(--font-zh);
+  letter-spacing: -0.02em;
+}
 .prod-header__title em {
+  font-family: inherit;   /* same family as the line above it */
   font-style: italic;
-  font-family: var(--font-serif);
-  font-weight: 500;
+  font-weight: 800;       /* match parent weight */
   color: var(--paper-100);
   background: none;
   -webkit-background-clip: unset;
