@@ -4621,3 +4621,153 @@ html[data-lang="zh"] .prod-header__title {
   background-clip: unset;
 }
 
+/* ═══════════════════════════════════════════════════════════════════
+   DESIGN V7 — COMPANY PAGE REFRESH (2026-05-13)
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Values / Pillars ── */
+
+/* Large outline number → small muted mono label */
+.pillar {
+  grid-template-columns: 36px 1fr;
+  column-gap: 20px;
+}
+.pillar__num {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  line-height: 1.6;
+  color: var(--mute-on-dark);
+  -webkit-text-stroke: 0;
+  transition: none;
+}
+.pillar:hover .pillar__num {
+  color: var(--mute-on-dark);
+  -webkit-text-stroke-color: transparent;
+  transform: none;
+}
+.pillar__dot { display: none; }
+.pillar:hover { transform: none; }
+
+/* Lime sub-label → plain muted prose */
+.pillar__sub {
+  color: rgba(246,245,241,0.42);
+  font-family: var(--font-zh), var(--font-sans);
+  font-size: 14px;
+  letter-spacing: 0;
+  text-transform: none;
+  font-weight: 400;
+  font-style: italic;
+}
+html[data-lang="en"] .pillar__sub {
+  font-family: var(--font-sans);
+}
+.pillar__sub::before { display: none; }
+.pillar:hover .pillar__sub::before { display: none; }
+
+/* ── Founders carousel ── */
+
+/* Remove box card */
+.founder {
+  border: none;
+  border-radius: 0;
+  background: none;
+  padding: 0 4px 32px;
+  transition: none;
+}
+.founder:hover {
+  transform: none;
+  border-color: transparent;
+  background: none;
+}
+
+/* Portrait: subtle radius, slight desaturate by default */
+.founder__portrait {
+  border-radius: 6px;
+}
+.founder__portrait img {
+  filter: saturate(90%) contrast(100%);
+}
+.founder:hover .founder__portrait img {
+  filter: saturate(110%) contrast(103%);
+  transform: scale(1.02);
+}
+
+/* Role label: muted not lime */
+.founder__role { color: var(--mute-on-dark); }
+
+/* Name h2 (company page uses h2, not h3) */
+.founder__meta h2 {
+  margin: 0 0 4px;
+  font-size: clamp(20px, 1.7vw, 24px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--paper-100);
+  font-family: var(--font-zh), var(--font-sans);
+}
+html[data-lang="en"] .founder__meta h2 { font-family: var(--font-sans); }
+.founder__meta h2 em {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.72em;
+  color: var(--mute-on-dark);
+  margin-left: 6px;
+}
+
+/* ── Advisors ── */
+
+/* Hide "A · 01 / 02" counter */
+.advisors__rail { display: none; }
+
+/* Advisors section title: demote to small eyebrow */
+.advisors__title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--mute-on-dark);
+  margin-bottom: 32px;
+  gap: 0;
+}
+
+/* Remove box card from advisor */
+.advisor {
+  border: none;
+  border-top: 1px solid var(--line-on-dark);
+  border-radius: 0;
+  background: none;
+  padding: 36px 0;
+  transition: none;
+}
+.advisor:hover {
+  transform: none;
+  border-color: var(--line-on-dark);
+}
+.advisor__portrait {
+  border-radius: 6px;
+}
+.advisor__portrait img {
+  filter: saturate(90%);
+}
+.advisor:hover .advisor__portrait img {
+  filter: saturate(110%);
+}
+
+/* Advisor role: muted */
+.advisor__role { color: var(--mute-on-dark); }
+
+/* Advisor name */
+.advisor h3 {
+  margin: 0 0 8px;
+  font-size: clamp(18px, 1.5vw, 22px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--paper-100);
+}
+
+/* Last advisor row: no bottom gap */
+.advisors__grid .advisor:nth-last-child(-n+2) {
+  border-bottom: 1px solid var(--line-on-dark);
+}
+
