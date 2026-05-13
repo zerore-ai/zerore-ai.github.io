@@ -4771,13 +4771,45 @@ html[data-lang="en"] .founder__meta h2 { font-family: var(--font-sans); }
   border-bottom: 1px solid var(--line-on-dark);
 }
 
-/* ── company sub-label eyebrow: strip the pill border ── */
-.company__sub-label .eyebrow {
+/* ── All sub-page header eyebrows: strip the pill border ── */
+.company__sub-label .eyebrow,
+.prod-header .eyebrow {
   border: none;
   border-radius: 0;
   padding: 0;
   margin-bottom: 24px;
 }
+
+/* ── Resources page aurora ── */
+.res-aurora {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+/* teal halo — top-left */
+.aurora--res1 {
+  width: 700px; height: 700px;
+  background: #00c8d4;
+  top: -200px; left: -180px;
+  opacity: 0.08;
+}
+/* indigo halo — top-right */
+.aurora--res2 {
+  width: 600px; height: 600px;
+  background: #5b3aff;
+  top: -100px; right: -160px;
+  opacity: 0.09;
+}
+/* lime halo — bottom-center */
+.aurora--res3 {
+  width: 500px; height: 500px;
+  background: var(--lime);
+  bottom: 5%; left: 30%;
+  opacity: 0.06;
+}
+#resources-section .shell { position: relative; z-index: 1; }
 
 /* ── Company page aurora ── */
 .company__aurora {
