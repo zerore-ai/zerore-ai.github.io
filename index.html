@@ -620,9 +620,17 @@
             applyLang(html.getAttribute('data-lang') === 'zh' ? 'en' : 'zh');
           });
         }
-        window.addEventListener('load', function () {
-          document.body.classList.add('is-loaded');
-          setTimeout(function () { document.body.classList.add('is-settled'); }, 900);
+        (function () {
+          var ready = false, minWait = false;
+          function liftCurtain() {
+            if (ready && minWait) {
+              document.body.classList.add('is-loaded');
+              setTimeout(function () { document.body.classList.add('is-settled'); }, 900);
+            }
+          }
+          document.addEventListener('DOMContentLoaded', function () { ready = true; liftCurtain(); });
+          setTimeout(function () { minWait = true; liftCurtain(); }, 900);
+        }());
         });
         var nav = document.getElementById('nav');
         var darkSections = document.querySelectorAll('.story--ink, .section--ink, .section--dark');
