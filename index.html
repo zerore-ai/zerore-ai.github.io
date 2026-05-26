@@ -18,11 +18,63 @@
     <meta name="twitter:description" content="Defining the quality standard of the Agent era.">
     <meta name="twitter:image" content="https://zerore.ai/assets/og-cover.png">
     <link rel="canonical" href="https://zerore.ai/">
-    <link rel="stylesheet" href="fonts-critical.css">
+    <style>
+      *, *::before, *::after { box-sizing: border-box; }
+      html, body { margin: 0; min-height: 100%; background: #050507; color: #f6f5f1; }
+      body { overflow-x: hidden; font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; }
+      html[data-lang="en"] [lang="zh"] { display: none !important; }
+      html[data-lang="zh"] [lang="en"] { display: none !important; }
+      .curtain {
+        position: fixed;
+        inset: 0;
+        z-index: 300;
+        display: grid;
+        place-items: center;
+        background: #050507;
+        transform: translateY(0);
+        transition: transform 900ms cubic-bezier(0.76, 0, 0.24, 1);
+      }
+      .curtain__mark {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        color: #f6f5f1;
+        letter-spacing: -0.04em;
+      }
+      .curtain__num {
+        font-family: ui-monospace, "SF Mono", Menlo, monospace;
+        font-size: 14px;
+        color: #cbff54;
+        letter-spacing: 0.2em;
+      }
+      .curtain__logo {
+        width: clamp(240px, 34vw, 460px);
+        height: auto;
+        display: block;
+        filter: drop-shadow(0 0 28px rgba(203, 255, 84, 0.12));
+        opacity: 0;
+        transform: translateY(14px);
+        animation: curtainWord 800ms cubic-bezier(0.22, 1, 0.36, 1) 100ms forwards;
+      }
+      @keyframes curtainWord { to { opacity: 1; transform: translateY(0); } }
+      body.is-loaded .curtain { transform: translateY(-101%); }
+      body.is-settled .curtain { display: none; }
+      @media (prefers-reduced-motion: reduce) { .curtain { display: none; } }
+    </style>
+    <script>window.__zeroreStylesReady = false;</script>
+    <link rel="preload" href="fonts-critical.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="styles.css?v=20260513c" as="style" fetchpriority="high" onload="this.onload=null;this.rel='stylesheet';window.__zeroreStylesReady=true;window.dispatchEvent(new Event('zerore:styles-ready'))">
+    <link rel="preload" href="assets/logo-full-white.webp?v=20260421b" as="image" fetchpriority="high">
+    <link rel="preload" href="assets/fonts/inter-56724408.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/jetbrainsmono-480c0625.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/crimsonpro-56478c1d.woff2" as="font" type="font/woff2" crossorigin>
+    <noscript>
+      <link rel="stylesheet" href="fonts-critical.css">
+      <link rel="stylesheet" href="styles.css?v=20260513c">
+    </noscript>
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-    <link rel="stylesheet" href="styles.css?v=20260513c">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -615,13 +667,21 @@
           });
         }
         (function () {
-          var ready = false, minWait = false;
+          var ready = false, minWait = false, stylesReady = window.__zeroreStylesReady === true;
           function liftCurtain() {
-            if (ready && minWait) {
+            if (ready && minWait && stylesReady) {
               document.body.classList.add('is-loaded');
               setTimeout(function () { document.body.classList.add('is-settled'); }, 900);
             }
           }
+          window.addEventListener('zerore:styles-ready', function () {
+            stylesReady = true;
+            liftCurtain();
+          });
+          setTimeout(function () {
+            stylesReady = true;
+            liftCurtain();
+          }, 3000);
           document.addEventListener('DOMContentLoaded', function () { ready = true; liftCurtain(); });
           setTimeout(function () { minWait = true; liftCurtain(); }, 900);
         }());
