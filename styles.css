@@ -39,7 +39,7 @@ html {
 
   /* Typography */
   --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-zh: "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --font-zh: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
   /* Motion */
@@ -4842,4 +4842,3 @@ html[data-lang="en"] .founder__meta h2 { font-family: var(--font-sans); }
 }
 /* ensure content sits above aurora */
 #company .shell { position: relative; z-index: 1; }
-
