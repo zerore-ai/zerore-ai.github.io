@@ -31,11 +31,6 @@
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://zerore.ai/resources.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://zerore.ai/company.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

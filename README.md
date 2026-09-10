@@ -45,7 +45,6 @@ AndAgain-inspired visual system · dark-first · bilingual (EN / 中).
 - Page-load curtain：`body.is-loaded` 驱动幕布上滑
 - Hero title 单词上浮：`.hero__line .word` + `@keyframes heroRise`
 - 滚动触发显影：`.reveal` + IntersectionObserver
-- Scroll warp：所有带 `data-warp` 的大标题会在滚动时轻微 `skewY` + `translateY`
 - Cursor follower：鼠标跟随小圆点，hover 可交互元素时放大并变亮
 - Marquee：keyframes 线性滚动
 - Aurora：分散的彩色高斯模糊圆，滚动时带视差
