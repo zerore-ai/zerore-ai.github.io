@@ -74,6 +74,8 @@ AndAgain-inspired visual system · dark-first · bilingual (EN / 中).
 上海镜像站的 Nginx 配置样本位于 `ops/nginx-zerore-cn.conf`；发布时只同步公开站点
 文件到 `/home/ubuntu/1.zerore-ai/public`，不要把 `.git`、`.github`、`ops`、`README.md`
 或 `CNAME` 暴露为 Web 文件，并保留源站独立的 `/speedtest/`。
+同步时设置目录 `0755`、文件 `0644`（例如 `rsync --chmod=D755,F644`）；新增图片
+可能继承生成工具的 `0600` 权限，导致 Nginx 返回 403。发布后用公网请求检查新资源。
 
 ## 搜索与分享维护
 
