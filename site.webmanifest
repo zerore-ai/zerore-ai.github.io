@@ -1,7 +1,7 @@
 {
   "name": "ZERORE",
   "short_name": "ZERORE",
-  "description": "ZERORE（零度重构）是一支 AI Native 团队，专注中小企业 Agent 化转型与垂类 AI 原生产品孵化。",
+  "description": "ZERORE（零度重构）是一支 AI Native 团队，致力于 Agent 产品质量评测与基础设施，并研发 Zeval 等产品。",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#efefed",

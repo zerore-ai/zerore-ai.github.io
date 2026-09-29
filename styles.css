@@ -2394,6 +2394,16 @@ html[data-lang="en"] .foot__tag { font-family: var(--font-sans); }
   line-height: 1.6;
   margin: 0;
 }
+.stat-cell__source {
+  display: inline-block;
+  margin-top: .8rem;
+  color: var(--lime);
+  font-size: .72rem;
+  line-height: 1.5;
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+.stat-cell__source:hover { color: var(--paper-100); }
 
 /* ─── Gap / problem cards ─── */
 .gaps-grid {

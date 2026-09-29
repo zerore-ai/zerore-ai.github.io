@@ -82,16 +82,29 @@
         "@graph": [
           {
             "@type": "Organization",
+            "@id": "https://zerore.ai/#organization",
             "name": "ZERORE",
+            "legalName": "上海零度重构科技有限公司",
             "alternateName": "零度重构",
             "url": "https://zerore.ai/",
+            "logo": "https://zerore.ai/assets/favicon-512.png",
             "email": "roger@zerore.ai",
             "description": "AI-native Gen-Z studio defining the quality standard of the Agent era."
           },
           {
+            "@type": "WebSite",
+            "@id": "https://zerore.ai/#website",
+            "name": "ZERORE",
+            "alternateName": "零度重构",
+            "url": "https://zerore.ai/",
+            "publisher": { "@id": "https://zerore.ai/#organization" }
+          },
+          {
             "@type": "Product",
+            "@id": "https://zerore.ai/zeval.html#product",
             "name": "Zeval",
-            "brand": { "@type": "Brand", "name": "ZERORE" },
+            "url": "https://zerore.ai/zeval.html",
+            "brand": { "@id": "https://zerore.ai/#organization" },
             "description": "The quality operating system for Agent product teams."
           }
         ]
@@ -240,19 +253,21 @@
           <div class="stats-banner reveal reveal--2">
             <div class="stat-cell">
               <span class="stat-cell__num"><em><span class="counter" data-counter-target="57" data-counter-suffix="%">0%</span></em></span>
-              <span class="stat-cell__label"><span lang="en">Already in production</span><span lang="zh">已部署生产</span></span>
+              <span class="stat-cell__label"><span lang="en">Survey respondents · LangChain</span><span lang="zh">调查受访者 · LangChain</span></span>
               <p class="stat-cell__body">
-                <span lang="en">Of enterprises have already deployed AI Agents into production environments.</span>
-                <span lang="zh">企业已将 AI Agent 部署至真实生产环境。</span>
+                <span lang="en">Of survey respondents report agents running in production at their organizations.</span>
+                <span lang="zh">的受访者表示其所在组织已有 Agent 在生产环境运行。</span>
               </p>
+              <a class="stat-cell__source" href="https://www.langchain.com/state-of-agent-engineering" target="_blank" rel="noopener noreferrer"><span lang="en">Source: LangChain · State of Agent Engineering (2026)</span><span lang="zh">来源：LangChain《State of Agent Engineering》（2026）</span> <span aria-hidden="true">↗</span></a>
             </div>
             <div class="stat-cell">
               <span class="stat-cell__num"><em><span class="counter" data-counter-target="40" data-counter-suffix="%+">0%+</span></em></span>
-              <span class="stat-cell__label"><span lang="en">Predicted to fail · Gartner</span><span lang="zh">预计失败 · Gartner</span></span>
+              <span class="stat-cell__label"><span lang="en">Predicted cancellations · Gartner</span><span lang="zh">预计取消项目 · Gartner</span></span>
               <p class="stat-cell__body">
-                <span lang="en">Of Agentic AI projects will be cancelled by 2027 — quality monitoring is the single biggest cause.</span>
-                <span lang="zh">的 Agentic AI 项目将于 2027 年前因质量监控缺失被叫停。</span>
+                <span lang="en">Of agentic AI projects may be canceled by the end of 2027 due to rising costs, unclear business value or inadequate risk controls.</span>
+                <span lang="zh">的 Agentic AI 项目或将在 2027 年底前因成本攀升、商业价值不明或风险控制不足被取消。</span>
               </p>
+              <a class="stat-cell__source" href="https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027" target="_blank" rel="noopener noreferrer"><span lang="en">Source: Gartner Newsroom (2025)</span><span lang="zh">来源：Gartner 新闻稿（2025）</span> <span aria-hidden="true">↗</span></a>
             </div>
             <div class="stat-cell">
               <span class="stat-cell__num"><em>0</em></span>
@@ -467,6 +482,10 @@
             <a href="company.html">
               <span class="quick-nav__num">04</span>
               <span class="quick-nav__name"><span lang="en">Company</span><span lang="zh">公司 →</span></span>
+            </a>
+            <a href="resources.html">
+              <span class="quick-nav__num">05</span>
+              <span class="quick-nav__name"><span lang="en">Resources</span><span lang="zh">资源 →</span></span>
             </a>
           </div>
         </div>

@@ -71,3 +71,18 @@ AndAgain-inspired visual system · dark-first · bilingual (EN / 中).
 ## 部署
 
 纯静态 —— 把目录内容推送到 GitHub 仓库根目录即可，Cloudflare Pages / GitHub Pages 均可。
+上海镜像站的 Nginx 配置样本位于 `ops/nginx-zerore-cn.conf`；发布时只同步公开站点
+文件到 `/home/ubuntu/1.zerore-ai/public`，不要把 `.git`、`.github`、`ops`、`README.md`
+或 `CNAME` 暴露为 Web 文件，并保留源站独立的 `/speedtest/`。
+
+## 搜索与分享维护
+
+- `zerore.ai` 是公开页面的规范域名；`.cn` 部署同内容时沿用 `.ai` 的 canonical。
+- 新增公开 HTML 页面时，同时添加唯一的 title、description、canonical、OG/Twitter
+  元信息，加入 `sitemap.xml`，并从相关页面给出可见入口。404 页面不要加入站点地图。
+- 分享封面位于 `assets/og-cover.png`。修改外部统计或研究结论时，页面上保留
+  可核查的原始来源，并准确描述样本与结论。
+- `robots.txt` 保持公开页面可抓取；不依赖 `llms.txt` 等特殊文件获得 AI 搜索收录。
+- 运行 `node .github/scripts/check-seo.mjs` 校验页面、站点地图、链接与分享图。
+- 当前中文由同一页面切换显示；若需要独立中文搜索入口，应另建中文 URL，并同步
+  设计导航、canonical 与 `hreflang`，不能直接给同一个 URL 标注两种独立语言。
