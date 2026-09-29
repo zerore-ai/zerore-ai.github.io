@@ -71,5 +71,21 @@ const cover = join(root, "assets/og-cover.png");
 check((await stat(cover).catch(() => null))?.size > 0, "缺少分享封面 assets/og-cover.png");
 check(pageSources.get("404.html").includes('<base href="/">'), "404 页深层路径资源基准错误");
 
+const home = pageSources.get("index.html");
+check(
+  home.includes('<link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon-512.png">'),
+  "首页未声明可供搜索结果使用的大尺寸品牌图标",
+);
+check((home.match(/<link\s+rel="icon"/g) ?? []).length === 1, "首页应只声明一个搜索图标");
+const largeIcon = await readFile(join(root, "assets/favicon-512.png"));
+check(
+  largeIcon.subarray(0, 8).equals(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10])) &&
+    largeIcon.readUInt32BE(16) === largeIcon.readUInt32BE(20) &&
+    largeIcon.readUInt32BE(16) > 48,
+  "搜索图标应为大于 48px 的方形 PNG",
+);
+const favicon = await readFile(join(root, "favicon.ico")).catch(() => Buffer.alloc(0));
+check(favicon.subarray(0, 4).equals(Buffer.from([0, 0, 1, 0])), "根目录缺少有效 favicon.ico");
+
 assert.deepEqual(errors, [], errors.join("\n"));
 console.log(`SEO 检查通过：${publicPages.length} 个公开页面、${sitemapUrls.length} 个站点地图 URL`);

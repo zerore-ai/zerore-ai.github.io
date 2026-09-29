@@ -84,6 +84,8 @@ AndAgain-inspired visual system · dark-first · bilingual (EN / 中).
   元信息，加入 `sitemap.xml`，并从相关页面给出可见入口。404 页面不要加入站点地图。
 - 分享封面位于 `assets/og-cover.png`。修改外部统计或研究结论时，页面上保留
   可核查的原始来源，并准确描述样本与结论。
+- 搜索结果的站点图标使用首页声明的 `assets/favicon-512.png`，根目录
+  `favicon.ico` 由同一品牌图标生成；两者的 URL 应保持稳定且公开可访问。
 - `robots.txt` 保持公开页面可抓取；不依赖 `llms.txt` 等特殊文件获得 AI 搜索收录。
 - 运行 `node .github/scripts/check-seo.mjs` 校验页面、站点地图、链接与分享图。
 - 当前中文由同一页面切换显示；若需要独立中文搜索入口，应另建中文 URL，并同步
